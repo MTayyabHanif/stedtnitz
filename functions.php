@@ -119,9 +119,17 @@ add_action( 'widgets_init', 'stedtnitz_widgets_init' );
 function stedtnitz_scripts() {
 	wp_enqueue_style( 'stedtnitz-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'stedtnitz-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'stedtnitz-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	/**
+	 * Adding script for live reload for styling purposes.
+	 *
+	 * @todo This script should be removed when shipping out the theme
+	 */
+	wp_register_script( 'livereload', 'http://localhost:35729/livereload.js?snipver=1', null, false, true );
+	wp_enqueue_script( 'livereload' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
