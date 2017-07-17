@@ -42,6 +42,20 @@ function stedtnitz_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	/**
+	 * Adding theme support for different thumbnail sizes.
+	 */
+
+	if ( function_exists( 'add_image_size' ) ) {
+
+			add_image_size( 'the_leader_background_large', 1920 );
+			add_image_size( 'the_leader_background_small', 1240 );
+			add_image_size( 'the_leader_single', 860 );
+			add_image_size( 'the_leader_opengraph', 680 );
+			add_image_size( 'the_leader_column', 500 );
+			add_image_size( 'the_leader_thumbnail', 200 );
+		}
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'stedtnitz' ),
