@@ -48,12 +48,12 @@ function stedtnitz_setup() {
 
 	if ( function_exists( 'add_image_size' ) ) {
 
-			add_image_size( 'the_leader_background_large', 1920 );
-			add_image_size( 'the_leader_background_small', 1240 );
-			add_image_size( 'the_leader_single', 860 );
-			add_image_size( 'the_leader_opengraph', 680 );
-			add_image_size( 'the_leader_column', 500 );
-			add_image_size( 'the_leader_thumbnail', 200 );
+			add_image_size( 'background_large', 1920 );
+			add_image_size( 'background_small', 1240 );
+			add_image_size( 'single', 860 );
+			add_image_size( 'opengraph', 680 );
+			add_image_size( 'column', 500 );
+			add_image_size( 'thumbnail', 200 );
 		}
 
 	// This theme uses wp_nav_menu() in one location.
@@ -133,7 +133,8 @@ add_action( 'widgets_init', 'stedtnitz_widgets_init' );
 function stedtnitz_scripts() {
 	wp_enqueue_style( 'stedtnitz-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), '20151215', true );
+	wp_enqueue_script( 'stedtnitz-pagepilling-script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '34255', false );
 
 	wp_enqueue_script( 'stedtnitz-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -166,12 +167,14 @@ function disable_wp_emojicons() {
   remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
   remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 
-  // filter to remove TinyMCE emojis
-  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
 }
 add_action( 'init', 'disable_wp_emojicons' );
 
 
+// Function to  use while retriving thumbnail URL
+function image_data( $image_id, $image_thumb_name ) {
+	return wp_get_attachment_image_src( $image_id, $image_thumb_name );
+}
 /**
  * Implement the Custom Header feature.
  */

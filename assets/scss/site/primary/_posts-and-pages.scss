@@ -55,7 +55,9 @@ div.postlist.row {
 		color: #9ebecd;
 		font-size: .72rem; 
 	}
-
+	article .post-image {
+		min-height: 250px;
+	}
 	article .excerpt-text {
 		font-size: 0.8211rem;
 		line-height: 180%;

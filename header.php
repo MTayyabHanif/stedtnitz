@@ -32,38 +32,58 @@ if (is_page()) { ?><!doctype html>
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="menu-icon">
+		<div class="top bar"></div>
+		<div class="middle bar"></div>
+		<div class="bottom bar"></div>
+	</div>
+	<ul id="accordion" class="accordion">
+		<?php
+		wp_nav_menu( array(
+		                   'theme_location' => 'menu-1',
+		                   'container'      => '',
+		                   'items_wrap'    => '%3$s'
+		                   ) );
+		                   ?>
+		<li class="default open">
+			<div class="link home"><i class="fa fa-paint-brush"></i>Home<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu" >
+				<li data-menuanchor="culture" class="active"><a href="#culture">Culture</a></li>
+				<li data-menuanchor="vishen" class=""><a href="#vishen">Vishen</a></li>
+				<li data-menuanchor="book" class=""><a href="#book">The Book</a></li>
+				<li data-menuanchor="team" class=""><a href="#team">The Team</a></li>
+			</ul>
+		</li>
+		<li class="">
+			<div class="link"><i class="fa fa-code"></i>Businesses<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu" >
+				<li><a href="businesses.html#mva">Mindvalley Academy</a></li>
+				<li><a href="businesses.html#apps">Apps &amp; Platforms</a></li>
+				<li><a href="businesses.html#events">Events</a></li>
+				<li><a href="businesses.html#international">International</a></li>
+				<li><a href="http://evercoach.com" target="_blank">Evercoach</a></li>
+			</ul>
+		</li>
+		<li class=""><div class="link"><i class="fa fa-globe"></i>News<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="http://www.mindvalley.com/blog/" target="_blank">Blog</a></li>
+			</ul>
+		</li>
+		<li class=""><div class="link"><i class="fa fa-globe"></i>Careers<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="http://careers.mindvalley.com/">Opportunities</a></li>
+			</ul>
+		</li>
+		<li class=""><div class="link"><i class="fa fa-globe"></i>Contact<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="contact.html#cs">Customer Support</a></li>
+				<li><a href="contact.html#aff">Affiliate Partnerships</a></li>
+			</ul>
+		</li>
+	</ul>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'stedtnitz' ); ?></a>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'stedtnitz' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
 	<div id="content" class="site-content">
 <?php
 }

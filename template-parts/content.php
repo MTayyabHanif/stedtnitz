@@ -6,11 +6,20 @@
  *
  * @package Stedtnitz
  */
+$image_data_small = image_data( get_post_thumbnail_id(), 'column' );
+$featuredImageURL = $image_data_small[0];
 
+$image_data_large = image_data( get_post_thumbnail_id(), 'background_small' );
+$featuredImageURL_single = $image_data_large[0];
 ?>
+
+<?php
+if (!is_single()) { ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-6 col-sm-5 col-md-4 col-lg-4'); ?>>
 	<a class="post-link external-link" href="<?php echo esc_url( get_permalink() ) ?>">
-		<?php echo get_the_post_thumbnail() ?>
+		<div class="post-image">
+			<img src="<?php echo $featuredImageURL; ?>" alt="<?php the_title(); ?>">
+		</div>
 		<div class="post-data">
 
 			<header>
@@ -26,9 +35,36 @@
 				</time>
 			</div>
 
-			<div class="hide-mobile excerpt-text" itemprop="text">
-				<?php the_excerpt() ?>
+			<div class="excerpt-text" itemprop="text"> 
+				<?php the_excerpt(); ?>
 			</div>
 		</div>
 	</a>
 </article>
+
+<?php
+}else{ ?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class('single-post'); ?>>
+	<header>
+		<?php the_title( '<h1 itemprop="headline" class="post-title">', '</h1>' ); ?>
+	</header>
+	<div class="post-image">
+		<img src="<?php echo $featuredImageURL_single; ?>" alt="<?php the_title(); ?>">
+	</div>
+	<div class="post-data">
+
+		<div class="excerpt-text" itemprop="text"> 
+			<?php the_content(); ?>
+		</div>
+		<footer>
+			<div class="category">Categories: </div>
+			<div class="tags">tags: </div>
+		</footer>
+	</div>
+</article>
+
+<?php
+} ?>
+
+
