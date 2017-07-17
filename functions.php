@@ -42,6 +42,20 @@ function stedtnitz_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	/**
+	 * Adding theme support for different thumbnail sizes.
+	 */
+
+	if ( function_exists( 'add_image_size' ) ) {
+
+			add_image_size( 'the_leader_background_large', 1920 );
+			add_image_size( 'the_leader_background_small', 1240 );
+			add_image_size( 'the_leader_single', 860 );
+			add_image_size( 'the_leader_opengraph', 680 );
+			add_image_size( 'the_leader_column', 500 );
+			add_image_size( 'the_leader_thumbnail', 200 );
+		}
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'stedtnitz' ),
@@ -136,6 +150,27 @@ function stedtnitz_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'stedtnitz_scripts' );
+
+/**
+ * Function to remove the emojis support for wordpress backend.
+ * @return None returns nothing.
+ */
+function disable_wp_emojicons() {
+
+  // all actions related to emojis
+  remove_action( 'admin_print_styles', 'print_emoji_styles' );
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+  // filter to remove TinyMCE emojis
+  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+
 
 /**
  * Implement the Custom Header feature.
