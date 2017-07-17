@@ -20,8 +20,8 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
-
+<div id="comments" class="comments-area row center-lg middle-lg">
+<div class="commentsList col-lg-6">
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
@@ -91,5 +91,5 @@ if ( post_password_required() ) {
 
 	comment_form();
 	?>
-
+</div>
 </div><!-- #comments -->

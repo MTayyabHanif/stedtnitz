@@ -1561,7 +1561,19 @@ article.boxed_page .entry-content {
 
 article.single-post {
   max-width: 860px;
-  margin: 0 auto; }
+  margin: 6.4rem auto 0; }
+  article.single-post h1.post-title {
+    text-align: center;
+    position: relative; }
+    article.single-post h1.post-title:after {
+      content: "";
+      height: 4px;
+      width: 100px;
+      background-color: grey;
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      margin-left: -45px; }
 
 /*--------------------------------------------------------------
 ## Comments

@@ -1,4 +1,19 @@
 article.single-post{
 	max-width: 860px;
-	margin: 0 auto;
+	margin: 6.4rem auto 0;
+	h1.post-title{
+		text-align: center;
+		position: relative;
+		&:after {
+			content: "";
+			height: 4px;
+			width: 100px;
+			background-color: grey;
+			position: absolute;
+			bottom: -12px;
+			left: 50%;
+			margin-left: -45px;
+		}
+	}
+
 } 
