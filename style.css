@@ -23,6 +23,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
+# Grid
 # Typography
 # Elements
 # Forms
@@ -42,6 +43,15 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 	## Galleries
 ##########################################
 --------------------------------------------------------------*/
+.color-primary {
+  color: #00b4f4 !important; }
+
+.color-primary-dark {
+  color: #053f74 !important; }
+
+.color-secondary {
+  color: #05c76e !important; }
+
 /* lato-300 - latin */
 @font-face {
   font-family: 'Lato';
@@ -290,6 +300,726 @@ th {
   padding: 0; }
 
 /*--------------------------------------------------------------
+# Grid
+--------------------------------------------------------------*/
+/**
+ * Grid setup
+ *
+ * The grid will calculate dimensions based on these two variables:
+ * $fg-columns will inform the grid loops how many columns there should be.
+ * $fg-gutter will inform the grid loops how big eac column's gutters should be.
+ *
+ * The grid will name columns, rows, offsets based on these three variables:
+ * $fg-class-row string used for the row class
+ * $fg-class-col string used for the column class
+ * $fg-class-off string used for the offset class
+ */
+.container-fluid {
+  padding-right: 2rem;
+  padding-left: 2rem; }
+
+.container, .container-fluid {
+  margin-right: auto;
+  margin-left: auto; }
+
+.wrap {
+  box-sizing: border-box;
+  margin: 0 auto; }
+
+/**
+ * Break point namespace object
+ *
+ * Set the default namespace object with these defaults with the
+ * understanding that you can pass in whatever you might require for your site.
+ *
+ * $fg-breakpoints is a Sass list with nested lists inside. Each sub list defines two things.
+ * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
+ * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
+ *
+ * Note: These should be in the proper order (at least till libsass handles map keys properly).
+ *
+ * Note: If the measurement is left out then it will be skipped when generating
+ * the grid and applied to global styles.
+ *
+ */
+/**
+ * Class Name Defaults
+ *
+ * Define class names for columns, rows and offsets in case compatibility with other
+ * libraries is necessary.
+/**
+ * Calculate column size percentage
+ */
+/**
+ * Spacing mixin to create uniform margin/padding
+ */
+/**
+ * Row wrapper class, flex box parent.
+ */
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.row.reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse; }
+
+.row.with-gutter {
+  margin-left: -0.6rem;
+  margin-right: -0.6rem; }
+
+.row.with-gutter > .col-xs, .row.with-gutter > .col-sm, .row.with-gutter > .col-md, .row.with-gutter > .col-lg, .row.with-gutter > .col-xs-1, .row.with-gutter > .col-xs-2, .row.with-gutter > .col-xs-3, .row.with-gutter > .col-xs-4, .row.with-gutter > .col-xs-5, .row.with-gutter > .col-xs-6, .row.with-gutter > .col-xs-7, .row.with-gutter > .col-xs-8, .row.with-gutter > .col-xs-9, .row.with-gutter > .col-xs-10, .row.with-gutter > .col-xs-11, .row.with-gutter > .col-xs-12, .row.with-gutter > .col-sm-1, .row.with-gutter > .col-sm-2, .row.with-gutter > .col-sm-3, .row.with-gutter > .col-sm-4, .row.with-gutter > .col-sm-5, .row.with-gutter > .col-sm-6, .row.with-gutter > .col-sm-7, .row.with-gutter > .col-sm-8, .row.with-gutter > .col-sm-9, .row.with-gutter > .col-sm-10, .row.with-gutter > .col-sm-11, .row.with-gutter > .col-sm-12, .row.with-gutter > .col-md-1, .row.with-gutter > .col-md-2, .row.with-gutter > .col-md-3, .row.with-gutter > .col-md-4, .row.with-gutter > .col-md-5, .row.with-gutter > .col-md-6, .row.with-gutter > .col-md-7, .row.with-gutter > .col-md-8, .row.with-gutter > .col-md-9, .row.with-gutter > .col-md-10, .row.with-gutter > .col-md-11, .row.with-gutter > .col-md-12, .row.with-gutter > .col-lg-1, .row.with-gutter > .col-lg-2, .row.with-gutter > .col-lg-3, .row.with-gutter > .col-lg-4, .row.with-gutter > .col-lg-5, .row.with-gutter > .col-lg-6, .row.with-gutter > .col-lg-7, .row.with-gutter > .col-lg-8, .row.with-gutter > .col-lg-9, .row.with-gutter > .col-lg-10, .row.with-gutter > .col-lg-11, .row.with-gutter > .col-lg-12 {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem; }
+
+.col-xs, .col-sm, .col-md, .col-lg, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: 1px; }
+
+.col-xs, .col-sm, .col-md, .col-lg {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%; }
+
+/**
+ * Generate a set of grid column classes using a namespace
+ *
+ * .col-[namespace] for intelligent column division
+ * .col-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
+ * .off-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
+ * .off-[namespace]-reset for resetting a col's offset for that and larger namespaces
+ */
+/**
+ * Build the grid in two steps, to help minimize file size
+ * Step 1, for each namespace, create the grid-base
+ * Step 2, for each namespace, wrap the col width/offset measurements in their breakpoint media query
+ */
+.col-xs-1 {
+  flex-basis: 8.33333%;
+  max-width: 8.33333%;
+  position: relative; }
+
+.col-xs-2 {
+  flex-basis: 16.66667%;
+  max-width: 16.66667%;
+  position: relative; }
+
+.col-xs-3 {
+  flex-basis: 25%;
+  max-width: 25%;
+  position: relative; }
+
+.col-xs-4 {
+  flex-basis: 33.33333%;
+  max-width: 33.33333%;
+  position: relative; }
+
+.col-xs-5 {
+  flex-basis: 41.66667%;
+  max-width: 41.66667%;
+  position: relative; }
+
+.col-xs-6 {
+  flex-basis: 50%;
+  max-width: 50%;
+  position: relative; }
+
+.col-xs-7 {
+  flex-basis: 58.33333%;
+  max-width: 58.33333%;
+  position: relative; }
+
+.col-xs-8 {
+  flex-basis: 66.66667%;
+  max-width: 66.66667%;
+  position: relative; }
+
+.col-xs-9 {
+  flex-basis: 75%;
+  max-width: 75%;
+  position: relative; }
+
+.col-xs-10 {
+  flex-basis: 83.33333%;
+  max-width: 83.33333%;
+  position: relative; }
+
+.col-xs-11 {
+  flex-basis: 91.66667%;
+  max-width: 91.66667%;
+  position: relative; }
+
+.col-xs-12 {
+  flex-basis: 100%;
+  max-width: 100%;
+  position: relative; }
+
+.off-xs-1 {
+  margin-left: 8.33333%; }
+
+.off-xs-2 {
+  margin-left: 16.66667%; }
+
+.off-xs-3 {
+  margin-left: 25%; }
+
+.off-xs-4 {
+  margin-left: 33.33333%; }
+
+.off-xs-5 {
+  margin-left: 41.66667%; }
+
+.off-xs-6 {
+  margin-left: 50%; }
+
+.off-xs-7 {
+  margin-left: 58.33333%; }
+
+.off-xs-8 {
+  margin-left: 66.66667%; }
+
+.off-xs-9 {
+  margin-left: 75%; }
+
+.off-xs-10 {
+  margin-left: 83.33333%; }
+
+.off-xs-11 {
+  margin-left: 91.66667%; }
+
+.off-xs-reset {
+  margin-left: 0; }
+
+.start-xs {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+
+.center-xs {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.end-xs {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+
+.top-xs {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+
+.middle-xs {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.bottom-xs {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end; }
+
+.around-xs {
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+
+.between-xs {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.first-xs {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1; }
+
+.last-xs {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1; }
+
+.align-l-xs {
+  text-align: left; }
+
+.align-r-xs {
+  text-align: right; }
+
+.align-c-xs {
+  text-align: center; }
+
+@media only screen and (min-width: 550px) {
+  .col-sm-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%;
+    position: relative; }
+
+  .col-sm-2 {
+    flex-basis: 16.66667%;
+    max-width: 16.66667%;
+    position: relative; }
+
+  .col-sm-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+    position: relative; }
+
+  .col-sm-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+    position: relative; }
+
+  .col-sm-5 {
+    flex-basis: 41.66667%;
+    max-width: 41.66667%;
+    position: relative; }
+
+  .col-sm-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+    position: relative; }
+
+  .col-sm-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%;
+    position: relative; }
+
+  .col-sm-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
+    position: relative; }
+
+  .col-sm-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+    position: relative; }
+
+  .col-sm-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%;
+    position: relative; }
+
+  .col-sm-11 {
+    flex-basis: 91.66667%;
+    max-width: 91.66667%;
+    position: relative; }
+
+  .col-sm-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+    position: relative; }
+
+  .off-sm-1 {
+    margin-left: 8.33333%; }
+
+  .off-sm-2 {
+    margin-left: 16.66667%; }
+
+  .off-sm-3 {
+    margin-left: 25%; }
+
+  .off-sm-4 {
+    margin-left: 33.33333%; }
+
+  .off-sm-5 {
+    margin-left: 41.66667%; }
+
+  .off-sm-6 {
+    margin-left: 50%; }
+
+  .off-sm-7 {
+    margin-left: 58.33333%; }
+
+  .off-sm-8 {
+    margin-left: 66.66667%; }
+
+  .off-sm-9 {
+    margin-left: 75%; }
+
+  .off-sm-10 {
+    margin-left: 83.33333%; }
+
+  .off-sm-11 {
+    margin-left: 91.66667%; }
+
+  .off-sm-reset {
+    margin-left: 0; }
+
+  .start-sm {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+
+  .center-sm {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+  .end-sm {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+
+  .top-sm {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+
+  .middle-sm {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
+  .bottom-sm {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+
+  .around-sm {
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+
+  .between-sm {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+
+  .first-sm {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1; }
+
+  .last-sm {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1; }
+
+  .align-l-sm {
+    text-align: left; }
+
+  .align-r-sm {
+    text-align: right; }
+
+  .align-c-sm {
+    text-align: center; } }
+@media only screen and (min-width: 800px) {
+  .col-md-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%;
+    position: relative; }
+
+  .col-md-2 {
+    flex-basis: 16.66667%;
+    max-width: 16.66667%;
+    position: relative; }
+
+  .col-md-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+    position: relative; }
+
+  .col-md-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+    position: relative; }
+
+  .col-md-5 {
+    flex-basis: 41.66667%;
+    max-width: 41.66667%;
+    position: relative; }
+
+  .col-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+    position: relative; }
+
+  .col-md-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%;
+    position: relative; }
+
+  .col-md-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
+    position: relative; }
+
+  .col-md-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+    position: relative; }
+
+  .col-md-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%;
+    position: relative; }
+
+  .col-md-11 {
+    flex-basis: 91.66667%;
+    max-width: 91.66667%;
+    position: relative; }
+
+  .col-md-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+    position: relative; }
+
+  .off-md-1 {
+    margin-left: 8.33333%; }
+
+  .off-md-2 {
+    margin-left: 16.66667%; }
+
+  .off-md-3 {
+    margin-left: 25%; }
+
+  .off-md-4 {
+    margin-left: 33.33333%; }
+
+  .off-md-5 {
+    margin-left: 41.66667%; }
+
+  .off-md-6 {
+    margin-left: 50%; }
+
+  .off-md-7 {
+    margin-left: 58.33333%; }
+
+  .off-md-8 {
+    margin-left: 66.66667%; }
+
+  .off-md-9 {
+    margin-left: 75%; }
+
+  .off-md-10 {
+    margin-left: 83.33333%; }
+
+  .off-md-11 {
+    margin-left: 91.66667%; }
+
+  .off-md-reset {
+    margin-left: 0; }
+
+  .start-md {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+
+  .center-md {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+  .end-md {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+
+  .top-md {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+
+  .middle-md {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
+  .bottom-md {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+
+  .around-md {
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+
+  .between-md {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+
+  .first-md {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1; }
+
+  .last-md {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1; }
+
+  .align-l-md {
+    text-align: left; }
+
+  .align-r-md {
+    text-align: right; }
+
+  .align-c-md {
+    text-align: center; } }
+@media only screen and (min-width: 1000px) {
+  .col-lg-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%;
+    position: relative; }
+
+  .col-lg-2 {
+    flex-basis: 16.66667%;
+    max-width: 16.66667%;
+    position: relative; }
+
+  .col-lg-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+    position: relative; }
+
+  .col-lg-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+    position: relative; }
+
+  .col-lg-5 {
+    flex-basis: 41.66667%;
+    max-width: 41.66667%;
+    position: relative; }
+
+  .col-lg-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+    position: relative; }
+
+  .col-lg-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%;
+    position: relative; }
+
+  .col-lg-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
+    position: relative; }
+
+  .col-lg-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+    position: relative; }
+
+  .col-lg-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%;
+    position: relative; }
+
+  .col-lg-11 {
+    flex-basis: 91.66667%;
+    max-width: 91.66667%;
+    position: relative; }
+
+  .col-lg-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+    position: relative; }
+
+  .off-lg-1 {
+    margin-left: 8.33333%; }
+
+  .off-lg-2 {
+    margin-left: 16.66667%; }
+
+  .off-lg-3 {
+    margin-left: 25%; }
+
+  .off-lg-4 {
+    margin-left: 33.33333%; }
+
+  .off-lg-5 {
+    margin-left: 41.66667%; }
+
+  .off-lg-6 {
+    margin-left: 50%; }
+
+  .off-lg-7 {
+    margin-left: 58.33333%; }
+
+  .off-lg-8 {
+    margin-left: 66.66667%; }
+
+  .off-lg-9 {
+    margin-left: 75%; }
+
+  .off-lg-10 {
+    margin-left: 83.33333%; }
+
+  .off-lg-11 {
+    margin-left: 91.66667%; }
+
+  .off-lg-reset {
+    margin-left: 0; }
+
+  .start-lg {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+
+  .center-lg {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+  .end-lg {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+
+  .top-lg {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+
+  .middle-lg {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
+  .bottom-lg {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+
+  .around-lg {
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+
+  .between-lg {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+
+  .first-lg {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1; }
+
+  .last-lg {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1; }
+
+  .align-l-lg {
+    text-align: left; }
+
+  .align-r-lg {
+    text-align: right; }
+
+  .align-c-lg {
+    text-align: center; } }
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body,
@@ -304,11 +1034,18 @@ textarea {
   font-size: 1rem;
   line-height: 1.5; }
 
+b, strong {
+  font-weight: 400; }
+
 p {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1.55;
   color: #333333; }
+
+article.type-page p {
+  padding: 0 0 0 40px;
+  margin: 0; }
 
 small, .font_small {
   font-size: 10.672px;
@@ -330,6 +1067,7 @@ h1 {
   h1 ~ p {
     font-family: "Khula", sans-serif;
     font-weight: 600;
+    line-height: 1.3;
     font-size: 32px;
     font-size: 2rem; }
 
@@ -347,10 +1085,11 @@ h4 {
 
 .paragraph-head {
   font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  font-size: 29.6px;
-  font-size: 1.85rem;
-  line-height: 1.55; }
+  font-weight: 400;
+  font-size: 27.2px;
+  font-size: 1.7rem;
+  line-height: 1.55;
+  margin: 4.4rem auto 1rem; }
 
 p {
   margin-bottom: 1.3em; }
@@ -439,10 +1178,12 @@ dd {
   margin: 0 1.5em 1.5em; }
 
 img {
+  display: block;
   height: auto;
-  /* Make sure images are scaled correctly. */
+  margin: inherit auto;
+  width: 100%;
   max-width: 100%;
-  /* Adhere to container width. */ }
+  object-fit: cover; }
 
 figure {
   margin: 1em 0;
@@ -451,6 +1192,34 @@ figure {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
+
+blockquote {
+  margin: 0 0 2.4rem 1.2rem;
+  border-left: 0.3rem solid #676b72;
+  padding: 1.8rem  1.4375rem;
+  font-style: italic;
+  color: #676b72;
+  background-color: #f9f9f9;
+  font-size: 1.175rem; }
+
+blockquote p {
+  max-width: 100%;
+  font-size: 1.175rem;
+  padding: 0;
+  margin: 0; }
+
+blockquote p:last-child {
+  padding-bottom: 0; }
+
+cite {
+  display: block;
+  font-size: 74.5%;
+  font-style: normal;
+  margin-top: 20px; }
+
+figure blockquote {
+  padding: 26px 0px;
+  padding: 1.625rem 0rem; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -705,6 +1474,67 @@ a {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+div.postlist.row {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 3.5rem 0; }
+  div.postlist.row article .post-data {
+    padding: 0rem 2rem 2rem; }
+  div.postlist.row article .post-link {
+    background-color: #fff;
+    margin: 20px;
+    text-decoration: none;
+    color: #676b72;
+    text-align: center;
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+    border: 1px solid #efefef;
+    border-radius: 6px 6px 0px 0px; }
+  div.postlist.row article .post-link:hover {
+    box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.15); }
+  div.postlist.row article .post-link:hover .post-title {
+    color: #00b4f4; }
+  div.postlist.row article header {
+    max-height: 4.65rem;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; }
+  div.postlist.row article .post-title {
+    color: #333;
+    margin: 1.5rem 0rem .5rem;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600; }
+  div.postlist.row article .post-time {
+    color: #9ebecd;
+    font-size: .72rem; }
+  div.postlist.row article .excerpt-text {
+    font-size: 0.8211rem;
+    line-height: 180%;
+    height: 4.2rem;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; }
+  div.postlist.row article .excerpt-text p {
+    font-size: 0.80211rem;
+    line-height: 180%;
+    margin: 0;
+    padding: 0; }
+
 .sticky {
   display: block; }
 
@@ -722,6 +1552,10 @@ a {
 .page-links {
   clear: both;
   margin: 0 0 1.5em; }
+
+article.boxed_page .entry-content {
+  max-width: 860px;
+  margin: 6.4rem auto 0; }
 
 /*--------------------------------------------------------------
 ## Comments

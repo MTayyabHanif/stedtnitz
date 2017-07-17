@@ -15,6 +15,7 @@ h1 {
 	~p{
 		font-family: $font__heading; 
 		font-weight: 600;
+		line-height: 1.3;
 		@include font-size(2);
 	}
 }
@@ -26,7 +27,8 @@ h3 {@include font-size(2.25);}
 h4 {@include font-size(1.5);}
 .paragraph-head{
 	font-family: 'Lato', sans-serif;
-	font-weight: 600;
-	@include font-size(1.85);
+	font-weight: 400;
+	@include font-size(1.7);
 	line-height: 1.55;
+	margin: 4.4rem auto 1rem;
 }

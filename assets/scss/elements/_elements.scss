@@ -31,12 +31,17 @@ hr {
 @import "lists";
 
 img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+    display: block;
+    height: auto;
+    margin: inherit auto;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
 }
-
 figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
 
 @import "tables";
+
+@import "blockquotes";

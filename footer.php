@@ -10,6 +10,22 @@
  */
 
 ?>
+<?php
+if (is_page()) {
+?>
+	
+	</div><!-- #content -->
+</div><!-- #page -->
+
+<?php wp_footer(); ?>
+
+</body>
+</html>
+
+
+<?php
+}else{
+?>
 
 	</div><!-- #content -->
 
@@ -32,3 +48,8 @@
 
 </body>
 </html>
+
+
+<?php
+}
+?>

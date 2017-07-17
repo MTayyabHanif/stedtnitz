@@ -24,6 +24,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
+# Grid
 # Typography
 # Elements
 # Forms
@@ -52,6 +53,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 @import "normalize";
+
+/*--------------------------------------------------------------
+# Grid
+--------------------------------------------------------------*/
+@import "modules/grid";
 
 /*--------------------------------------------------------------
 # Typography

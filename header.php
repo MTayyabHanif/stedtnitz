@@ -8,14 +8,26 @@
  *
  * @package Stedtnitz
  */
-
-?><!doctype html>
+?>
+<?php
+if (is_page()) { ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
+<?php wp_head(); ?>
+</head>
+<div id="content" class="site-content">
 
+<?php
+
+ }else{ 
+
+	?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
 
@@ -53,3 +65,6 @@
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
+<?php
+}
+?>

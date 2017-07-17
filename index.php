@@ -14,7 +14,6 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
 		<?php
@@ -27,7 +26,10 @@ get_header(); ?>
 
 			<?php
 			endif;
+			?>
+			<div class="postlist row">
 
+			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
@@ -39,7 +41,10 @@ get_header(); ?>
 				get_template_part( 'template-parts/content', get_post_format() );
 
 			endwhile;
+			?>
+			</div><!-- #row -->
 
+			<?php
 			the_posts_navigation();
 
 		else :
@@ -49,7 +54,6 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
 get_sidebar();
