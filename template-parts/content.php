@@ -28,8 +28,7 @@ if (!is_single()) { ?>
 
 			<div class="post-time">
 				<time>
-					<?php //stedtnitz_posted_on(); ?>
-					3 days ago
+					<?php stedtnitz_posted_on(); ?>
 					&nbsp; • &nbsp;
 					<i>3 min read</i>
 				</time>
@@ -58,8 +57,22 @@ if (!is_single()) { ?>
 			<?php the_content(); ?>
 		</div>
 		<footer>
-			<div class="category">Categories: </div>
-			<div class="tags">tags: </div>
+			<div class="post-category">
+				<?php wp_list_categories( array(
+				        'orderby'    => 'name',
+				        'separator'    => ','
+				    ) ); ?> 
+			</div>
+			<div class="post-tags">tags: <?php 
+$tags = get_tags(array(
+  'hide_empty' => false
+));
+echo '<ul>';
+foreach ($tags as $tag) {
+  echo '<li class="tag-item">' . $tag->name . '</li>';
+}
+echo '</ul>';
+			?></div>
 		</footer>
 	</div>
 </article>

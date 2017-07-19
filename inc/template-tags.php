@@ -26,15 +26,10 @@ function stedtnitz_posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted %s ago', 'post date', 'stedtnitz' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		esc_html_x( '%s ago', 'post date', 'stedtnitz' ),
+		$time_string
 	);
 
-	$byline = sprintf(
-		/* translators: %s: post author. */
-		esc_html_x( 'by %s', 'post author', 'stedtnitz' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 

@@ -28,7 +28,9 @@ get_header(); ?>
 			endif;
 			?>
 			<div class="postlist row">
-
+				<div class="blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h1>Our Blog</h1>
+				</div>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();

@@ -14,18 +14,26 @@ get_header(); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
-
 			get_template_part( 'template-parts/content', get_post_format() );
 		?>
-		<div class="post-nav row">
-			<div class="navigation">
-			<div class="alignleft">
-			<?php previous_post_link(); ?>
-			</div>
-			<div class="alignright">
-			<?php next_post_link(); ?>
-			</div>
-			</div> <!-- end navigation -->
+		<div class="post-nav pagination">
+			<ul class="navigation row pager flat">
+				<?php if (previous_post_link()) { ?>
+					<li class="prev col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<span class="label tag">Prev Post</span>
+						<?php previous_post_link('%link'); ?>
+					</li>
+				<?php 
+				} ?>
+
+				<?php if (next_post_link()) { ?>
+					<li class="next col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<span class="label tag">Next Post</span>
+						<?php next_post_link('%link'); ?>
+					</li>
+				<?php 
+				} ?>
+			</ul> <!-- end navigation -->
 		</div>
 		<?php
 			// If comments are open or we have at least one comment, load up the comment template.

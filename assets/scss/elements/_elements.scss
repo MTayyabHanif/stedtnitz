@@ -31,12 +31,8 @@ hr {
 @import "lists";
 
 img {
-    display: block;
-    height: auto;
-    margin: inherit auto;
-    width: 100%;
-    max-width: 100%;
-    object-fit: cover;
+	max-width: 100%;
+	height: auto;
 }
 figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
