@@ -20,7 +20,11 @@ get_header(); ?>
 		<div class="post-nav row">
 			<div class="navigation">
 			<div class="alignleft">
-			<?php previous_post_link(); ?>
+			<?php 
+			// Use this thing to make them work.
+			$prevURL = get_permalink(get_previous_post(true)->ID);
+			$nextURL = get_permalink(get_next_post(true)->ID);
+			?>
 			</div>
 			<div class="alignright">
 			<?php next_post_link(); ?>
