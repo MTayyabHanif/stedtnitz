@@ -140,7 +140,7 @@
 				</p>
 			</div>  
 			<div class="explore-block">
-				<a href="http://www.Example_Website.com/culture.html" class='button button__one'>Learn More</a>
+				<a href="<?php bloginfo('url'); ?>/blog" class='button button__one'>Learn More</a>
 			</div>
 		</div>
 
@@ -155,7 +155,7 @@
 				</p>
 			</div>  
 			<div class="explore-block">
-				<a href="http://www.Example_Website.com/culture.html" class='button button__one'>Learn More</a>
+				<a href="<?php bloginfo('url'); ?>/blog" class='button button__one'>Learn More</a>
 			</div>
 		</div>
 
@@ -170,7 +170,7 @@
 				</p>
 			</div>  
 			<div class="explore-block">
-				<a href="http://www.Example_Website.com/culture.html" class='button button__one'>Learn More</a>
+				<a href="<?php bloginfo('url'); ?>/blog" class='button button__one'>Learn More</a>
 			</div>
 		</div>
 
@@ -185,7 +185,7 @@
 				</p>
 			</div>  
 			<div class="explore-block">
-				<a href="http://www.Example_Website.com/culture.html" class='button button__one'>Learn More</a>
+				<a href="<?php bloginfo('url'); ?>/blog" class='button button__one'>Learn More</a>
 			</div>
 		</div>
 	</div>
