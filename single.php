@@ -18,7 +18,14 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', get_post_format() );
 		?>
 		<div class="post-nav row">
-			<?php the_post_navigation(); ?>
+			<div class="navigation">
+			<div class="alignleft">
+			<?php previous_post_link(); ?>
+			</div>
+			<div class="alignright">
+			<?php next_post_link(); ?>
+			</div>
+			</div> <!-- end navigation -->
 		</div>
 		<?php
 			// If comments are open or we have at least one comment, load up the comment template.
