@@ -9,29 +9,26 @@
  * @package Stedtnitz
  */
 ?>
-<?php
-if (is_page()) { ?><!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php wp_head(); ?>
-</head>
-<div id="content" class="site-content">
 
+<!doctype html>
+<html <?php language_attributes(); ?>>
+	<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php wp_head(); ?>
+	</head>
+	<body <?php body_class(); ?>>
+
+
+<?php
+if (is_page()) { ?>
+	<div id="content" class="site-content">
 <?php
 
  }else{ 
 
-	?><!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php wp_head(); ?>
-</head>
+	?>
 
-<body <?php body_class(); ?>>
 	<div id="menu-icon">
 		<div class="top bar"></div>
 		<div class="middle bar"></div>
@@ -39,11 +36,16 @@ if (is_page()) { ?><!doctype html>
 	</div>
 	<ul id="accordion" class="accordion">
 		<?php
-		wp_nav_menu( array(
-		                   'theme_location' => 'menu-1',
-		                   'container'      => '',
-		                   'items_wrap'    => '%3$s'
-		                   ) );
+		wp_nav_menu(
+			array(
+				'menu' => 'Header Menu',
+				'menu_class' => 'main_class',
+				'menu_id' => 'main_id',
+				'container' => '',
+				'depth' => 0,
+				'theme_location' => 'menu-1',
+			)
+		);
 		                   ?>
 		<li class="default open">
 			<div class="link home"><i class="fa fa-paint-brush"></i>Home<i class="fa fa-chevron-down"></i></div>
