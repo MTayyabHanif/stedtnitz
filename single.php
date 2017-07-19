@@ -6,7 +6,9 @@
  *
  * @package Stedtnitz
  */
-
+// Use this thing to make them work.
+$prevURL = get_permalink(get_previous_post(true)->ID);
+$nextURL = get_permalink(get_next_post(true)->ID);
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -17,8 +19,9 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', get_post_format() );
 		?>
 		<div class="post-nav pagination">
+
 			<ul class="navigation row pager flat">
-				<?php if (previous_post_link()) { ?>
+				<?php if ($prevURL) { ?>
 					<li class="prev col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<span class="label tag">Prev Post</span>
 						<?php previous_post_link('%link'); ?>
@@ -26,7 +29,7 @@ get_header(); ?>
 				<?php 
 				} ?>
 
-				<?php if (next_post_link()) { ?>
+				<?php if ($nextURL) { ?>
 					<li class="next col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<span class="label tag">Next Post</span>
 						<?php next_post_link('%link'); ?>
