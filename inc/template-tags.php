@@ -19,14 +19,14 @@ function stedtnitz_posted_on() {
 
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
+		esc_html( human_time_diff(get_the_time('U'), current_time('timestamp') ) ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
 	);
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', 'stedtnitz' ),
+		esc_html_x( 'Posted %s ago', 'post date', 'stedtnitz' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
