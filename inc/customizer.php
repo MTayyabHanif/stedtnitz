@@ -24,7 +24,38 @@ function stedtnitz_customize_register( $wp_customize ) {
 			'selector'        => '.site-description',
 			'render_callback' => 'stedtnitz_customize_partial_blogdescription',
 		) );
+		$wp_customize->selective_refresh->add_partial( 'footer_text', array(
+			'selector'        => '.site-info',
+			'render_callback' => 'stedtnitz_customize_partial_footer_text',
+		) );
 	}
+
+	$wp_customize->add_setting( 'footer_text', array(
+	  'type' => 'theme_mod',
+	  'capability' => 'edit_theme_options',
+	  'default' => 'Proudly powered by WordPress | Theme: stedtnitz by Inject.',
+	  'transport' => 'postMessage', // or postMessage
+	) );
+
+	$wp_customize->add_control( 'footer_text', array(
+	  'type' => 'textarea',
+	  'priority' => 10, // Within the section.
+	  'section' => 'stedtnitz_footer', // Required, core or custom.
+	  'label' => __( 'Footer text' ),
+	  'description' => __( 'This text will be displayed at the bottom of each page.' ),
+	  'input_attrs' => array(
+	    'placeholder' => __( 'Add footer text here.' ),
+	  ),
+	) );
+
+	$wp_customize->add_section( 'stedtnitz_footer', array(
+	  'title' => __( 'Footer' ),
+	  'panel' => '', // Not typically needed.
+	  'priority' => 160,
+	  'capability' => 'edit_theme_options',
+	  'theme_supports' => '', // Rarely needed.
+	) );
+
 }
 add_action( 'customize_register', 'stedtnitz_customize_register' );
 
@@ -44,6 +75,15 @@ function stedtnitz_customize_partial_blogname() {
  */
 function stedtnitz_customize_partial_blogdescription() {
 	bloginfo( 'description' );
+}
+
+/**
+ * Render the site tagline for the selective refresh partial.
+ *
+ * @return void
+ */
+function stedtnitz_customize_partial_footer_text() {
+	echo get_theme_mod('footer_text', 'Powered By Wordpress' );
 }
 
 /**

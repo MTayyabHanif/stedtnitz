@@ -30,7 +30,7 @@ if (!is_single()) { ?>
 				<time>
 					<?php stedtnitz_posted_on(); ?>
 					&nbsp; • &nbsp;
-					<i>3 min read</i>
+					<i><?php echo stednitz_calculate_reading_time($post->ID); ?></i>
 				</time>
 			</div>
 
