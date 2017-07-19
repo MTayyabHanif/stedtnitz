@@ -175,6 +175,32 @@ add_action( 'init', 'disable_wp_emojicons' );
 function image_data( $image_id, $image_thumb_name ) {
 	return wp_get_attachment_image_src( $image_id, $image_thumb_name );
 }
+
+/**
+ * stednitz function to calculate reading time for a post.
+ *
+ * @param int $post_id Takes the post id as an agument.
+ * @return int
+ */
+function stednitz_calculate_reading_time( $post_id ) {
+
+	$post_content = get_post( $post_id )->post_content;
+
+	$stripped_content = strip_shortcodes( $post_content );
+
+	$stripped_tags_content = strip_tags( $stripped_content );
+
+	$word_count = str_word_count( $stripped_tags_content );
+
+	$reading_time = ceil( $word_count / 300 );
+
+	if ( $reading_time > 1 ) {
+		return $reading_time . ' mins read';
+	} else {
+		return $reading_time . ' min read';
+	}
+}
+
 /**
  * Implement the Custom Header feature.
  */
