@@ -46,7 +46,8 @@ if (is_page()) { ?>
 				'theme_location' => 'menu-1',
 			)
 		);
-		                   ?>
+	}
+		?>
 		<li class="default open">
 			<div class="link home"><i class="fa fa-paint-brush"></i>Home<i class="fa fa-chevron-down"></i></div>
 			<ul class="submenu" >
@@ -86,7 +87,16 @@ if (is_page()) { ?>
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'stedtnitz' ); ?></a>
-	<div id="content" class="site-content">
-<?php
-}
-?>
+<header>
+	<?php 
+	if (has_custom_logo()) {
+		the_custom_logo();
+	}else{
+		?>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<h5 class="site-title"><?php bloginfo( 'name' ); ?></h5>
+		</a>
+		<?php 
+	}
+	?>
+</header>
