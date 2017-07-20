@@ -41,6 +41,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Media Queries
 ##########################################
 --------------------------------------------------------------*/
 .color-primary {
@@ -1061,27 +1062,13 @@ h1, h2, h3, h4 {
   line-height: 1.2; }
 
 h1 {
-  margin-top: 0;
-  font-size: 81.008px;
-  font-size: 5.063rem; }
+  margin-top: 0; }
   h1 ~ p {
     font-family: "Khula", sans-serif;
     font-weight: 600;
     line-height: 1.3;
     font-size: 32px;
     font-size: 2rem; }
-
-h2 {
-  font-size: 54px;
-  font-size: 3.375rem; }
-
-h3 {
-  font-size: 36px;
-  font-size: 2.25rem; }
-
-h4 {
-  font-size: 24px;
-  font-size: 1.5rem; }
 
 .paragraph-head {
   font-family: 'Lato', sans-serif;
@@ -1090,6 +1077,30 @@ h4 {
   font-size: 1.7rem;
   line-height: 1.55;
   margin: 4.4rem auto 1rem; }
+
+h1 {
+  font-size: 52.048px;
+  font-size: 3.253rem; }
+
+h2 {
+  font-size: 43.168px;
+  font-size: 2.698rem; }
+
+h3 {
+  font-size: 37.232px;
+  font-size: 2.327rem; }
+
+h4 {
+  font-size: 30.384px;
+  font-size: 1.899rem; }
+
+h5 {
+  font-size: 22.624px;
+  font-size: 1.414rem; }
+
+h6 {
+  font-size: 18.56px;
+  font-size: 1.16rem; }
 
 p {
   margin-bottom: 1.3em; }
@@ -1503,12 +1514,11 @@ div.postlist.row {
       div.postlist.row .blog-header h1:after {
         content: "";
         height: 4px;
-        width: 120px;
+        width: 20%;
         background-color: black;
         position: absolute;
         bottom: 0;
-        left: 50%;
-        margin-left: -50px; }
+        left: 39%; }
   div.postlist.row article .post-data {
     padding: 0rem 2rem 2rem; }
   div.postlist.row article .post-link {
@@ -1549,7 +1559,8 @@ div.postlist.row {
     color: #799eaf;
     font-size: .72rem; }
   div.postlist.row article .post-image {
-    min-height: 250px; }
+    max-height: 300px;
+    overflow: hidden; }
   div.postlist.row article .excerpt-text {
     font-size: 0.8211rem;
     line-height: 180%;
@@ -1622,8 +1633,15 @@ article.boxed_page .entry-content {
 ul#accordion h3 {
   position: absolute;
   top: 0;
-  margin: 1.85rem 0 0 1rem;
-  color: white; }
+  margin: 1.00rem 0 0 1rem;
+  color: white;
+  font-size: 2.05rem; }
+  @media (min-width: 43.75em) {
+    ul#accordion h3 {
+      font-size: 2.35rem; } }
+  @media (min-width: 56.25em) {
+    ul#accordion h3 {
+      font-size: 2.35rem; } }
 
 ul#accordion:before {
   content: "";
@@ -1783,18 +1801,19 @@ ul#accordion:before {
 
 .chevron-icon {
   display: inline-block;
-  float: right; }
+  float: right;
+  margin-right: 12px;
+  margin-top: 18px; }
 
 /* MENU ICON */
 #menu-icon {
-  width: 82px;
-  height: 58px;
+  width: 74px;
+  height: 64px;
   position: fixed;
   z-index: 500;
-  margin: 15px auto;
-  right: -10px;
+  right: 1px;
   cursor: pointer;
-  top: 0.6%; }
+  top: 0; }
 
 #menu-icon:hover {
   -moz-animation: burger .6s;
@@ -1810,16 +1829,16 @@ ul#accordion:before {
   border-radius: 10px; }
 
 .top {
-  left: 15%;
+  left: 24%;
   top: 28%; }
 
 .middle {
-  left: 15%;
+  left: 24%;
   top: 47%;
   -webkit-transition: all 0.35s; }
 
 .bottom {
-  left: 15%;
+  left: 24%;
   top: 66%; }
 
 #menu-icon.open .bar {
@@ -1830,7 +1849,7 @@ ul#accordion:before {
   width: 24px;
   height: 24px;
   top: 27%;
-  left: 24%;
+  left: 35%;
   border-radius: 50%;
   background-color: black;
   opacity: 0.3; }
@@ -1945,10 +1964,11 @@ article.single-post, .post-nav {
   margin: 4rem 0 1rem; }
   .post-category ul, .post-category li, .post-tags ul, .post-tags li {
     list-style: none;
-    display: inline-block; }
+    display: inline-flex; }
   .post-category ul, .post-tags ul {
     margin: 0;
-    padding-left: 16px; }
+    padding-left: 0;
+    display: block; }
   .post-category li a, .post-tags li a {
     color: #000;
     text-decoration: none;
@@ -1962,20 +1982,27 @@ article.single-post, .post-nav {
     .post-category li a:hover, .post-tags li a:hover {
       background-color: #e8e8e8; }
   .post-category li.cat-item, .post-tags li.cat-item {
-    margin-right: 4px; }
+    margin-right: 4px;
+    margin-bottom: 4px;
+    text-transform: capitalize; }
   .post-category li.categories, .post-tags li.categories {
-    position: relative; }
+    position: relative;
+    text-transform: uppercase;
+    display: block; }
     .post-category li.categories:before, .post-tags li.categories:before {
       content: ":";
       position: absolute;
-      left: 78px; }
+      left: 99px;
+      top: -1px; }
 
 .post-tags {
   margin: 0;
+  text-transform: uppercase;
   margin-bottom: 1rem; }
   .post-tags li.tag-item {
     margin-right: 8px;
     color: #000;
+    text-transform: lowercase;
     position: relative;
     margin-left: 14px; }
     .post-tags li.tag-item:before {
@@ -2352,3 +2379,42 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+@media screen and (max-width: 480px) {
+  div.postlist.row article .post-link {
+    border: 1px solid #ababab; } }
+@media (min-width: 43.75em) {
+  h1 {
+    font-size: 71.248px;
+    font-size: 4.453rem; }
+
+  h2 {
+    font-size: 55.968px;
+    font-size: 3.498rem; }
+
+  h3 {
+    font-size: 53.232px;
+    font-size: 3.327rem; }
+
+  h4 {
+    font-size: 36.784px;
+    font-size: 2.299rem; } }
+@media (min-width: 56.25em) {
+  h1 {
+    font-size: 80.848px;
+    font-size: 5.053rem; }
+
+  h2 {
+    font-size: 63.968px;
+    font-size: 3.998rem; }
+
+  h3 {
+    font-size: 58.032px;
+    font-size: 3.627rem; }
+
+  h4 {
+    font-size: 31.984px;
+    font-size: 1.999rem; } }

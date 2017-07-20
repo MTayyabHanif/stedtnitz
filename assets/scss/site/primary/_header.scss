@@ -33,8 +33,16 @@
 ul#accordion h3{
 	position: absolute;
 	top: 0;
-	margin: 1.85rem 0 0 1rem;
+	margin: 1.00rem 0 0 1rem;
 	color: white;
+	font-size: 2.05rem;
+	@media (min-width: 43.75em) {
+		font-size: 2.35rem;
+		
+	}
+	@media (min-width: 56.25em) {
+		font-size: 2.35rem;
+	}
 }
 ul#accordion:before {
 	content: "";
@@ -196,6 +204,8 @@ ul#accordion:before {
  .chevron-icon {
  	display: inline-block;
  	float: right;
+ 	margin-right: 12px;
+ 	margin-top: 18px;
  }
 
 
@@ -209,14 +219,13 @@ ul#accordion:before {
 
  /* MENU ICON */
  #menu-icon {
- 	width: 82px;
- 	height: 58px;
+ 	width: 74px;
+ 	height: 64px;
  	position: fixed;
  	z-index: 500;
- 	margin: 15px auto;
- 	right: -10px;
+ 	right: 1px;
  	cursor: pointer;
- 	top: 0.6%;
+ 	top: 0;
  }
  #menu-icon:hover {
  	-moz-animation: burger .6s;
@@ -233,18 +242,18 @@ ul#accordion:before {
  }
 
  .top {
- 	left: 15%;
+ 	left: 24%;
  	top: 28%;
  }
 
  .middle {
- 	left: 15%;
+ 	left: 24%;
  	top: 47%;
  	-webkit-transition: all 0.35s;
  }
 
  .bottom {
- 	left: 15%;
+ 	left: 24%;
  	top: 66%;
  }
  #menu-icon.open .bar{border: 2px solid white;height: 7px;}
@@ -253,7 +262,7 @@ ul#accordion:before {
  	width: 24px;
  	height: 24px;
  	top: 27%;
- 	left: 24%;
+ 	left: 35%;
  	border-radius: 50%;
  	background-color: black;
  	opacity: 0.3;
