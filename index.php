@@ -27,7 +27,7 @@ get_header(); ?>
 			<?php
 			endif;
 			?>
-			<div class="postlist row">
+			<div class="postlist row center-xs center-md center-sm center-lg">
 				<div class="blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h1>Our Blog</h1>
 				</div>

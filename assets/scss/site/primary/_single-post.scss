@@ -86,11 +86,12 @@ article.single-post, .post-nav{
 	margin: 4rem 0 1rem;
 	ul, li{
 		list-style: none;
-		display: inline-block;
+		display: inline-flex;
 	}
 	ul{
 		margin: 0;
-		padding-left: 16px;
+		padding-left: 0;
+		display: block;
 	}
 	li a{
 		color: #000;
@@ -108,22 +109,29 @@ article.single-post, .post-nav{
 	}
 	li.cat-item {
 		margin-right: 4px;
+		margin-bottom: 4px;
+		text-transform: capitalize;
 	}
 	li.categories{
 		position: relative;
+		text-transform: uppercase;
+		display: block;
 		&:before {
 			content: ":";
 			position: absolute;
-			left: 78px;
+			left: 99px;
+			top: -1px;
 		}
 	}
 }
 .post-tags{
 	margin: 0;
+	text-transform: uppercase;
 	margin-bottom: 1rem;
 	li.tag-item{
 		margin-right: 8px;
 		color: #000;
+		text-transform: lowercase;
 		position: relative;
 		margin-left: 14px;
 		&:before{

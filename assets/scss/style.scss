@@ -42,6 +42,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Media Queries
 ##########################################
 --------------------------------------------------------------*/
 
@@ -113,3 +114,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+@import "site/secondary/media-queries";

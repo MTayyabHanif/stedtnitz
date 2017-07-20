@@ -15,11 +15,15 @@ $featuredImageURL_single = $image_data_large[0];
 
 <?php
 if (!is_single()) { ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-6 col-sm-5 col-md-4 col-lg-4'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6 col-md-4 col-lg-4'); ?>>
 	<a class="post-link external-link" href="<?php echo esc_url( get_permalink() ) ?>">
+
+	<?php if (has_post_thumbnail()) { ?>
 		<div class="post-image">
 			<img src="<?php echo $featuredImageURL; ?>" alt="<?php the_title(); ?>">
 		</div>
+	<?php } ?>
+
 		<div class="post-data">
 
 			<header>
@@ -48,9 +52,13 @@ if (!is_single()) { ?>
 	<header>
 		<?php the_title( '<h1 itemprop="headline" class="post-title">', '</h1>' ); ?>
 	</header>
-	<div class="post-image">
-		<img src="<?php echo $featuredImageURL_single; ?>" alt="<?php the_title(); ?>">
-	</div>
+
+	<?php if (has_post_thumbnail()) { ?>
+		<div class="post-image">
+			<img src="<?php echo $featuredImageURL_single; ?>" alt="<?php the_title(); ?>">
+		</div>
+	<?php } ?>
+
 	<div class="post-data">
 
 		<div class="excerpt-text" itemprop="text"> 

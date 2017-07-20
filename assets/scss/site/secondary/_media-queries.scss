@@ -1,0 +1,20 @@
+@media screen and ( max-width: 480px ){
+	div.postlist.row article .post-link{
+		border: 1px solid #ababab
+	}
+}
+
+
+@media (min-width: 43.75em) {
+	h1{@include font-size(4.453)}
+	h2{@include font-size(3.498)}
+	h3{@include font-size(3.327)}
+	h4{@include font-size(2.299)}
+}
+
+@media (min-width: 56.25em) {
+	h1{@include font-size(5.053)}
+	h2{@include font-size(3.998)}
+	h3{@include font-size(3.627)}
+	h4{@include font-size(1.999)}
+}
