@@ -225,3 +225,72 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+function stednitz_page_meta_box()
+{
+        add_meta_box(
+            'stednitz_box_id',           // Unique ID
+            'Stedtnitz Page Settings',  // Box title
+            'stednitz_page_settings_box',  // Content callback, must be of type callable
+            'page'                   // Post type
+        );
+}
+add_action('add_meta_boxes', 'stednitz_page_meta_box');
+
+function stednitz_page_settings_box($post)
+{
+	$values = get_post_meta( $post->ID )['background_images'];
+	?>
+	<h2>Select the page background styles here</h2>
+	<button>Toogle ON/OFF</button>
+	<button id="select_images">Select Images</button>
+	<input type="hidden" id="save_images" value="<?php echo $values[0]; ?>" name="save_images">
+	<ul id="list_images">
+	<?php
+	if (isset($values) && $values[0] != '') {
+		$images = json_decode($values[0]);
+		// var_dump($values);
+		foreach ($images as $attachment_id) {
+		echo '<li><img src="'. wp_get_attachment_image_src($attachment_id)[0] .'" style="width:100px;"/></li>';
+
+		}
+	}
+	echo "</ul>";
+	wp_nonce_field( 'stednitz_page_settings_box_nonce', 'meta_box_nonce' );
+}
+
+function stednitz_save_page_settings( $post_id )
+{
+    // Bail if we're doing an auto save
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+     
+    // if our nonce isn't there, or we can't verify it, bail
+    	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'stednitz_page_settings_box_nonce' ) ) return;
+     
+    // If current user does not have permission return out.
+    if( !current_user_can( 'edit_post' ) ) return;
+
+	if( isset( $_POST['save_images'] ) ){
+		update_post_meta( $post_id, 'background_images', esc_attr( $_POST['save_images'] ) );
+	}
+    
+}
+
+add_action( 'save_post', 'stednitz_save_page_settings' );
+
+function stednitz_page_setting_scripts()
+{
+    // get current admin screen, or null
+    $screen = get_current_screen();
+    // verify admin screen object
+    if (is_object($screen)) {
+        // enqueue only for specific post types
+        if ($screen->post_type == 'page') {
+        	// Load Wordpress internet resources required for media uploader.
+        	wp_enqueue_media();
+            // enqueue script
+            wp_enqueue_script('stednitz_page_setting_script', get_template_directory_uri() . '/assets/js/admin-script.js', array('jquery'));
+        }
+    }
+}
+add_action('admin_enqueue_scripts', 'stednitz_page_setting_scripts');
