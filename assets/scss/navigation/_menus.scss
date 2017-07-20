@@ -87,21 +87,37 @@
 
 .comment-navigation,
 .posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-		overflow: hidden;
-	}
-
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
+.post-navigation{
+	.nav-links{
+		margin: 24px 0;
+		font-size: 1.0111rem;
+		display: flex;
+		list-style: none;
+		justify-content: center;
+		a {
+			padding-left: 16px;
+			padding-right: 16px;
+			border-radius: 64px;
+			border: 1px solid transparent;
+			border-color: rgba(0, 0, 0, 0.1);
+			text-decoration: none;
+			color: #333;
+			display: inline-block;
+			padding: 8px 12px;
+			line-height: 1;
+			white-space: nowrap;
+			&:hover{
+				border-color: rgba(0, 0, 0, 1);
+				color: #000;
+			}
+		}
+		.nav-next{
+			text-align: right;
+		}
+		div{
+			flex-basis: auto;
+			margin-left: 4px;
+			margin-right: 4px;
+		}
 	}
 }

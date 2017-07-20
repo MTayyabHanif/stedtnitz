@@ -3,95 +3,112 @@
 
 
 jQuery(document).ready(function() {
-	 var intro_overlay = jQuery('.overlay'),  
-                explore_block = jQuery(".explore-block"),
-                explore_arrow = jQuery('.arrow-explore'),
-                title_cta = jQuery('.CoverTitles-cta'),
-                title_line = jQuery('.CoverSubtitle-line'),
-                title_txt_cta = jQuery('.CoverTitles-cta-text'),
-                core = jQuery('#core'),
-                go_next = jQuery('#arrow-next'),
-                go_prev = jQuery('#arrow-prev'),
-                scroll = jQuery('.mouseScroll'),
-                desc_text = jQuery('.decsription-short-text'),
-                logo_body = jQuery('.logo-body'),
-                preload = jQuery('#preloader'),
-                blackout = jQuery('.overlay-black'),
-                social = jQuery('ul.social'),
-                fb = jQuery('#fb'),
-                twitter = jQuery('#twitter'),
-                insta = jQuery('#insta'),
-                youtube = jQuery('#youtube'),
-                teleport = jQuery('.overlay-translate'),
-                burger_icon = jQuery('#menu-icon'),
-                accordion = jQuery('.accordion'),
-                menu_category = jQuery('.link'),
-                menu_list = jQuery('.submenu li'),
-                menu_page = jQuery('.accordion .link'),
-                video = jQuery('.video'),
-                section = jQuery('.section-img');
+	var intro_overlay = jQuery('.overlay'),  
+	explore_block = jQuery(".explore-block"),
+	explore_arrow = jQuery('.arrow-explore'),
+	title_cta = jQuery('.CoverTitles-cta'),
+	title_line = jQuery('.CoverSubtitle-line'),
+	title_txt_cta = jQuery('.CoverTitles-cta-text'),
+	core = jQuery('#core'),
+	go_next = jQuery('#arrow-next'),
+	go_prev = jQuery('#arrow-prev'),
+	scroll = jQuery('.mouseScroll'),
+	desc_text = jQuery('.decsription-short-text'),
+	logo_body = jQuery('.logo-body'),
+	preload = jQuery('#preloader'),
+	blackout = jQuery('.overlay-black'),
+	social = jQuery('ul.social'),
+	fb = jQuery('#fb'),
+	twitter = jQuery('#twitter'),
+	insta = jQuery('#insta'),
+	youtube = jQuery('#youtube'),
+	teleport = jQuery('.overlay-translate'),
+	burger_icon = jQuery('#menu-icon'),
+	accordion = jQuery('.accordion'),
+	menu_category = jQuery('.link'),
+	menu_list = jQuery('.sub-menu li'),
+	menu_page = jQuery('.accordion .link'),
+	video = jQuery('.video'),
+	section = jQuery('.section-img');
 
 
 
-                          /*
-			* Explore button intialization
-			*/
-            
-                jQuery(function() {
-	               var Accordion = function(el, multiple) {
-		           this.el = el || {};
-		           this.multiple = multiple || false;
+	 /*
+	* Explore button intialization
+	*/
 
-		          // Variables privadas
-		          var links = this.el.find('.link');
-		          // Evento
-		          links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-                  }
+	jQuery(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
 
-	           Accordion.prototype.dropdown = function(e) {
-		          var $el = e.data.el;
-			      $this = jQuery(this),
-			      $next = $this.next();
+			 // Variables privadas
+			 var links = this.el.find('.link');
+			// Evento
+			links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+		}
 
-		          $next.slideToggle();
-		          $this.parent().toggleClass('open');
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+			$this = jQuery(this),
+			$next = $this.next();
 
-		          if (!e.data.multiple) {
-			         $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-		          };
-	           }	
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
 
-	               var accordion = new Accordion(jQuery('#accordion'), false);
-              });
-    
-   /* Burger Menu Icon */ 
-  
-             burger_icon.click(function(){
-		          jQuery(this).toggleClass('open');
-                    accordion.toggleClass('accordion-active');
-     
-	         });
-    
-             menu_list.click(function(){
-		         burger_icon.toggleClass('open');
-                 setTimeout(function(){
-                    accordion.toggleClass('accordion-active');
-                 }, 1000);
-	         });
-            /* Prev Next buttons */ 
-            
-                go_next.click(function(){
-                    $.fn.fullpage.moveSectionDown();
-                });
-    
-                go_prev.click(function(){
-                    $.fn.fullpage.moveSectionUp();
-                });
+			if (!e.data.multiple) {
+				$el.find('.sub-menu').not($next).slideUp().parent().removeClass('open');
+			};
+		}	
+
+		var accordion = new Accordion(jQuery('#accordion'), false);
+	});
+
+
+	jQuery('#header_nav_menu .menu-item-has-children').prepend('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
+	jQuery('#header_nav_menu #accordion').prepend('<h3>Menu</h3>');
+
+	
+	
+	jQuery('#header_nav_menu .menu-item-has-children>a').click(function(event) {
+		event.preventDefault();
+		var $this = jQuery(this),
+		$next = $this.next();
+		$this.parent().toggleClass('submenu-opened');
+		jQuery('#header_nav_menu .sub-menu').not($next).slideUp().parent().removeClass('submenu-opened');
+		$next.slideToggle();
+	});
+
+
+
+	/* Burger Menu Icon */ 
+
+	burger_icon.click(function(){
+		jQuery(this).toggleClass('open');
+		accordion.toggleClass('accordion-active');
+
+	});
+
+	menu_list.click(function(){
+		burger_icon.toggleClass('open');
+		setTimeout(function(){
+			accordion.toggleClass('accordion-active');
+		}, 1000);
+	});
+	/* Prev Next buttons */ 
+
+	go_next.click(function(){
+		$.fn.fullpage.moveSectionDown();
+	});
+
+	go_prev.click(function(){
+		$.fn.fullpage.moveSectionUp();
+	});
 	jQuery('#core').fullpage({
 		sectionsColor: ['#333', '#333', '#333', '#333', '#333'],
 		anchors: ['culture', 'vishen', 'book', 'team'],
 		scrollingSpeed: 700,
-		menu: '.submenu',
+		menu: '.sub-menu',
 
 		afterLoad: function(anchorLink, index){
 			desc_text.addClass('decsription-short-text-active');
