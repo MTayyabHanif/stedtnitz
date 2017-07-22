@@ -16,10 +16,6 @@ if (is_page_template('boxed-page.php')) {
 <article id="post-<?php the_ID(); ?>" <?php post_class($isBoxed); ?>>
 	<div class="entry-content">
 		<?php
-			$images = json_decode(get_post_meta( $post->ID, 'background_images')[0]);
-			foreach ($images as $image_id) {
-				echo '<img src="'. wp_get_attachment_image_src($image_id)[0] .'" />';
-			}
 			the_content();
 		?>
 	</div><!-- .entry-content -->
