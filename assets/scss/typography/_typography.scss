@@ -14,7 +14,7 @@ b, strong {
     font-weight: 400;
 }
 p{
-	@include font-size(1.5); 
+	@include font-size(1.05); 
 	line-height: 1.55;
 	color: #333333;
 }

@@ -125,6 +125,15 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
   /* IE9 Compat Modes */
   src: local("Khula ExtraBold"), local("Khula-ExtraBold"), url("./assets/fonts/Khula/khula-v2-latin-800.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Khula/khula-v2-latin-800.woff2") format("woff2"), url("./assets/fonts/Khula/khula-v2-latin-800.woff") format("woff"), url("./assets/fonts/Khula/khula-v2-latin-800.ttf") format("truetype"), url("./assets/fonts/Khula/khula-v2-latin-800.svg#Khula") format("svg");
   /* Legacy iOS */ }
+/* varela-round-regular - latin-ext_hebrew_vietnamese_latin */
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Varela Round Regular"), local("VarelaRound-Regular"), url("./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.woff2") format("woff2"), url("./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.woff") format("woff"), url("./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.ttf") format("truetype"), url("./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.svg#VarelaRound") format("svg");
+  /* Legacy iOS */ }
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -1039,8 +1048,8 @@ b, strong {
   font-weight: 400; }
 
 p {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 16.8px;
+  font-size: 1.05rem;
   line-height: 1.55;
   color: #333333; }
 
@@ -1053,18 +1062,18 @@ small, .font_small {
   font-size: 0.667rem; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Khula", sans-serif;
+  font-family: "Varela Round", sans-serif;
   clear: both; }
 
 h1, h2, h3, h4 {
   margin: 1.414em 0 0.5em;
   font-weight: 800;
-  line-height: 1.2; }
+  line-height: 0.995; }
 
 h1 {
   margin-top: 0; }
   h1 ~ p {
-    font-family: "Khula", sans-serif;
+    font-family: "Varela Round", sans-serif;
     font-weight: 600;
     line-height: 1.3;
     font-size: 32px;
@@ -1079,24 +1088,24 @@ h1 {
   margin: 4.4rem auto 1rem; }
 
 h1 {
-  font-size: 52.048px;
-  font-size: 3.253rem; }
+  font-size: 39.248px;
+  font-size: 2.453rem; }
 
 h2 {
-  font-size: 43.168px;
-  font-size: 2.698rem; }
+  font-size: 33.568px;
+  font-size: 2.098rem; }
 
 h3 {
-  font-size: 37.232px;
-  font-size: 2.327rem; }
+  font-size: 29.712px;
+  font-size: 1.857rem; }
 
 h4 {
-  font-size: 30.384px;
-  font-size: 1.899rem; }
+  font-size: 23.984px;
+  font-size: 1.499rem; }
 
 h5 {
-  font-size: 22.624px;
-  font-size: 1.414rem; }
+  font-size: 19.424px;
+  font-size: 1.214rem; }
 
 h6 {
   font-size: 18.56px;
@@ -1405,6 +1414,9 @@ a {
     margin-left: 4px;
     margin-right: 4px; }
 
+.posts-navigation .nav-links {
+  margin: 10px auto 24px; }
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -1502,23 +1514,26 @@ a {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+#main.site-main {
+  margin-top: 6rem; }
+
 div.postlist.row {
   max-width: 1380px;
-  margin: 0 auto;
-  padding: 3.5rem 0; }
+  margin: 0 auto; }
   div.postlist.row .blog-header {
-    text-align: center;
-    margin-top: 6rem; }
-    div.postlist.row .blog-header h1 {
+    text-align: center; }
+    div.postlist.row .blog-header .page-title {
       position: relative; }
-      div.postlist.row .blog-header h1:after {
+      div.postlist.row .blog-header .page-title:after {
         content: "";
         height: 4px;
         width: 20%;
         background-color: black;
         position: absolute;
-        bottom: 0;
+        bottom: -35px;
         left: 39%; }
+  div.postlist.row .category.blog-header {
+    margin-top: 0rem; }
   div.postlist.row article .post-data {
     padding: 0rem 2rem 2rem; }
   div.postlist.row article .post-link {
@@ -1527,17 +1542,20 @@ div.postlist.row {
     text-decoration: none;
     color: #676b72;
     text-align: center;
-    -webkit-transition: all .25s ease-out;
-    -moz-transition: all .25s ease-out;
-    -ms-transition: all .25s ease-out;
-    -o-transition: all .25s ease-out;
-    transition: all .25s ease-out;
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .15s ease-out;
+    -ms-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    transition: all .15s ease-out;
     border: 1px solid #efefef;
-    border-radius: 6px 6px 0px 0px; }
-  div.postlist.row article .post-link:hover {
-    box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.15); }
+    border-radius: 6px 6px 0px 0px;
+    box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.2); }
+    div.postlist.row article .post-link:hover, div.postlist.row article .post-link:active, div.postlist.row article .post-link:focus {
+      box-shadow: 0px 5px 10px 0px rgba(68, 78, 127, 0.15); }
   div.postlist.row article .post-link:hover .post-title {
-    color: #00b4f4; }
+    color: #00b4f4;
+    border-bottom: 1px solid #00b4f4;
+    display: inline-block; }
   div.postlist.row article header {
     max-height: 4.65rem;
     overflow: hidden;
@@ -1551,6 +1569,7 @@ div.postlist.row {
   div.postlist.row article .post-title {
     color: #333;
     margin: 1.5rem 0rem .5rem;
+    border-bottom: 1px solid transparent;
     padding: 0;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -1807,13 +1826,13 @@ ul#accordion:before {
 
 /* MENU ICON */
 #menu-icon {
+  cursor: pointer;
   width: 74px;
   height: 64px;
   position: fixed;
   z-index: 500;
-  right: 1px;
-  cursor: pointer;
-  top: 0; }
+  right: 10px;
+  top: 14px; }
 
 #menu-icon:hover {
   -moz-animation: burger .6s;
@@ -1823,7 +1842,6 @@ ul#accordion:before {
 .bar {
   width: 40px;
   -webkit-transition: all 0.4s;
-  height: 8px;
   border: 2px solid black;
   position: absolute;
   border-radius: 10px; }
@@ -1834,25 +1852,18 @@ ul#accordion:before {
 
 .middle {
   left: 24%;
-  top: 47%;
+  top: 44%;
   -webkit-transition: all 0.35s; }
 
 .bottom {
   left: 24%;
-  top: 66%; }
+  top: 60%; }
 
 #menu-icon.open .bar {
-  border: 2px solid white;
-  height: 7px; }
+  border: 2px solid white; }
 
 #menu-icon.open .middle {
-  width: 24px;
-  height: 24px;
-  top: 27%;
-  left: 35%;
-  border-radius: 50%;
-  background-color: black;
-  opacity: 0.3; }
+  opacity: 0; }
 
 #menu-icon.open .top {
   -webkit-transform: rotate(45deg);
@@ -1867,18 +1878,27 @@ ul#accordion:before {
   border-radius: 10px;
   background-color: white; }
 
+header.top-header {
+  background-color: white;
+  padding: 12px 20px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 120;
+  top: 0;
+  box-shadow: 0px 0px 10px 0px #b7b7b7; }
+
 .custom-logo-link {
-  position: absolute;
+  position: relative;
   top: 0; }
   .custom-logo-link img {
-    width: 140px; }
+    width: 60px; }
 
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
 .site-footer {
   width: 100%;
-  min-height: 75px;
+  min-height: 62px;
   margin-top: 5rem;
   border-top: 1px solid #e4e4e4; }
   .site-footer .site-info {
@@ -1889,13 +1909,16 @@ ul#accordion:before {
 /*--------------------------------------------------------------
 ## Single page
 --------------------------------------------------------------*/
-article.single-post, .post-nav {
+article.single-post {
   max-width: 860px;
-  margin: 12rem auto 0; }
-  article.single-post h1.post-title, .post-nav h1.post-title {
+  margin: 0 auto;
+  padding: 2rem 0.8rem; }
+  article.single-post h1.post-title {
     text-align: center;
-    position: relative; }
-    article.single-post h1.post-title:after, .post-nav h1.post-title:after {
+    position: relative;
+    padding-bottom: 2rem;
+    margin-bottom: 4rem; }
+    article.single-post h1.post-title:after {
       content: "";
       height: 4px;
       width: 100px;
@@ -1904,25 +1927,29 @@ article.single-post, .post-nav {
       bottom: -12px;
       left: 50%;
       margin-left: -45px; }
-  article.single-post .excerpt-text, .post-nav .excerpt-text {
-    padding-bottom: 2rem;
+  article.single-post .excerpt-text {
     border-bottom: 1px solid #dadada; }
+  article.single-post footer {
+    padding: 2rem 1rem; }
+
+.post-nav.next-prev ul:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 80px;
+  width: 1px;
+  background-color: #d6d6d6;
+  top: -40%; }
 
 .post-nav {
-  padding-bottom: 4rem;
-  border-bottom: 1px solid #dadada; }
+  max-width: 860px;
+  padding: 4rem 0.8rem;
+  margin: 2rem auto 0;
+  border-top: 1px solid #dadada; }
   .post-nav ul {
     margin: 0;
     padding: 0;
     position: relative; }
-    .post-nav ul:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      height: 80px;
-      width: 1px;
-      background-color: #d6d6d6;
-      top: -40%; }
   .post-nav .pager.flat span, .post-nav .pager.flat a {
     border: none;
     display: block;
@@ -1996,9 +2023,8 @@ article.single-post, .post-nav {
       top: -1px; }
 
 .post-tags {
-  margin: 0;
-  text-transform: uppercase;
-  margin-bottom: 1rem; }
+  margin: 2rem 0;
+  text-transform: uppercase; }
   .post-tags li.tag-item {
     margin-right: 8px;
     color: #000;
@@ -2385,7 +2411,24 @@ object {
 --------------------------------------------------------------*/
 @media screen and (max-width: 480px) {
   div.postlist.row article .post-link {
-    border: 1px solid #ababab; } }
+    border: 1px solid #cecece; } }
+@media screen and (max-width: 550px) {
+  .post-nav {
+    padding: 2rem 0.8rem;
+    margin-top: 0rem; }
+    .post-nav li.prev {
+      margin-bottom: 40px; }
+    .post-nav li.prev, .post-nav li.next {
+      text-align: center; }
+
+  .post-nav.next-prev ul:after {
+    content: "";
+    position: absolute;
+    left: 41%;
+    height: 2px;
+    width: 80px;
+    background-color: #ececec;
+    top: 48%; } }
 @media (min-width: 43.75em) {
   h1 {
     font-size: 71.248px;
@@ -2401,7 +2444,14 @@ object {
 
   h4 {
     font-size: 36.784px;
-    font-size: 2.299rem; } }
+    font-size: 2.299rem; }
+
+  h1, h2, h3, h4 {
+    line-height: 1.02; }
+
+  p {
+    font-size: 20px;
+    font-size: 1.25rem; } }
 @media (min-width: 56.25em) {
   h1 {
     font-size: 80.848px;
@@ -2417,4 +2467,11 @@ object {
 
   h4 {
     font-size: 31.984px;
-    font-size: 1.999rem; } }
+    font-size: 1.999rem; }
+
+  h1, h2, h3, h4 {
+    line-height: 1.175; }
+
+  p {
+    font-size: 20.8px;
+    font-size: 1.3rem; } }

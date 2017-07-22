@@ -1,21 +1,14 @@
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * The template for displaying category pages
  *
  * @package Stedtnitz
  */
+			
 
 get_header(); ?>
 
 		<main id="main" class="site-main">
-
 		<?php
 		if ( have_posts() ) :
 
@@ -28,9 +21,12 @@ get_header(); ?>
 			endif;
 			?>
 			<div class="postlist row center-xs center-md center-sm center-lg">
-				<div class="blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h1 class="page-title">Our Blog</h1>
-				</div>
+				<header class="category blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<?php
+						the_archive_title( '<h2 class="page-title">', '</h2>' );
+						the_archive_description( '<div class="archive-description">', '</div>' );
+					?>
+				</header>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();

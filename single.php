@@ -18,8 +18,14 @@ get_header(); ?>
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', get_post_format() );
 		?>
-		<div class="post-nav pagination">
 
+		<?php if ($prevURL && $prevURL ) { ?>
+			<div class="post-nav pagination next-prev">
+		<?php 
+		}else{ ?>
+			<div class="post-nav pagination">
+		<?php 
+		} ?>
 			<ul class="navigation row pager flat">
 				<?php if ($prevURL) { ?>
 					<li class="prev col-xs-12 col-sm-6 col-md-6 col-lg-6">

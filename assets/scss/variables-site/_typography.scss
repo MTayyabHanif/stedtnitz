@@ -1,5 +1,5 @@
 $font__main: 'Lato', sans-serif;
-$font__heading: 'Khula', sans-serif;
+$font__heading: 'Varela Round', sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
@@ -109,4 +109,18 @@ $font__line-height-pre: 1.6;
 	url('./assets/fonts/Khula/khula-v2-latin-800.woff') format('woff'), /* Modern Browsers */
 	url('./assets/fonts/Khula/khula-v2-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
 	url('./assets/fonts/Khula/khula-v2-latin-800.svg#Khula') format('svg'); /* Legacy iOS */
+}
+
+/* varela-round-regular - latin-ext_hebrew_vietnamese_latin */
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Varela Round Regular'), local('VarelaRound-Regular'),
+       url('./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/varela/varela-round-v8-latin-ext_hebrew_vietnamese_latin-regular.svg#VarelaRound') format('svg'); /* Legacy iOS */
 }

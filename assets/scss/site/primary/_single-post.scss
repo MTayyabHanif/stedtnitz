@@ -1,9 +1,12 @@
-article.single-post, .post-nav{
+article.single-post{
 	max-width: 860px;
-	margin: 12rem auto 0;
+	margin: 0 auto;
+	padding: 2rem 0.8rem;
 	h1.post-title{
 		text-align: center;
 		position: relative;
+		padding-bottom: 2rem;
+		margin-bottom: 4rem;
 		&:after {
 			content: "";
 			height: 4px;
@@ -16,26 +19,32 @@ article.single-post, .post-nav{
 		}
 	}
 	.excerpt-text{
-		padding-bottom: 2rem;
 		border-bottom: 1px solid #dadada;
 	}
+	footer{
+		padding: 2rem 1rem;
+	}
 } 
+.post-nav.next-prev{
+	ul:after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		height: 80px;
+		width: 1px;
+		background-color: #d6d6d6;
+		top: -40%;
+	}
+}
 .post-nav{
-	padding-bottom: 4rem;
-	border-bottom: 1px solid #dadada;
+	max-width: 860px;
+	padding: 4rem 0.8rem;
+	margin: 2rem auto 0;
+	border-top: 1px solid #dadada;
 	ul{
 		margin: 0;
 		padding: 0;
 		position: relative;
-		&:after {
-			content: "";
-			position: absolute;
-			left: 50%;
-			height: 80px;
-			width: 1px;
-			background-color: #d6d6d6;
-			top: -40%;
-		}
 	}
 	.pager.flat span, .pager.flat a {
 		border: none;
@@ -125,9 +134,8 @@ article.single-post, .post-nav{
 	}
 }
 .post-tags{
-	margin: 0;
+	margin: 2rem 0;
 	text-transform: uppercase;
-	margin-bottom: 1rem;
 	li.tag-item{
 		margin-right: 8px;
 		color: #000;

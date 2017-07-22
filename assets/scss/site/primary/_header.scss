@@ -219,13 +219,13 @@ ul#accordion:before {
 
  /* MENU ICON */
  #menu-icon {
+ 	cursor: pointer;
  	width: 74px;
  	height: 64px;
  	position: fixed;
  	z-index: 500;
- 	right: 1px;
- 	cursor: pointer;
- 	top: 0;
+ 	right: 10px;
+ 	top: 14px;
  }
  #menu-icon:hover {
  	-moz-animation: burger .6s;
@@ -235,7 +235,6 @@ ul#accordion:before {
  .bar {
  	width: 40px;
  	-webkit-transition: all 0.4s;
- 	height: 8px;
  	border: 2px solid black;
  	position: absolute;
  	border-radius: 10px;
@@ -248,24 +247,18 @@ ul#accordion:before {
 
  .middle {
  	left: 24%;
- 	top: 47%;
+ 	top: 44%;
  	-webkit-transition: all 0.35s;
  }
 
  .bottom {
  	left: 24%;
- 	top: 66%;
+ 	top: 60%;
  }
- #menu-icon.open .bar{border: 2px solid white;height: 7px;}
+ #menu-icon.open .bar{border: 2px solid white;}
 
  #menu-icon.open .middle {
- 	width: 24px;
- 	height: 24px;
- 	top: 27%;
- 	left: 35%;
- 	border-radius: 50%;
- 	background-color: black;
- 	opacity: 0.3;
+ 	opacity: 0;
  }
 
  #menu-icon.open .top {
@@ -279,10 +272,19 @@ ul#accordion:before {
  	top:40%;border-radius:10px;background-color:white;
  }
 
+ header.top-header{
+ 	background-color: white;
+ 	padding: 12px 20px 0;
+ 	position: fixed;
+ 	width: 100%;
+ 	z-index: 120; 
+ 	top: 0;
+ 	box-shadow: 0px 0px 10px 0px #b7b7b7;
+ }
  .custom-logo-link{
- 	position: absolute;
+ 	position: relative;
  	top: 0;
  	img{
- 		width: 140px;
+ 		width: 60px;
  	}
  }
