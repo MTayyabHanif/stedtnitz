@@ -16,10 +16,10 @@ if (is_page_template('boxed-page.php')) {
 <article id="post-<?php the_ID(); ?>" <?php post_class($isBoxed); ?>>
 	<div class="entry-content">
 		<?php
-			$images = json_decode(get_post_meta( $post->ID, 'background_images')[0]);
-			foreach ($images as $image_id) {
-				echo wp_get_attachment_image($image_id, 'background_large');
-			}
+		// 	$images = json_decode(get_post_meta( $post->ID, 'background_images')[0]);
+		// 	foreach ($images as $image_id) {
+		// 		echo wp_get_attachment_image($image_id, 'background_large');
+		// 	}
 			the_content();
 		?>
 	</div><!-- .entry-content -->
