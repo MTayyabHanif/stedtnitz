@@ -7,32 +7,34 @@
  * @package Stedtnitz
  */
 // Use this thing to make them work.
-$prevURL = get_permalink(get_previous_post(true)->ID);
-$nextURL = get_permalink(get_next_post(true)->ID);
-get_header(); ?>
+get_header();
+$previous_post =  get_previous_post_link('%link');
+$next_post = get_next_post_link('%link');
+echo "alksdalsk";
+ ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
 		<?php
 		while ( have_posts() ) : the_post();
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', 'single' );
 		?>
 		<div class="post-nav pagination">
 
 			<ul class="navigation row pager flat">
-				<?php if ($prevURL) { ?>
+				<?php if ($previous_post) { ?>
 					<li class="prev col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<span class="label tag">Prev Post</span>
-						<?php previous_post_link('%link'); ?>
+						<?php echo $previous_post; ?>
 					</li>
 				<?php 
 				} ?>
 
-				<?php if ($nextURL) { ?>
+				<?php if ($next_post) { ?>
 					<li class="next col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<span class="label tag">Next Post</span>
-						<?php next_post_link('%link'); ?>
+						<?php echo $next_post; ?>
 					</li>
 				<?php 
 				} ?>
