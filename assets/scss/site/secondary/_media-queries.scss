@@ -27,6 +27,20 @@
 			top: 48%;
 		}
 	}
+	.post-author{
+		text-align: center;
+		h3:after{
+			bottom: -6px;
+			left: 44%;
+		}
+		.author-image{
+			margin-bottom: 16px;
+			img{   
+				text-align: center;
+				margin: 0 auto;
+			}
+		}
+	}
 }
 
 @media (min-width: 43.75em) {

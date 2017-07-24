@@ -1,0 +1,144 @@
+
+.icono-search {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	margin: 4px 4px 8px 8px;
+	border: 2px solid;
+}
+[class*=icono-] {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	font-style: normal;
+	color: #333;
+	text-align: left;
+	text-indent: -9999px;
+	direction: ltr;
+}
+[class*=icono-], [class*=icono-] * {
+	box-sizing: border-box;
+}
+[class*=icono-]:after, [class*=icono-]:before {
+	content: '';
+	pointer-events: none;
+} 
+
+.icono-search:before {
+	width: 4px;
+	height: 11px;
+	box-shadow: inset 0 0 0 32px;
+	top: 19px;
+	border-radius: 0 0 1px 1px;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+#search-icon{
+	position: fixed;
+	top: 18px;
+	right: 124px;
+	cursor: pointer;
+	-webkit-transition: all .25s ease-out;
+	-moz-transition: all .25s ease-out;
+	-ms-transition: all .25s ease-out;
+	-o-transition: all .25s ease-out;
+	transition: all .25s ease-out;
+	padding: 0.5rem 0.8rem 0.5rem 0.3rem;
+	&:hover{
+		background-color: #f7f5f5;
+	}
+	&:before{
+		content: "";
+		position: absolute;
+		width: 1px;
+		height: 53px;
+		background-color: #dadada;
+		top: 0;
+		right: -26px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+.searchoverlay{
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:2000;
+	display:none;
+	width:100%;
+	height:100%;
+	background:#191a1a;
+	background:rgba(#191a1a, 0.95);
+
+	.closesearch{
+		position:absolute;
+		top:30px;
+		right:30px;
+		cursor:pointer;
+		width: 32px;
+		height: 36px;
+		&:after, &:before {
+			content: "";
+			height: 35px;
+			border-radius: 10px;
+			width: 6px;
+			background-color: #fff;
+			position: absolute;
+			right: 12px;
+		}
+		&:after {
+			transform: rotate(45deg);
+		}
+		&:before {
+			transform: rotate(-45deg);
+		}
+	}
+
+	.searchbar {
+		position: absolute;
+		top: 10%;
+		left: 50%;
+		max-width:700px;
+		width: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+
+	@media (max-width:800px){
+		.searchbar{
+			width:80%;
+		}
+	}
+
+}
+#ajaxsearchpro1_1{
+	background: none !important;
+}
+.result-section{
+	position: relative !important;
+	top: 50% !important;
+	left: 50%;
+	width: 90%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}

@@ -14,6 +14,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body <?php body_class(); ?>>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip header and navigation, jump to content', 'stedtnitz' ); ?></a>
@@ -38,14 +39,24 @@ if (is_page()) { ?>
  }else{ 
 
 	?>
-
+	<div id="search-icon" class="showsearch"><i class="icono-search"></i></div>
 	</header>
-	<div id="menu-icon">
+	<section class="searchoverlay">
+		<i class="icon closesearch"></i>
+		<div class="searchbar">
+		<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
+		</div>
+		<div class="result-section">
+		<?php echo do_shortcode('[wpdreams_ajaxsearchpro_results id=1 element="div"]'); ?>
+		</div>
+	</section>
+
+	<div id="menu-icon" class="light-menu">
 		<div class="top bar"></div>
 		<div class="middle bar"></div>
 		<div class="bottom bar"></div>
 	</div>
-	<div id="header_nav_menu">
+	<div id="header_nav_menu" class="light-menu">
 		<?php
 		wp_nav_menu(
 			array(

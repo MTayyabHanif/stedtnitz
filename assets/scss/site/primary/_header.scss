@@ -170,7 +170,8 @@ ul#accordion:before {
  }
 
  .sub-menu li.current-menu-item a{
- 	color:#fecc00;
+ 	color: $primary;
+ 	font-weight: 900;
  	-moz-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
  	-webkit-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
  	transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
@@ -178,7 +179,7 @@ ul#accordion:before {
 
  .sub-menu li.current-menu-item a:before{
  	content:"";
- 	background:#fecc00;
+ 	background: $primary;
  	height: 100%;
  	width:3px;
  	position:absolute;
@@ -190,7 +191,7 @@ ul#accordion:before {
  }
 
  .sub-menu li.current-menu-item a:hover{
- 	color:#fecc00;
+ 	color: $primary;
  }
 
  .sub-menu a:hover {
@@ -209,7 +210,50 @@ ul#accordion:before {
  }
 
 
-
+ #header_nav_menu.light-menu>#accordion{
+ 	&:before{
+ 		background-color: #717171;
+ 	}
+ 	background: #fbfbfb;
+ 	box-shadow: 0 0 10px 0px rgba(51, 51, 51, 0.39);
+ 	h3{
+ 		color: #717171;
+ 	}
+ 	li.menu-item:hover{svg path{ fill:#444444;}}@P
+ 	li.menu-item>a, li.menu-item a{
+ 		color: #797979;
+ 		&:hover {
+ 			color: #444444;
+ 		}
+ 	}
+ 	.sub-menu{
+ 		background: #e8e7e7;
+ 	}
+ 	li.submenu-opened{
+ 		.chevron-icon{
+ 			position: relative;
+ 			z-index: 4;
+ 		}
+ 		>a{
+ 			color: #000;
+ 			background-color: #ececec;
+ 			position: relative;
+ 			z-index: 1;
+ 		}
+ 		a{
+ 			color: #525252;
+ 			&:before{
+ 				background: #5a5a5a;
+ 				width: 4px;
+ 			}
+ 		}
+ 	}
+ 	li.current-menu-item a {
+ 		color:  $primary;
+ 		&:hover{color:  $primary;}
+ 		&:before{background:  $primary;}
+ 	}
+ }
 
 
 
@@ -228,14 +272,14 @@ ul#accordion:before {
  	top: 14px;
  }
  #menu-icon:hover {
- 	-moz-animation: burger .6s;
- 	-webkit-animation: burger .6s;
- 	animation: burger .6s;
+ 	-moz-animation: burger .8s;
+ 	-webkit-animation: burger .8s;
+ 	animation: burger .8s;
  }
  .bar {
- 	width: 40px;
+ 	width: 36px;
  	-webkit-transition: all 0.4s;
- 	border: 2px solid black;
+ 	border: 2px solid #333;
  	position: absolute;
  	border-radius: 10px;
  }
@@ -255,7 +299,8 @@ ul#accordion:before {
  	left: 24%;
  	top: 60%;
  }
- #menu-icon.open .bar{border: 2px solid white;}
+#menu-icon.open .bar{border: 2px solid white;}
+#menu-icon.light-menu.open .bar{border: 2px solid #333;}
 
  #menu-icon.open .middle {
  	opacity: 0;
@@ -286,5 +331,17 @@ ul#accordion:before {
  	top: 0;
  	img{
  		width: 60px;
+ 	}
+ }
+
+ @keyframes burger {
+ 	0% {
+ 		transform: scale(1, 1);
+ 	}
+ 	50% {
+ 		transform: scale(1.075, 1.075);
+ 	}
+ 	100% {
+ 		transform: scale(1, 1);
  	}
  }

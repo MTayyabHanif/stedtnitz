@@ -1,5 +1,8 @@
 /***Comments ****/
-
+#comments{
+	max-width: 800px;
+	margin: 0 auto;
+}
 #respond{
 	clear:both;
 	margin:15px 0 15px 0;
@@ -66,7 +69,7 @@
 }
 .comment-list li, .ping-list li{
 	margin:30px 0 5px 0;
-	padding:10px 0px;
+	padding:10px 25px;
 	list-style:none;
 	border: 1px solid #dfdfdf;
 	border-radius: 4px;
@@ -180,8 +183,8 @@ a.leavereplybutton:hover{
 }
 
 .comment-content{
-	padding: 10px 20px 45px;
-	margin: 25px 0 0;
+	padding: 10px 6px 45px;
+	margin: 0 auto;
 	font-size: 15px;
 	line-height: 1.5em !important;
 
@@ -201,6 +204,18 @@ a.leavereplybutton:hover{
 	font-weight: 800;
 	text-decoration: none;
 	color: black;
+}
+.comment-list li.bypostauthor .fn:after {
+    content: "Author Reply";
+    color: white;
+    background-color: #3c76e6;
+    padding: 6px 12px;
+    font-size: 0.6rem;
+    position: relative;
+    top: -3px;
+    right: -12px;
+    border-radius: 4px;
+        font-family: "Varela Round";
 }
 .comment-list li .fn a, .comment-list li .cfn a{
 	margin: 0;
