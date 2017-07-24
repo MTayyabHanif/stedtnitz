@@ -211,15 +211,14 @@ ul#accordion:before {
 
 
  #header_nav_menu.light-menu>#accordion{
- 	&:before{
- 		background-color: #717171;
- 	}
+ 	&:before{background-color: #717171;}
+ 	
  	background: #fbfbfb;
  	box-shadow: 0 0 10px 0px rgba(51, 51, 51, 0.39);
  	h3{
  		color: #717171;
  	}
- 	li.menu-item:hover{svg path{ fill:#444444;}}@P
+ 	li.menu-item:hover{svg path{ fill:#444444;}}
  	li.menu-item>a, li.menu-item a{
  		color: #797979;
  		&:hover {
