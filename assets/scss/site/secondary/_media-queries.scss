@@ -4,7 +4,15 @@
 	}
 }
 
+@media screen and ( min-width: 550px ){ // area of col-sm
+	.sidebar-side{
+		padding: 0px 20px;
+	}
+}
 @media screen and ( max-width: 550px ){ // this is where col-XS starts
+	.sidebar-side{
+		padding: 0px 20px;
+	}
 	.post-nav {
 		padding: 2rem 0.8rem;
 		margin-top: 0rem;
@@ -44,19 +52,19 @@
 }
 
 @media (min-width: 43.75em) {
-	h1{@include font-size(4.453)}
-	h2{@include font-size(3.498)}
-	h3{@include font-size(3.327)}
-	h4{@include font-size(2.299)}
-	h1, h2, h3, h4 {line-height: 1.02;}
-	p{@include font-size(1.25)}
+	h1{@include font-size(4.853)}
+	h2{@include font-size(3.898)}
+	h3{@include font-size(3.727)}
+	h4{@include font-size(2.699)}
+	h1, h2, h3, h4 {line-height: 1.18;}
+	p{@include font-size(1.4)}
 }
 
 @media (min-width: 56.25em) {
-	h1{@include font-size(5.053)}
-	h2{@include font-size(3.998)}
-	h3{@include font-size(3.627)}
-	h4{@include font-size(1.999)}
-	h1, h2, h3, h4 {line-height: 1.175;}
-	p{@include font-size(1.30)}
+	h1{@include font-size(5.453)}
+	h2{@include font-size(4.498)}
+	h3{@include font-size(4.027)}
+	h4{@include font-size(2.399)}
+	h1, h2, h3, h4 {line-height: 1.18;}
+	p{@include font-size(1.56)}
 }

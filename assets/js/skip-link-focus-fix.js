@@ -29,3 +29,17 @@
 		}, false );
 	}
 } )();
+jQuery(document).on("ready int:ready", function() {
+    var e = jQuery(".tab__name")
+      , t = jQuery(".tab__items").hide();
+    e.prependTo(".tabs-slice"),
+    e.click(function(n) {
+        n.preventDefault();
+        var i = jQuery(this)
+          , r = e.index(i);
+        e.removeClass("tab__name--active"),
+        i.addClass("tab__name--active"),
+        t.hide().eq(r).show().parent().addClass('tab__container--active');
+    }),
+    e.first().click()
+});

@@ -17,7 +17,11 @@ $featuredImageURL_single = $image_data_large[0];
 
 	<?php if (has_post_thumbnail()) { ?>
 		<div class="post-image">
-			<img src="<?php echo $featuredImageURL_single; ?>" alt="<?php the_title(); ?>">
+			<?php
+				$img_html = '<img src="' . $featuredImageURL_single . '" alt="' . get_the_title(). '">';
+				$img_html = apply_filters( 'bj_lazy_load_html', $img_html );
+				echo $img_html;
+			?>
 		</div>
 	<?php } ?>
 

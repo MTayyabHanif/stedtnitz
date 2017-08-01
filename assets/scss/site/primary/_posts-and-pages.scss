@@ -1,5 +1,5 @@
 #main.site-main{
-	margin-top: 6rem; 
+	margin-top: 4rem; 
 }
 div.postlist.row {
 	max-width: 1380px;
@@ -8,14 +8,17 @@ div.postlist.row {
 		text-align: center;
 		.page-title{
 			position: relative;
+			margin-top: 2.6rem;
+			margin-bottom: 4rem;
 			&:after {
 				content: "";
 				height: 4px;
-				width: 20%;
+				width: 12%;
 				background-color: black;
-				position: absolute;
-				bottom: -35px;
-				left: 39%;
+				position: relative;
+				bottom: -30px;
+				display: block;
+				margin: 0 auto;
 			}
 		}
 	}
@@ -26,7 +29,7 @@ div.postlist.row {
 	article .post-data {
 		padding: 0rem 2rem 2rem; 
 	}
-	article .post-link {
+	article .post-link, article .post-wrapper {
 		background-color: #fff;
 		margin: 20px;
 		text-decoration: none;
@@ -47,43 +50,43 @@ div.postlist.row {
 
 	article .post-link:hover .post-title {
 		color: $primary;
-		border-bottom: 1px solid $primary;;
-		display: inline-block;
 	}
 
-	article header {
-		max-height: 4.65rem;
+	article .post-title {
+		color: #333;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		@include font-size($font__size-on-small-post-title);
+		line-height: 1.48rem;
+		max-height: 4.6rem;
 		overflow: hidden;
 		-webkit-line-clamp: 2;
 		position: relative;
 		text-overflow: ellipsis;
 		white-space: normal;
 		word-wrap: break-word;
-		display: -webkit-box;
+		display: -webkit-inline-box;
 		-webkit-box-orient: vertical; 
 	}
-
-	article .post-title {
-		color: #333;
-		margin: 1.5rem 0rem .5rem;
-		border-bottom: 1px solid transparent;
-		padding: 0;
-		font-size: 1rem;
-		line-height: 1.5rem;
-		font-weight: 600; 
-	}
-
 	article .post-time {
 		color: #799eaf;
 		font-size: .72rem; 
+		font-family: "Lato";
+		margin: 6px auto 4px;
 	}
 	article .post-image {
-		max-height: 300px;
+		max-height: 252px;
 		overflow: hidden;
+		img{
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	article .lazy-hidden {
+		padding: 26%;
 	}
 	article .excerpt-text {
-		font-size: 0.8211rem;
-		line-height: 180%;
+		margin-top: 0.4rem;
 		height: 4.2rem;
 		overflow: hidden;
 		-webkit-line-clamp: 3;
@@ -94,15 +97,93 @@ div.postlist.row {
 		display: -webkit-box;
 		-webkit-box-orient: vertical; 
 	}
+	article .post-data header {
+		margin: 0 -0.8rem;
+		position: relative;
+		transition: all .6s ease-in-out;
+		&:before {
+			content: "";
+			height: 2px;
+			width: 6%;
+			background-color: #bdbbbb;
+			position: relative;
+			left: 0;
+			bottom: -82px;
+			display: block;
+			transition: all .6s ease-in-out;
+			z-index: 4;
+			margin: 0 auto;
+		}
+	} 
+	article .post-link:hover header:before {
+		width: 66%;
+		background-color: #00b4f4;
+	}
 
 	article .excerpt-text p {
-		font-size: 0.80211rem;
-		line-height: 180%;
+		@include font-size($font__size-on-excerpt);
+		line-height: 115%;
 		margin: 0;
+		color: #5f5f5f;
 		padding: 0; 
 	}
 }
-
+div.postlist.row .post-with-sidebar{
+	article .post-wrapper {text-align: left}
+	article .post-title {
+		max-height: 6rem;
+		@include font-size($font__size-on-one-big-post-title);
+		line-height: 2.18rem;
+		margin-top: 0.68rem;
+	}
+	article .post-data header {
+		margin: 0;
+		&:before {
+			content: none;
+		}
+	} 
+	article .post-permalink{text-decoration: none}
+	article .post-permalink:hover .post-title {
+		color: $primary;
+	}
+	article .post-cat {
+		color: #799eaf;
+		margin-top: 0.6rem;
+		font-size: .88rem;
+		font-family: "Lato";
+		a{
+			color: #799eaf;
+			display: inline-block;
+			text-decoration: none;
+			padding: 0 4px;
+			font-size: .78rem;
+			border-bottom: 1px solid transparent;
+			&:hover{
+				color: $primary;
+				border-bottom: 1px solid $primary;
+			}
+		}
+	}
+	article .post-time {
+		margin-top: 1rem;
+	}
+	article .post-image {
+		min-height: 400px;
+		max-height: none;
+		overflow: visible;
+	}
+	article .excerpt-text {
+		height: auto;
+		overflow: visible;
+		-webkit-line-clamp: initial;
+		text-overflow: initial;
+		display: block;
+		-webkit-box-orient: initial;
+	}
+	article .excerpt-text p {
+		@include font-size($font__size-on-one-big-excerpt);
+	}
+}
 .sticky {
 	display: block;
 }
