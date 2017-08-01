@@ -154,4 +154,3 @@ $output .= '</div>';
 $output .= $after_output;
 
 echo $output;
-echo "Mine Row is working";
