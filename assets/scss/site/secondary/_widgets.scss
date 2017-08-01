@@ -1,8 +1,63 @@
-.widget {
-	margin: 0 0 1.5em;
-
-	/* Make sure select elements fit in widgets. */
-	select {
-		max-width: 100%;
+.sidebar-side{
+	padding: 0 20px 0 40px;
+}
+aside.widget-area{
+	.widget {
+		margin: 0 0 3em;
+		select {
+			max-width: 100%;
+		}
+	}
+	font-size: 0.92rem;
+	color: #b0b8bd;
+	margin: 20px auto;
+	section.widget {
+		box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.16);
+		border: 1px solid #eceaea;
+		border-radius: 4px;
+		padding: 36px;
+		font-family: "Lato";
+	}
+	h2.widget-title {
+		font-size: 0.94rem;
+		text-transform: uppercase;
+		color: #4d515c;
+		margin: 0;
+		margin-bottom: 30px;
+		font-weight: 600;
+	}
+	ul
+	{
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			margin-bottom: 12px;
+			color: #5f5f5f;
+		}
+	}
+	a {
+		color: #b0b8bd !important;
+		text-decoration: none;
+		&:hover{
+			text-decoration: underline;
+			color: $primary !important;
+		}
+	}
+	section.widget.widget_categories {
+		ul li{
+			display: inline-flex;
+		}
+		a{
+			padding: 12px 16px;
+			background-color: #f3f3f3;
+			-webkit-transition: all .2s ease-out;
+			-moz-transition: all .2s ease-out;
+			-ms-transition: all .2s ease-out;
+			-o-transition: all .2s ease-out;
+			transition: all .2s ease-out;
+			margin-right: 4px;
+			margin-bottom: 4px;
+		}
 	}
 }

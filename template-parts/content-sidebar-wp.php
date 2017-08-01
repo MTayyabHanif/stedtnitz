@@ -1,14 +1,13 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying posts with WP sidebar
  *
  * @package Stedtnitz
  */
 $image_data_small = image_data( get_post_thumbnail_id(), 'column' );
 $featuredImageURL = $image_data_small[0];
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6 col-md-4 col-lg-4'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 col-md-6 col-lg-6'); ?>>
 	<a class="post-link external-link" href="<?php echo esc_url( get_permalink() ) ?>">
 
 	<?php if (has_post_thumbnail()) { ?>

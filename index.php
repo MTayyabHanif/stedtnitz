@@ -15,9 +15,9 @@
 get_header(); ?>
 
 		<main id="main" class="site-main">
-		
 		<?php
 		if ( have_posts() ) :
+		$counter = 0;
 
 			if ( is_home() && ! is_front_page() ) : ?>
 				<header>
@@ -26,24 +26,33 @@ get_header(); ?>
 
 			<?php
 			endif;
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$sidebar = 2;
 			?>
-			<div class="postlist row center-xs center-md center-sm center-lg">
+			<div class="postlist wp-sidebar row center-xs center-md center-sm center-lg">
 				<div class="blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h1 class="page-title">Our Blog</h1>
 				</div>
+				<div class="posts-side col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<div class="row">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
+				$counter++;
+				if ($sidebar == 1 && $counter  == 1 && $paged == 1 && is_home()) { // sidebar with one big post
+					get_template_part( 'template-parts/content-sidebar-with-post');
+				}elseif ($sidebar == 2) { // wp typical sidebar 
+					get_template_part( 'template-parts/content-sidebar-wp');
+				}else{ // no sidebar
+					get_template_part( 'template-parts/content', get_post_format() );
+				}
 			endwhile;
 			?>
+				</div>
+				</div><!-- #posts-side -->
+				<div class="sidebar-side col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<?php get_sidebar();  ?>
+				</div><!-- #sidebar-side -->
 			</div><!-- #row -->
 
 			<?php

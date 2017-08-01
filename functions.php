@@ -69,8 +69,6 @@ function stedtnitz_setup() {
 		'search-form',
 		'comment-form',
 		'comment-list',
-		'gallery',
-		'caption',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -133,8 +131,13 @@ add_action( 'widgets_init', 'stedtnitz_widgets_init' );
 function stedtnitz_scripts() {
 	wp_enqueue_style( 'stedtnitz-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), '20151215', true );
-	wp_enqueue_script( 'stedtnitz-pagepilling-script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '34255', false );
+	if (is_single()) {
+		wp_enqueue_style( 'font-awesome', "https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css" );
+	}
+
+	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), '34255', true );
+	
+	wp_enqueue_script( 'stedtnitz-pagepilling-script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '34255', true );
 
 	wp_enqueue_script( 'stedtnitz-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -192,7 +195,7 @@ function stednitz_calculate_reading_time( $post_id ) {
 
 	$word_count = str_word_count( $stripped_tags_content );
 
-	$reading_time = ceil( $word_count / 300 );
+	$reading_time = ceil( $word_count / 200 );
 
 	if ( $reading_time > 1 ) {
 		return $reading_time . ' mins read';
@@ -849,3 +852,26 @@ $attributes = array(
 
 vc_map($attributes);
 endif;
+
+
+
+
+
+
+/**
+ * Retrieve the Most Commented blog posts
+ * @param  int $postcount   Number of posts to return
+ * @return array            Array of latest posts
+ */
+function stedtnitz_most_commented_posts($postcount = 3){
+	$args = array(
+	              'posts_per_page' => $postcount,
+	              'post_status' => 'publish',
+	              'meta_key' => '_thumbnail_id',
+	              'orderby' => 'comment_count',
+	              'post_type' => 'post',
+	              'order' => 'DESC'
+	              );
+	$std_mostcommented_posts = query_posts( $args );
+	return $std_mostcommented_posts;
+}
