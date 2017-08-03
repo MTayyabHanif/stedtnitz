@@ -122,6 +122,16 @@ function stedtnitz_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => 'Footer 1 Widget',
+		'id'            => 'footer_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	// Usage of this widget area.
+	// dynamic_sidebar( 'footer_1' );
 }
 add_action( 'widgets_init', 'stedtnitz_widgets_init' );
 
@@ -853,11 +863,6 @@ $attributes = array(
 vc_map($attributes);
 endif;
 
-
-
-
-
-
 /**
  * Retrieve the Most Commented blog posts
  * @param  int $postcount   Number of posts to return
@@ -875,3 +880,9 @@ function stedtnitz_most_commented_posts($postcount = 3){
 	$std_mostcommented_posts = query_posts( $args );
 	return $std_mostcommented_posts;
 }
+
+// unregister all widgets
+ function stedtnit_unregister_default_widgets() {
+     unregister_widget('WP_Widget_Search');
+ }
+ add_action('widgets_init', 'stedtnit_unregister_default_widgets', 11);
