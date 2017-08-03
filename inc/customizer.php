@@ -56,8 +56,53 @@ function stedtnitz_customize_register( $wp_customize ) {
 	  'theme_supports' => '', // Rarely needed.
 	) );
 
+	$wp_customize->add_setting( 'stedtnitz_sidebar_options', array(
+	  'type' => 'theme_mod',
+	  'capability' => 'edit_theme_options',
+	  'default' => 'no_sidebar',
+	  'transport' => 'refresh', // or postMessage
+	) );
+
+	$wp_customize->add_control( 'stedtnitz_sidebar_options', array(
+	  'type' => 'select',
+	  'choices' => array('sidebar_1' => 'Sidebar 1', 'sidebar_2' => 'Sidebar 2', 'no_sidebar' => 'No Sidebar'),
+	  'priority' => 10, // Within the section.
+	  'section' => 'stedtnitz_sidebar', // Required, core or custom.
+	  'label' => __( 'Select Sidebar' ),
+	  'description' => __( 'Choose the sidebar option for your blog and single pages.' ),
+	  'input_attrs' => array(
+	    'placeholder' => __( 'Add footer text here.' ),
+	  ),
+	) );
+
+	$wp_customize->add_section( 'stedtnitz_sidebar', array(
+	  'title' => __( 'Sidebars', 'stedtnitz' ),
+	  'panel' => '', // Not typically needed.
+	  'priority' => 160,
+	  'capability' => 'edit_theme_options',
+	  'theme_supports' => '', // Rarely needed.
+	) );
+	$wp_customize->get_section( 'stedtnitz_sidebar' )->active_callback = 'stedtnitz_is_blog';
+
 }
 add_action( 'customize_register', 'stedtnitz_customize_register' );
+
+/**
+ * Callback function to see if it is a blog page for viewing options.
+ *
+ * @return void
+ */
+function stedtnitz_is_blog() {
+	if ( is_front_page() && is_home() ) {
+  		return false;
+	} elseif ( is_front_page() ) {
+	  return false;
+	} elseif ( is_home() ) {
+	  return true;
+	} else {
+	  return false;
+	}
+}
 
 /**
  * Render the site title for the selective refresh partial.

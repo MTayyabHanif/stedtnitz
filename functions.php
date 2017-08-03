@@ -114,6 +114,7 @@ add_action( 'after_setup_theme', 'stedtnitz_content_width', 0 );
  */
 function stedtnitz_widgets_init() {
 	register_sidebar( array(
+<<<<<<< HEAD
 	                        'name'          => esc_html__( 'Sidebar', 'stedtnitz' ),
 	                        'id'            => 'sidebar-1',
 	                        'description'   => esc_html__( 'Add widgets here.', 'stedtnitz' ),
@@ -122,6 +123,26 @@ function stedtnitz_widgets_init() {
 	                        'before_title'  => '<h2 class="widget-title">',
 	                        'after_title'   => '</h2>',
 	                        ) );
+=======
+		'name'          => esc_html__( 'Sidebar', 'stedtnitz' ),
+		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'stedtnitz' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer 1 Widget',
+		'id'            => 'footer_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	// Usage of this widget area.
+	// dynamic_sidebar( 'footer_1' );
+>>>>>>> bec83d6e328da44a52e80d48010061f8d386779b
 }
 add_action( 'widgets_init', 'stedtnitz_widgets_init' );
 
@@ -853,11 +874,6 @@ $attributes = array(
 vc_map($attributes);
 endif;
 
-
-
-
-
-
 /**
  * Retrieve the Most Commented blog posts
  * @param  int $postcount   Number of posts to return
@@ -876,6 +892,7 @@ function stedtnitz_most_commented_posts($postcount = 3){
 	return $std_mostcommented_posts;
 }
 
+<<<<<<< HEAD
 /**
  *
  * Page Pilling classes to Body Tag
@@ -897,3 +914,10 @@ function pp_disable_header($classes) {
 }
 // add_filter('body_class', 'pp_enabled_page');
 // add_filter('body_class', 'pp_disable_header');
+=======
+// unregister all widgets
+ function stedtnit_unregister_default_widgets() {
+     unregister_widget('WP_Widget_Search');
+ }
+ add_action('widgets_init', 'stedtnit_unregister_default_widgets', 11);
+>>>>>>> bec83d6e328da44a52e80d48010061f8d386779b

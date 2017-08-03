@@ -137,6 +137,7 @@ $output .= '</section>';
 $output .= $after_output;
 echo $output;
 
+
 $script = "<script>
 	
 	if (jQuery('#pagePilling').length !== 0) {
