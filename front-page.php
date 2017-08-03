@@ -7,9 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="./wp-content/themes/stedtnitz/assets/static-pagepilling/css/page.min.css" />
 	<link rel="stylesheet" type="text/css" href="./wp-content/themes/stedtnitz/assets/static-pagepilling/css/queries.css" />
 	<link rel="stylesheet" type="text/css" href="./wp-content/themes/stedtnitz/assets/static-pagepilling/css/animate.css" />
-	<script src="./wp-content/themes/stedtnitz/assets/static-pagepilling/js/jquery.js"></script>
+	<link rel='stylesheet' id='stedtnitz-style-css'  href='http://localhost/wordpress/wp-content/themes/stedtnitz/style.css?ver=4.8' type='text/css' media='all' />
+	<script type='text/javascript' src='http://localhost/wordpress/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+	<script type='text/javascript' src='http://localhost/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 	<script src="./wp-content/themes/stedtnitz/assets/static-pagepilling/js/script.js"></script>
-	<script src="./wp-content/themes/stedtnitz/assets/static-pagepilling/js/animate.min.js"></script>
 </head>
 <body>
 	<style>
@@ -129,7 +130,6 @@
 			<span>Prev</span>
 		</button>      
 	</div>
-
 	<div id="core">
 		<div class="section">
 			<div class="section-img" id="culture-section"></div>
@@ -189,22 +189,5 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		var animate = new Animate({
-			target: '[data-animate]',
-			animatedClass: 'visible',
-			offset: [0.5, 0.5],
-			delay: 0,
-			remove: false,
-			reverse: true,
-			scrolled: false,
-			debug: true,
-			onLoad: true,
-			onScroll: true,
-			onResize: false
-		});
-
-		animate.init();
-	</script>
 </body>
 </html>
