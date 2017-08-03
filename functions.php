@@ -379,6 +379,27 @@ $anim_params = array(
 				'description' => __( 'Check this box in order to enable page piling. This will make it act like container for page piling pages.', 'stedtnitz' ),
 				),
 			array(
+			'type' => 'dropdown',
+			'heading' => __( 'Scrolling Speed', 'stedtnitz' ),
+			'param_name' => 'pp_speed',
+			'value' => array(
+					__( '1', 'stedtnitz' ) => '1',
+					__( '2', 'stedtnitz' ) => '2',
+					__( '4', 'stedtnitz' ) => '4',
+					__( '5', 'stedtnitz' ) => '5',
+					__( '6', 'stedtnitz' ) => '6',
+					__( '7', 'stedtnitz' ) => '7',
+					__( '8', 'stedtnitz' ) => '8',
+					__( '9', 'stedtnitz' ) => '9',
+					__( '10', 'stedtnitz' ) => '10',
+				),
+			'dependency' => array(
+				'element' => 'page_piling',
+				'value' => 'enable',
+			),
+			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+		),
+			array(
 				'type' => 'dropdown',
 				'heading' => __( 'Section stretch', 'js_composer' ),
 				'param_name' => 'full_width',
@@ -391,6 +412,17 @@ $anim_params = array(
 				'dependency' => array(
 					'element' => 'page_piling',
 					'value' => 'disable',
+				),
+			),
+			array(
+				'type' => 'checkbox',
+				'heading' => __( 'Show header bar?', 'js_composer' ),
+				'param_name' => 'pp_show_header',
+				'description' => __( 'If checked section will be set to full height.', 'js_composer' ),
+				'value' => array( __( 'Yes', 'js_composer' ) => 'yes' ),
+				'dependency' => array(
+					'element' => 'page_piling',
+					'value' => 'enable',
 				),
 			),
 			array(
@@ -827,28 +859,6 @@ $attributes = array(
 			'type' => 'textfield',
 			'heading' => __( 'Anchor', 'stedtnitz' ),
 			'param_name' => 'pp_anchor',
-			'group' => __( 'Stedtnitz Special', 'js_composer' ),
-			'dependency' => array(
-				'element' => 'pp_option',
-				'value' => array('video', 'image'),
-			),
-			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
-		),
-		array(
-			'type' => 'dropdown',
-			'heading' => __( 'Scrolling Speed', 'stedtnitz' ),
-			'param_name' => 'pp_speed',
-			'value' => array(
-					__( '1', 'stedtnitz' ) => '1',
-					__( '2', 'stedtnitz' ) => '2',
-					__( '4', 'stedtnitz' ) => '4',
-					__( '5', 'stedtnitz' ) => '5',
-					__( '6', 'stedtnitz' ) => '6',
-					__( '7', 'stedtnitz' ) => '7',
-					__( '8', 'stedtnitz' ) => '8',
-					__( '9', 'stedtnitz' ) => '9',
-					__( '10', 'stedtnitz' ) => '10',
-				),
 			'group' => __( 'Stedtnitz Special', 'js_composer' ),
 			'dependency' => array(
 				'element' => 'pp_option',
