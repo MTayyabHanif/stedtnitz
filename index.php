@@ -27,7 +27,7 @@ get_header(); ?>
 			<?php
 			endif;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-			$sidebar = 2;
+			$sidebar = get_theme_mod('stedtnitz_sidebar_options');
 			?>
 			<div class="postlist wp-sidebar row center-xs center-md center-sm center-lg">
 				<div class="blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -39,9 +39,9 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 				$counter++;
-				if ($sidebar == 1 && $counter  == 1 && $paged == 1 && is_home()) { // sidebar with one big post
+				if ($sidebar == 'sidebar_1' && $counter  == 1 && $paged == 1 && is_home()) { // sidebar with one big post
 					get_template_part( 'template-parts/content-sidebar-with-post');
-				}elseif ($sidebar == 2) { // wp typical sidebar 
+				}elseif ($sidebar == 'sidebar_2') { // wp typical sidebar 
 					get_template_part( 'template-parts/content-sidebar-wp');
 				}else{ // no sidebar
 					get_template_part( 'template-parts/content', get_post_format() );
