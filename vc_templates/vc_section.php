@@ -33,8 +33,6 @@ extract( $atts );
 
 wp_enqueue_script( 'wpb_composer_front_js' );
 
-var_dump($atts['page_piling']);
-
 $el_class = $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
 $css_classes = array(
@@ -133,5 +131,3 @@ $output .= wpb_js_remove_wpautop( $content );
 $output .= '</section>';
 $output .= $after_output;
 echo $output;
-
-echo "Mine Section is working";
