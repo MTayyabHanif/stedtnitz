@@ -33,8 +33,10 @@ get_header(); ?>
 				<div class="blog-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h1 class="page-title">Our Blog</h1>
 				</div>
-				<div class="posts-side col-xs-12 col-sm-12 col-md-8 col-lg-8">
-				<div class="row">
+				<?php if ($sidebar == 'sidebar_2') { ?>
+					<div class="posts-side col-xs-12 col-sm-12 col-md-8 col-lg-8">
+					<div class="row">
+				<?php } ?>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -48,11 +50,13 @@ get_header(); ?>
 				}
 			endwhile;
 			?>
-				</div>
-				</div><!-- #posts-side -->
-				<div class="sidebar-side col-xs-12 col-sm-12 col-md-4 col-lg-4">
-					<?php get_sidebar();  ?>
-				</div><!-- #sidebar-side -->
+				<?php if ($sidebar == 'sidebar_2') { ?>
+					</div><!-- row -->
+					</div><!-- #posts-side -->
+					<div class="sidebar-side col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<?php get_sidebar();  ?>
+					</div><!-- #sidebar-side -->
+				<?php } ?>
 			</div><!-- #row -->
 
 			<?php

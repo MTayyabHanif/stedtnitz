@@ -2,34 +2,34 @@
 //# sourceMappingURL=jquery.fullpage.min.js.map
 
 
-$(document).ready(function() {
-	 var intro_overlay = $('.overlay'),  
-                explore_block = $(".explore-block"),
-                explore_arrow = $('.arrow-explore'),
-                title_cta = $('.CoverTitles-cta'),
-                title_line = $('.CoverSubtitle-line'),
-                title_txt_cta = $('.CoverTitles-cta-text'),
-                core = $('#core'),
-                go_next = $('#arrow-next'),
-                go_prev = $('#arrow-prev'),
-                scroll = $('.mouseScroll'),
-                desc_text = $('.decsription-short-text'),
-                logo_body = $('.logo-body'),
-                preload = $('#preloader'),
-                blackout = $('.overlay-black'),
-                social = $('ul.social'),
-                fb = $('#fb'),
-                twitter = $('#twitter'),
-                insta = $('#insta'),
-                youtube = $('#youtube'),
-                teleport = $('.overlay-translate'),
-                burger_icon = $('#menu-icon'),
-                accordion = $('.accordion'),
-                menu_category = $('.link'),
-                menu_list = $('.submenu li'),
-                menu_page = $('.accordion .link'),
-                video = $('.video'),
-                section = $('.section-img');
+jQuery(document).ready(function() {
+	 var intro_overlay = jQuery('.overlay'),  
+                explore_block = jQuery(".explore-block"),
+                explore_arrow = jQuery('.arrow-explore'),
+                title_cta = jQuery('.CoverTitles-cta'),
+                title_line = jQuery('.CoverSubtitle-line'),
+                title_txt_cta = jQuery('.CoverTitles-cta-text'),
+                core = jQuery('#core'),
+                go_next = jQuery('#arrow-next'),
+                go_prev = jQuery('#arrow-prev'),
+                scroll = jQuery('.mouseScroll'),
+                desc_text = jQuery('.decsription-short-text'),
+                logo_body = jQuery('.logo-body'),
+                preload = jQuery('#preloader'),
+                blackout = jQuery('.overlay-black'),
+                social = jQuery('ul.social'),
+                fb = jQuery('#fb'),
+                twitter = jQuery('#twitter'),
+                insta = jQuery('#insta'),
+                youtube = jQuery('#youtube'),
+                teleport = jQuery('.overlay-translate'),
+                burger_icon = jQuery('#menu-icon'),
+                accordion = jQuery('.accordion'),
+                menu_category = jQuery('.link'),
+                menu_list = jQuery('.submenu li'),
+                menu_page = jQuery('.accordion .link'),
+                video = jQuery('.video'),
+                section = jQuery('.section-img');
 
 
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
 			* Explore button intialization
 			*/
             
-                $(function() {
+                jQuery(function() {
 	               var Accordion = function(el, multiple) {
 		           this.el = el || {};
 		           this.multiple = multiple || false;
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 	           Accordion.prototype.dropdown = function(e) {
 		          var $el = e.data.el;
-			      $this = $(this),
+			      $this = jQuery(this),
 			      $next = $this.next();
 
 		          $next.slideToggle();
@@ -61,13 +61,13 @@ $(document).ready(function() {
 		          };
 	           }	
 
-	               var accordion = new Accordion($('#accordion'), false);
+	               var accordion = new Accordion(jQuery('#accordion'), false);
               });
     
    /* Burger Menu Icon */ 
   
              burger_icon.click(function(){
-		          $(this).toggleClass('open');
+		          jQuery(this).toggleClass('open');
                     accordion.toggleClass('accordion-active');
      
 	         });
@@ -87,7 +87,7 @@ $(document).ready(function() {
                 go_prev.click(function(){
                     $.fn.fullpage.moveSectionUp();
                 });
-	$('#core').fullpage({
+	jQuery('#core').fullpage({
 		sectionsColor: ['#333', '#333', '#333', '#333', '#333'],
 		anchors: ['culture', 'vishen', 'book', 'team'],
 		scrollingSpeed: 700,

@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class('page_pilling_vc'); ?>>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip header and navigation, jump to content', 'stedtnitz' ); ?></a>
 <header class="top-header">
 	<?php 
@@ -29,15 +29,8 @@
 		<?php 
 	}
 	?>
-<?php
-if (is_page()) { ?>
 </header>
 	<div id="content" class="site-content">
-<?php
-
- }else{ 
-
-	?>
 	<div id="search-icon" class="showsearch"><i class="icono-search"></i></div>
 	</header>
 	<section class="searchoverlay">
@@ -67,7 +60,6 @@ if (is_page()) { ?>
 				'theme_location' => 'header-menu',
 			)
 		);
-	}
 		?>
-		</div>
-<div id="page" class="site">
+	</div>
+	<div id="page" class="site">

@@ -148,7 +148,13 @@ if ( ! $parallax && $has_video_bg ) {
 $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, implode( ' ', array_filter( array_unique( $css_classes ) ) ), $this->settings['base'], $atts ) );
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
-$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
+if ($atts['pp_option'] === 'image' || $atts['pp_option'] === 'video') {
+$section_bg = wp_get_attachment_image_src( $atts['pp_image'], 'full' );
+$output .= '<div class="section " data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333"><div style="background-image: url(' . $section_bg[0] . ');" class="section-img" id="culture-section"></div>';
+
+}else{
+	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
+}
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</div>';
 $output .= $after_output;
