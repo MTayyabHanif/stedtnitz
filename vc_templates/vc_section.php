@@ -36,10 +36,10 @@ wp_enqueue_script( 'wpb_composer_front_js' );
 $el_class = $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
 $css_classes = array(
-	'vc_section',
-	$el_class,
-	vc_shortcode_custom_css_class( $css ),
-);
+                     'vc_section',
+                     $el_class,
+                     vc_shortcode_custom_css_class( $css ),
+                     );
 
 if ( 'yes' === $disable_element ) {
 	if ( vc_is_page_editable() ) {
@@ -50,10 +50,10 @@ if ( 'yes' === $disable_element ) {
 }
 
 if ( vc_shortcode_custom_css_has_property( $css, array(
-		'border',
-		'background',
-	) ) || $video_bg || $parallax
-) {
+                                                       'border',
+                                                       'background',
+                                                       ) ) || $video_bg || $parallax
+	) {
 	$css_classes[] = 'vc_section-has-fill';
 }
 
@@ -127,9 +127,9 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 if ($atts['page_piling'] === "enable") {
-$output .= '<section id="pagePilling" data-pp-header="false">';
+	$output .= '<section id="pagePilling" data-pp-header="' . $atts['pp_show_header'] . '">';
 }else{
-$output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
+	$output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
 }
 
 $output .= wpb_js_remove_wpautop( $content );
@@ -139,29 +139,46 @@ echo $output;
 
 
 $script = "<script>
-	
-	if (jQuery('#pagePilling').length !== 0) {
-		jQuery('body').addClass('pp_enabled');
-		if (jQuery('#pagePilling').attr('data-pp-header') == 'false') {
-			jQuery('body').addClass('pp_disabled_header');
-		}
-	}
 
-	console.log('pp');
-	var anchorNames = jQuery('.section').map(function(){
-		return jQuery(this).attr('data-pp-anchor');
-	}).get();
-	
-	var bgColors = jQuery('.section').map(function(){
-		return jQuery(this).attr('data-pp-bgcolor');
-	}).get();
+if (jQuery('#pagePilling').length !== 0) {
+	jQuery('body').addClass('pp_enabled');
+	if (jQuery('#pagePilling').attr('data-pp-header') == 'yes') {
+		jQuery('body').addClass('pp_disabled_header');
+	}
+}
+
+var anchorNames = jQuery('.section').map(function(){
+	return jQuery(this).attr('data-pp-anchor');
+}).get();
+
+var bgColors = jQuery('.section').map(function(){
+	return jQuery(this).attr('data-pp-bgcolor');
+}).get();
+
+
+
 
 if (!jQuery('body').hasClass('compose-mode')) {
 	jQuery('#pagePilling').fullpage({
 		sectionsColor: bgColors,
 		anchors: anchorNames,
-		scrollingSpeed: 800
+		scrollingSpeed: 700
 	});
+if (jQuery('.pp_video.youtube_video').length !== 0) {
+	var videos  = jQuery('.pp_video');
+	setTimeout(function (){
+		var elm = jQuery('.pp_video'),
+		conts   = elm.contents(),
+		le      = conts.length,
+		ifr     = null;
+
+		for(var i = 0; i<le; i++){
+			if(conts[i].nodeType == 8) ifr = conts[i].textContent;
+		}
+
+		elm.addClass('player').html(ifr);
+	}, 3000);
+}
 }
 </script>
 ";

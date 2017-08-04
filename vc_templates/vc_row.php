@@ -149,8 +149,35 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 if ($atts['pp_option'] === 'image' || $atts['pp_option'] === 'video') {
-$section_bg = wp_get_attachment_image_src( $atts['pp_image'], 'full' );
-$output .= '<div class="section " data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333"><div style="background-image: url(' . $section_bg[0] . ');" class="section-img" id="culture-section"></div>';
+
+
+
+	if ($atts['pp_video_url']) {
+		$video_url = $atts['pp_video_url'];
+		$output .= '<div class="section section_video vc_row vc_row-o-full-height vc_row-o-columns-bottom vc_row-o-equal-height vc_row-o-content-middle vc_row-flex" data-pp-videoPoster="'.$video_poster_image[0].'" data-pp-videoURL="'.$video_url.'" data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333">';
+		
+		if (strpos($video_url, 'youtube') > 0) {
+			$output .= '<div class="pp_video youtube_video">
+				<img src="'.$video_poster_image[0].'">
+				<!-- <iframe width="940" height="529" src="'.$atts['pp_video_url'].'?autoplay=1&enablejsapi=1&showinfo=0&controls=0&mute=1&loop=1&cc_load_policy=0&iv_load_policy=0&modestbranding=0" frameborder="0" allowfullscreen></iframe>-->
+			</div>';
+			
+		// } elseif (strpos($video_url, 'vimeo') > 0) {
+			// return 'vimeo';
+		} else {
+			$output .= '<div class="pp_video"><video autoplay loop muted class="video" poster="'.$video_poster_image[0].'">
+				<source src="'.$video_url.'" type="video/mp4">
+			</video></div>';
+		}
+		
+
+		$video_poster_image = wp_get_attachment_image_src( $atts['pp_video_poster'], 'full' );
+	}else{
+		$output .= '<div class="section vc_row vc_row-o-full-height vc_row-o-columns-bottom vc_row-o-equal-height vc_row-o-content-middle vc_row-flex" data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333">';
+
+		$section_bg = wp_get_attachment_image_src( $atts['pp_image'], 'full' );
+		$output .= '<div style="background-image: url(' . $section_bg[0] . ');" class="section-img" id="culture-section"></div>';
+	}
 
 }else{
 	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
