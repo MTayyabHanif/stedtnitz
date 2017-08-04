@@ -1862,43 +1862,43 @@ ul#accordion:before {
 .sidebar-side {
   padding: 0 20px 0 40px; }
 
-aside.widget-area {
+.widget-area {
   font-size: 0.92rem;
   color: #b0b8bd;
   margin: 20px auto; }
-  aside.widget-area .widget {
+  .widget-area .widget {
     margin: 0 0 3em; }
-    aside.widget-area .widget select {
+    .widget-area .widget select {
       max-width: 100%; }
-  aside.widget-area section.widget {
+  .widget-area .widget {
     box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.16);
     border: 1px solid #eceaea;
     border-radius: 4px;
     padding: 36px;
     font-family: "Lato"; }
-  aside.widget-area h2.widget-title {
+  .widget-area .widget-title, .widget-area .widgettitle {
     font-size: 0.94rem;
     text-transform: uppercase;
     color: #4d515c;
     margin: 0;
     margin-bottom: 30px;
     font-weight: 600; }
-  aside.widget-area ul {
+  .widget-area ul {
     margin: 0;
     padding: 0; }
-    aside.widget-area ul li {
+    .widget-area ul li {
       list-style: none;
       margin-bottom: 12px;
       color: #5f5f5f; }
-  aside.widget-area a {
+  .widget-area a {
     color: #b0b8bd !important;
     text-decoration: none; }
-    aside.widget-area a:hover {
+    .widget-area a:hover {
       text-decoration: underline;
       color: #00b4f4 !important; }
-  aside.widget-area section.widget.widget_categories ul li {
+  .widget-area .widget.widget_categories ul li {
     display: inline-flex; }
-  aside.widget-area section.widget.widget_categories a {
+  .widget-area .widget.widget_categories a {
     padding: 12px 16px;
     background-color: #f3f3f3;
     -webkit-transition: all .2s ease-out;
@@ -2824,6 +2824,24 @@ p.comment-awaiting-moderation {
   margin-top: 6rem; }
 
 /*--------------------------------------------------------------
+## 404
+--------------------------------------------------------------*/
+.error-404.not-found {
+  display: table;
+  height: 38vh;
+  max-width: 783px;
+  margin: 0 auto; }
+  .error-404.not-found header.page-header {
+    display: table-cell;
+    vertical-align: middle; }
+  .error-404.not-found h1.page-title {
+    font-size: 3.3rem;
+    text-align: center; }
+  .error-404.not-found p.info-text {
+    display: table-footer-group;
+    text-align: center; }
+
+/*--------------------------------------------------------------
 ## PagePilling
 --------------------------------------------------------------*/
 #pagePilling p, #pagePilling span, #pagePilling a, #pagePilling b, #pagePilling strong {
@@ -2931,6 +2949,7 @@ p.comment-awaiting-moderation {
 
 .fp-section.fp-table, .fp-slide.fp-table {
   display: table;
+  overflow: hidden;
   table-layout: fixed;
   width: 100%; }
 

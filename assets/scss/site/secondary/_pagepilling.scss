@@ -109,6 +109,7 @@
 
  .fp-section.fp-table,.fp-slide.fp-table {
  	display: table;
+ 	overflow: hidden;
  	table-layout: fixed;
  	width: 100%
  }

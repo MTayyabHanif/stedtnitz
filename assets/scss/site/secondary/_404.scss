@@ -1,0 +1,19 @@
+// 404 page
+.error-404.not-found{
+	display: table;
+	height: 38vh;
+	max-width: 783px;
+	margin: 0 auto; 
+	header.page-header{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	h1.page-title{
+		font-size: 3.3rem;
+		text-align: center;
+	}
+	p.info-text{
+		display: table-footer-group;
+		text-align: center;
+	}
+}
