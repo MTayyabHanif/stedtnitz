@@ -10,6 +10,15 @@
 	}
 }
 @media screen and ( max-width: 550px ){ // this is where col-XS starts
+	.site-footer .sitemap, .site-footer .aboutsite {
+		padding: 60px 0 0;
+	}
+	.site-footer .aboutsite {
+		padding: 10px 0;
+	}
+	.site-footer .sitemap > .col-lg-3 > * {
+		padding-left: 0; 
+	}
 	.sidebar-side{
 		padding: 0px 20px;
 	}

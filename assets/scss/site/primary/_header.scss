@@ -52,17 +52,18 @@
  #menu-icon.open .bottom{
  	-webkit-transform:rotate(-45deg);
  	top:40%;border-radius:10px;background-color:white;
- }
+ } 
 
  header.top-header{
- 	background-color: white;
+ 	background-color: rgba(255, 255, 255, 0.92);
  	padding: 12px 20px 0;
  	position: fixed;
  	width: 100%;
- 	z-index: 120; 
+ 	z-index: 120;
  	min-height: 70px;
  	top: 0;
- 	box-shadow: 0px 0px 10px 0px #b7b7b7;
+ 	border-bottom: 1px solid #dedede;
+ 	box-shadow: 0px 0px 10px 4px rgba(183, 183, 183, 0.4);
  }
  .custom-logo-link{
  	position: relative;
@@ -84,5 +85,5 @@
  	}
  }
  .compose-mode .vc_element, .view-mode .vc_element { // so VS editor stays on top of our header
-    z-index: 190;
-}
+ 	z-index: 190;
+ }

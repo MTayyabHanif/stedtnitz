@@ -122,9 +122,105 @@ function stedtnitz_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+
+	// FOOTER LEFT WIDGETS
 	register_sidebar( array(
-		'name'          => 'Footer 1 Widget',
-		'id'            => 'footer_1',
+		'name'          => 'Footer Area - 1 (LEFT)',
+		'id'            => 'footer__left_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 2 (LEFT)',
+		'id'            => 'footer__left_2',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+	// FOOTER RIGHT WIDGETS
+	register_sidebar( array(
+		'name'          => 'Footer Area - 1 (RIGHT)',
+		'id'            => 'footer__right_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 2 (RIGHT)',
+		'id'            => 'footer__right_2',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 3 (RIGHT)',
+		'id'            => 'footer__right_3',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 4 (RIGHT)',
+		'id'            => 'footer__right_4',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 5 (RIGHT)',
+		'id'            => 'footer__right_5',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 6 (RIGHT)',
+		'id'            => 'footer__right_6',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 6 (RIGHT)',
+		'id'            => 'footer__right_6',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 7 (RIGHT)',
+		'id'            => 'footer__right_7',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 8 (RIGHT)',
+		'id'            => 'footer__right_8',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+
+	// FOOTER BOTTOM FULL LINE
+	register_sidebar( array(
+		'name'          => 'Footer Area - Full (Bottom)',
+		'id'            => 'footer__full_bottom',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="rounded">',
@@ -212,11 +308,6 @@ function stednitz_calculate_reading_time( $post_id ) {
 		return $reading_time . ' min read';
 	}
 }
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

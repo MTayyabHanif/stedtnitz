@@ -14,7 +14,10 @@
  	padding-right: 2rem;
  	padding-left: 2rem; 
  }
-
+.container-fluid:after, .container-fluid:before, .container:after, .container:before, .row:after, .row:before {
+    display: table;
+    content: " ";
+}
  .container, .container-fluid {
  	margin-right: auto;
  	margin-left: auto; 

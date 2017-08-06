@@ -5,6 +5,66 @@
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
+/**
+
+
+//color
+.color-primary
+.sub-menu li.current-menu-item > a
+#header_nav_menu.light-menu > #accordion li.current-menu-item > a
+
+
+//bg
+ #submit
+.comment-pagination .current
+
+
+//border
+.pp_button
+.comment-pagination .current
+
+
+
+//color
+.color-primary
+.sub-menu li.current-menu-item > a
+.sub-menu li.current-menu-item > a:hover 
+#header_nav_menu.light-menu > #accordion li.current-menu-item > a
+#header_nav_menu.light-menu > #accordion li.current-menu-item > a:hover
+.widget-area a:hover
+div.postlist.row article .post-link:hover .post-title
+div.postlist.row .post-with-sidebar article .post-permalink:hover .post-title
+ div.postlist.row .post-with-sidebar article .post-cat a:hover
+ .tab__item__link:hover 
+a.leavereplybutton:hover
+.reply a:hover, #cancel-comment-reply-link a:hover
+
+
+//bg
+.sub-menu li.current-menu-item > a:before
+#header_nav_menu.light-menu > #accordion li.current-menu-item > a:before
+div.postlist.row article .post-link:hover header:before
+.wpb-load-more-comments:hover
+ #submit
+.page-numbers:hover, .comment-pagination .current
+
+
+
+// border-color
+.pp_button
+a.leavereplybutton:hover
+.wpb-load-more-comments:hover
+ div.postlist.row .post-with-sidebar article .post-cat a:hover
+.page-numbers:hover, .comment-pagination .current
+ */
+
+
+
+
+
+
+
+
 
 ( function( $ ) {
 
@@ -20,23 +80,11 @@
 		} );
 	} );
 
-	// Header text color.
-	wp.customize( 'header_textcolor', function( value ) {
+	wp.customize( 'tcx_link_color', function( value ) {
 		value.bind( function( to ) {
-			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
-					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
-				} );
-			} else {
-				$( '.site-title, .site-description' ).css( {
-					'clip': 'auto',
-					'position': 'relative'
-				} );
-				$( '.site-title a, .site-description' ).css( {
-					'color': to
-				} );
-			}
+			// $('.color-primary', '.sub-menu li.current-menu-item > a', '#header_nav_menu.light-menu > #accordion li.current-menu-item > a', '#header_nav_menu > #accordion li.current-menu-item > a').css( 'color', to );
+			$( 'a.pp_button' ).css( 'borderColor', to );
 		} );
-	} );
+	});
+
 } )( jQuery );
