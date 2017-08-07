@@ -162,11 +162,16 @@ if (!jQuery('body').hasClass('compose-mode')) {
 	jQuery('#pagePilling').fullpage({
 		sectionsColor: bgColors,
 		anchors: anchorNames,
-		scrollingSpeed: 700
+		scrollingSpeed: 700,
+		afterRender: function(){
+			if (jQuery('video.video').length !== 0) {
+				jQuery('video.video')[0].play();
+			}
+		},
 	});
-if (jQuery('.pp_video.youtube_video').length !== 0) {
-	var videos  = jQuery('.pp_video');
-	setTimeout(function (){
+	if (jQuery('.pp_video.youtube_video').length !== 0) {
+		var videos  = jQuery('.pp_video');
+		setTimeout(function (){
 		var elm = jQuery('.pp_video'),
 		conts   = elm.contents(),
 		le      = conts.length,

@@ -10,6 +10,27 @@
 	}
 }
 @media screen and ( max-width: 550px ){ // this is where col-XS starts
+	.custom-logo-link img {
+		width: 40px;
+		margin-top: -4px;
+	}
+	header.top-header {
+		min-height: 57px;
+	}
+	#search-icon {
+		position: fixed;
+		top: 0px;
+		right: 77px;
+	}
+	#search-icon:before {
+		height: 41px;
+		top: 6px;
+		right: -8px;
+	}
+	#menu-icon {
+		right: -6px;
+		top: -4px;
+	}
 	.site-footer .sitemap, .site-footer .aboutsite {
 		padding: 60px 0 0;
 	}
