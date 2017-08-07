@@ -211,3 +211,7 @@ td,
 th {
 	padding: 0;
 }
+
+
+/* MCE MENU Bug in Visual Composer */
+.mce-menu{z-index: 999999 !important;} 

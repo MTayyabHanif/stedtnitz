@@ -47,36 +47,8 @@ $featuredImageURL = $image_data_small[0];
 
 		<div class="wrapper--right wrapper--narrow" id="right-container">
 			<div class="tabs-slice container time-ago">
-				<div class="tab">
-					<a href="#recent-news" class="tab__name">Recent News</a>
-					<ul class="tab__items" id="recent-news">
-						<li class="tab__item">
-							<a href="/news/cristiano-ronaldo-thing-pink-7egend-tech-280717" class="tab__item__link">Cristiano Ronaldo acquires digital agency with a view to launching tech brand 7egend</a>
-							<span class="posted-on"><time class="entry-date published" datetime="2017-07-21T23:39:25+00:00">1 week</time><time class="updated" datetime="2017-07-22T06:49:59+00:00">July 22, 2017</time> ago</span>
-						</li>
-						<li class="tab__item">
-							<a href="/news/major-lazer-know-no-more-eko-philip-andelman-film-280717" class="tab__item__link">Major Lazer play with dreams and reality in new interactive vide</a>
-							<span class="posted-on"><time class="entry-date published" datetime="2017-07-21T23:39:25+00:00">1 week</time><time class="updated" datetime="2017-07-22T06:49:59+00:00">July 22, 2017</time> ago</span>
-						</li>
-						<li class="tab__item">
-							<a href="/news/iron-ring-sculpture-280717" class="tab__item__link">Welsh iron ring sculg dubbed “monument of oppression”</a>
-							<span class="posted-on"><time class="entry-date published" datetime="2017-07-21T23:39:25+00:00">1 week</time><time class="updated" datetime="2017-07-22T06:49:59+00:00">July 22, 2017</time> ago</span>
-						</li>
-						<li class="tab__item">
-							<a href="/news/pentagram-ready-player-one-logo-spielberg-graphic-design-280717" class="tab__item__link">Pentagram’s Emily for Spielberg&#x27;s Ready Player One </a>
-							<span class="posted-on"><time class="entry-date published" datetime="2017-07-21T23:39:25+00:00">1 week</time><time class="updated" datetime="2017-07-22T06:49:59+00:00">July 22, 2017</time> ago</span>
-						</li>
-						<li class="tab__item">
-							<a href="/news/jean-jullien-otherway-jean-georges-the-connaught-graphic-design-280717" class="tab__item__link">Jean Jullien and Otherway design playful identity for new </a>
-							<span class="posted-on"><time class="entry-date published" datetime="2017-07-21T23:39:25+00:00">1 week</time><time class="updated" datetime="2017-07-22T06:49:59+00:00">July 22, 2017</time> ago</span>
-						</li>
-						<li class="tab__item">
-							<a href="/news/the-bomb-film-smriti-keshari-eric-schlosser-kevin-ford-netflix-280717" class="tab__item__link">Netflix to premiere experimental nuclear film Thes</a>
-							<span class="posted-on"><time class="entry-date published" datetime="2017-07-21T23:39:25+00:00">1 week</time><time class="updated" datetime="2017-07-22T06:49:59+00:00">July 22, 2017</time> ago</span>
-						</li>
-					</ul>
-				</div>
-		
+				<?php get_template_part( 'template-parts/content-most-posts-desc'); ?>
+				
 				<?php get_template_part( 'template-parts/content-most-commented-posts'); ?>
 			</div>
 		</div>

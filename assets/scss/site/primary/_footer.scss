@@ -1,4 +1,4 @@
-.site-footer{
+footer.site-footer{
 	background-color: #000;
 	color: #fff;
 	position: relative;
@@ -50,5 +50,33 @@
 	}
 	p, a{
 		font-size: 0.88rem;
+	}
+}
+footer#colophon{
+	margin: 0 auto;
+	.widget {
+		border: 0;
+		padding: 0;
+		box-shadow: none;
+	}
+	a{
+		&:hover{
+			text-decoration: underline;
+			opacity: .8;
+		}
+	}
+	.widget.widget_categories {
+		ul li{
+			display: inline-flex;
+		}
+		a{
+			padding: 0;
+			background-color: transparent;
+			margin-right: 4px;
+			&:after {
+				content: ",";
+				position: relative;
+			}
+		}
 	}
 }

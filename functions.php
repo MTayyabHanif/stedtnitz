@@ -961,6 +961,23 @@ function stedtnitz_most_commented_posts($postcount = 3){
 	return $std_mostcommented_posts;
 }
 
+/**
+ * Retrieve the Most Commented blog posts
+ * @param  int $postcount   Number of posts to return
+ * @return array            Array of latest posts
+ */
+function stedtnitz_posts_desc($postcount = 3){
+	$args = array(
+	              'posts_per_page' => $postcount,
+	              'post_status' => 'publish',
+	              'meta_key' => '_thumbnail_id',
+	              'post_type' => 'post',
+	              'order' => 'ASC'
+	              );
+	$std_posts_desc_order = query_posts( $args );
+	return $std_posts_desc_order;
+}
+
 // unregister all widgets
  function stedtnit_unregister_default_widgets() {
      unregister_widget('WP_Widget_Search');
