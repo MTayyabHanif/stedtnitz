@@ -75,12 +75,12 @@ $menu_light = false;
 if ($menu_light) {
  	$menu_color = 'light-menu';
  }else{$menu_color = '';} ?>
+	<div id="header_nav_menu" class="". $menu_color ."">
 	<div id="menu-icon" class="". $menu_color ."">
 		<div class="top bar"></div>
 		<div class="middle bar"></div>
 		<div class="bottom bar"></div>
 	</div>
-	<div id="header_nav_menu" class="". $menu_color ."">
 		<?php
 		wp_nav_menu(
 			array(

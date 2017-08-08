@@ -2291,14 +2291,15 @@ footer.site-footer {
   footer.site-footer p, footer.site-footer a {
     font-size: 0.88rem; }
 
-footer.site-footer.dark-footer {
+footer#colophon.site-footer.dark-footer {
   background-color: #fff;
-  color: #333; }
-  footer.site-footer.dark-footer p, footer.site-footer.dark-footer a, footer.site-footer.dark-footer span {
-    color: #333; }
+  color: #737373 !important; }
+  footer#colophon.site-footer.dark-footer p, footer#colophon.site-footer.dark-footer a, footer#colophon.site-footer.dark-footer span {
+    color: #737373 !important; }
 
 footer#colophon {
-  margin: 0 auto; }
+  padding-top: 2rem;
+  margin: 4rem auto 0; }
   footer#colophon .widget {
     border: 0;
     padding: 0;
