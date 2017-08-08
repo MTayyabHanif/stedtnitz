@@ -52,6 +52,13 @@ footer.site-footer{
 		font-size: 0.88rem;
 	}
 }
+footer.site-footer.dark-footer{
+	background-color: #fff;
+	color: #333;
+	p, a, span{
+		color: #333;
+	}
+}
 footer#colophon{
 	margin: 0 auto;
 	.widget {

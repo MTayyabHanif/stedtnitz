@@ -87,3 +87,69 @@
  .compose-mode .vc_element, .view-mode .vc_element { // so VS editor stays on top of our header
  	z-index: 190;
  }
+
+ .page.back-button{
+ 	font-family: 'Lato', sans-serif;
+ 	font-weight: 800;
+ 	font-size: 16px !important;
+ 	text-transform: uppercase;
+ 	position: fixed;
+ 	left: 125px;
+ 	top: 47px;
+ 	z-index: 10;
+ 	width: 70px;
+ 	text-decoration: none;
+ 	color: $primary;
+ 	-ms-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 	-webkit-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 	transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 	&:after{
+ 		content: '';
+ 		width: 16px;
+ 		height: 2px;
+ 		left: -20px;
+ 		top: -13px;
+ 		display: block;
+ 		position: relative;
+ 		background-color: $primary;
+ 		-ms-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 		-webkit-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 		transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 	}
+ 	&:hover{
+ 		left: 105px;
+ 		top: 47px;
+ 		cursor: pointer;
+ 		-ms-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 		-webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 		transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 		&:after{
+ 			width: 0px;
+ 			left: 0px;
+ 			-ms-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 			-webkit-transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 			transition: all 0.4s cubic-bezier(0.7, 0.01, 0.3, 1);
+ 		}
+ 	}
+ }
+
+
+ body.transparent_header {
+ 	header.top-header {
+ 		background-color: rgba(255, 255, 255, 0);
+ 		border-bottom: 0;
+ 		box-shadow: none;
+ 		top: 30px;
+ 		padding: 0 34px 0;
+ 	}
+ 	#main.site-main {
+ 		margin-top: 0 !important;
+ 	}
+ 	.page-content, .entry-content, .entry-summary {
+ 		margin-top: 0 !important;
+ 	}
+ 	#menu-icon {
+ 		right: 15px;
+ 		top: 20px;
+ 	}
+ }

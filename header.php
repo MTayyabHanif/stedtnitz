@@ -15,12 +15,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
 	</head>
-	<body <?php body_class('page_pilling_vc'); ?>>
+<?php if (is_page()) {
+$header_menu =  get_post_meta($post->ID, 'page_options')[0]['header_menu'];
+$back_button_link = get_post_meta($post->ID, 'page_options')[0]['back_button_link'];
+if ($header_menu == "on") {
+	$header_mode_on = true;
+	$transparent = 'transparent_header';
+}else{
+	$header_mode_on = false;
+	$transparent = '';
+}
+if (!$back_button_link == "") {
+	$backbutton = '<a class="page back-button" href="'.$back_button_link.'">Back</a>';
+}else{
+	$backbutton = '';
+}
+} ?>
+	<body <?php body_class('page_pilling_vc '.$transparent.' '); ?>>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip header and navigation, jump to content', 'stedtnitz' ); ?></a>
 <header class="top-header">
 	<?php 
 	if (has_custom_logo()) {
 		the_custom_logo();
+		echo $backbutton;
 	}else{
 		?>
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -31,8 +48,11 @@
 	?>
 </header>
 	<div id="content" class="site-content">
+
+
+	<?php 
+if (!is_page() && !$header_mode_on) { ?>
 	<div id="search-icon" class="showsearch"><i class="icono-search"></i></div>
-	</header>
 	<section class="searchoverlay">
 		<i class="icon closesearch"></i>
 		<div class="searchbar">
@@ -42,6 +62,14 @@
 		<?php echo do_shortcode('[wpdreams_ajaxsearchpro_results id=1 element="div"]'); ?>
 		</div>
 	</section>
+	<?php 
+	}
+	 ?>
+
+
+
+
+
 <?php 
 $menu_light = false;
 if ($menu_light) {

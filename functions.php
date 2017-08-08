@@ -350,20 +350,29 @@ function stednitz_page_settings_box($post)
 	$data = isset(get_post_meta( $post->ID , 'page_options')[0]) ? get_post_meta( $post->ID , 'page_options')[0] : False;
 	
 	$header_option 		= '';
-	$back_button_option = '';
 	$back_button_link 	= '';
 
 	if ($data && $data != '') {
 		$header_option 		= 	$data['header_menu'];
-		$back_button_option = 	$data['back_button'];
 		$back_button_link 	=	$data['back_button_link'];
 	}
 
 	?>
-	<p>Show Header ? <input type="checkbox" name="header_menu" <?php echo ($header_option)?" checked=''":'' ?>></p>
-	<p>Show Back Button? <input type="checkbox" name="back_button" <?php echo ($back_button_option)?"checked=''":'' ?>></p>
-	<p>Enter Back Button Link here: <input type="text" value="<?php echo $back_button_link; ?>" name="back_button_link"></p>	
-
+	<div><p>Remove Header for this page ? <input type="checkbox" name="header_menu" <?php echo ($header_option)?" checked=''":'' ?>></p></div>
+	<hr>
+	<div id="back_input">
+	<p>Type Back Button link here: 
+		<input type="text" value="<?php echo $back_button_link; ?>" name="back_button_link">
+		<span class="desc">(back button will not show up if input field left empty!)</span>
+	</p>
+	</div>
+	<style>
+		span.desc{
+			display: block;
+			color: #bbbbbb;
+			font-size: 12px;
+		}
+	</style>
 	<?php
 	wp_nonce_field( 'stednitz_page_settings_box_nonce', 'meta_box_nonce' );
 }
@@ -380,11 +389,9 @@ function stednitz_save_page_settings( $post_id )
     if( !current_user_can( 'edit_post' ) ) return;
 
 		$header_option 		= 	(isset($_POST['header_menu'])) ? $_POST['header_menu'] : False;
-		$back_button_option = 	(isset($_POST['back_button'])) ? $_POST['back_button'] : False;
 		$back_button_link 	=	(isset($_POST['back_button_link'])) ? esc_attr($_POST['back_button_link']) :  '';
 		$page_option_data = array(
 			'header_menu'		=> $header_option,
-			'back_button' 		=> $back_button_option,
 			'back_button_link' 	=> $back_button_link,
 		);
 		update_post_meta( $post_id, 'page_options', $page_option_data);
