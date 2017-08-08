@@ -9,6 +9,13 @@
 		padding: 0px 20px;
 	}
 }
+@media screen and ( max-width: 767px ){
+	.middle-nav{position: absolute;width:200px;height:30px;left:-35px;top:90%;z-index:100;margin:0;}
+	div#backup.mouseScroll {
+		left: 43.4%;
+		top: 93%;
+	}
+}
 @media screen and ( max-width: 550px ){ // this is where col-XS starts
 	.custom-logo-link img {
 		width: 40px;

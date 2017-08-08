@@ -152,11 +152,11 @@ if ($atts['pp_option'] === 'image' || $atts['pp_option'] === 'video') {
 
 
 
+	$output .= '<div class="section section_video" data-pp_id="1" data-pp-videoPoster="'.$video_poster_image[0].'" data-pp-videoURL="'.$video_url.'" data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333">';
 	if ($atts['pp_video_url']) {
 		$video_url = $atts['pp_video_url'];
 		$video_poster_image = wp_get_attachment_image_src( $atts['pp_video_poster'], 'full' );
 		
-		$output .= '<div class="section section_video" data-pp-videoPoster="'.$video_poster_image[0].'" data-pp-videoURL="'.$video_url.'" data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333">';
 		// Use the function
 		
 		if(!isMobile()){
@@ -175,8 +175,6 @@ if ($atts['pp_option'] === 'image' || $atts['pp_option'] === 'video') {
 		}
 		$output .= '<div style="background-image: url(' . $video_poster_image[0] . ');" class="section-img" id="culture-section"></div>';
 	}else{
-		$output .= '<div class="section" data-pp-anchor="'.$atts['pp_anchor'].'" data-pp-bgcolor="#333">';
-
 		$section_bg = wp_get_attachment_image_src( $atts['pp_image'], 'full' );
 		$output .= '<div style="background-image: url(' . $section_bg[0] . ');" class="section-img" id="culture-section"></div>';
 	}
