@@ -36,10 +36,10 @@ wp_enqueue_script( 'wpb_composer_front_js' );
 $el_class = $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
 $css_classes = array(
-	'vc_section',
-	$el_class,
-	vc_shortcode_custom_css_class( $css ),
-);
+                     'vc_section',
+                     $el_class,
+                     vc_shortcode_custom_css_class( $css ),
+                     );
 
 if ( 'yes' === $disable_element ) {
 	if ( vc_is_page_editable() ) {
@@ -50,10 +50,10 @@ if ( 'yes' === $disable_element ) {
 }
 
 if ( vc_shortcode_custom_css_has_property( $css, array(
-		'border',
-		'background',
-	) ) || $video_bg || $parallax
-) {
+                                                       'border',
+                                                       'background',
+                                                       ) ) || $video_bg || $parallax
+	) {
 	$css_classes[] = 'vc_section-has-fill';
 }
 
@@ -127,43 +127,107 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 if ($atts['page_piling'] === "enable") {
-$output .= '<section id="pagePilling" data-pp-header="false">';
-}else{
-$output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
-}
+	$output .= '<a class="policylink" href="privacy-policy.html" target="_blank">Privacy Policy</a><div class="mouseScroll"><div class="mouse"></div></div><div class="mouseScroll" id="backup"><b>Scroll Up</b</div></div><div class="middle-nav"><button id="arrow-next" class="opacity-zero"><span>Next</span></button><button id="arrow-prev" class="opacity-zero"><span>Prev</span></button></div>	</div>
+	<section id="pagePilling" data-pp-header="' . $atts['pp_show_header'] . '">';
 
-$output .= wpb_js_remove_wpautop( $content );
-$output .= '</section>';
-$output .= $after_output;
-echo $output;
+	$output .= wpb_js_remove_wpautop( $content );
+	$output .= '</section>';
+	$output .= $after_output;
+	echo $output;
 
+	$script = "<script>
 
-$script = "<script>
-	
 	if (jQuery('#pagePilling').length !== 0) {
 		jQuery('body').addClass('pp_enabled');
-		if (jQuery('#pagePilling').attr('data-pp-header') == 'false') {
+		if (jQuery('#pagePilling').attr('data-pp-header') == 'yes') {
 			jQuery('body').addClass('pp_disabled_header');
 		}
 	}
 
-	console.log('pp');
 	var anchorNames = jQuery('.section').map(function(){
 		return jQuery(this).attr('data-pp-anchor');
 	}).get();
-	
+
 	var bgColors = jQuery('.section').map(function(){
 		return jQuery(this).attr('data-pp-bgcolor');
 	}).get();
 
-if (!jQuery('body').hasClass('compose-mode')) {
-	jQuery('#pagePilling').fullpage({
-		sectionsColor: bgColors,
-		anchors: anchorNames,
-		scrollingSpeed: 800
-	});
-}
-</script>
-";
+	var count_slides = jQuery('.section').map(function(){
+		return Number(jQuery(this).attr('data-pp_id'));
+	}).get();
 
-echo $script;
+	var total_slides = count_slides.reduce(add, 0);
+	function add(a, b) {
+	    return a + b;
+	}
+
+	go_next = jQuery('#arrow-next'),
+	scroll = jQuery('.mouseScroll'),
+	backup = jQuery('#backup'),
+           go_prev = jQuery('#arrow-prev');
+           go_next.click(function(){
+           	jQuery.fn.fullpage.moveSectionDown();
+           });
+
+           go_prev.click(function(){
+           	jQuery.fn.fullpage.moveSectionUp();
+           });
+	if (!jQuery('body').hasClass('compose-mode')) {
+		jQuery('#pagePilling').fullpage({
+			sectionsColor: bgColors,
+			anchors: anchorNames,
+			scrollingSpeed: 700,
+			afterLoad: function(anchorLink, index){
+				if(index == 1){
+					go_next.addClass('opacity-zero');
+					go_prev.addClass('opacity-zero');
+					scroll.removeClass('opacity-zero');
+					backup.hide();
+				}
+
+				else if (index !== 1) {
+					backup.hide();
+					scroll.addClass('opacity-zero');
+					go_next.removeClass('opacity-zero');
+					go_prev.removeClass('opacity-zero');
+				}
+				if(index == total_slides){
+					go_next.addClass('opacity-zero');
+					go_prev.addClass('opacity-zero');
+					backup.removeClass('opacity-zero');
+					backup.show();
+				}
+			},
+			afterRender: function(){
+				if (jQuery('video.video').length !== 0) {
+					jQuery('video.video')[0].play();
+				}
+			},
+		});
+		if (jQuery('.pp_video.youtube_video').length !== 0) {
+			var videos  = jQuery('.pp_video');
+			setTimeout(function (){
+				var elm = jQuery('.pp_video'),
+				conts   = elm.contents(),
+				le      = conts.length,
+				ifr     = null;
+
+				for(var i = 0; i<le; i++){
+					if(conts[i].nodeType == 8) ifr = conts[i].textContent;
+				}
+
+				elm.addClass('player').html(ifr);
+			}, 3000);
+		}
+	}
+	</script>";
+	echo $script;
+}else{
+	$output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
+
+	$output .= wpb_js_remove_wpautop( $content );
+	$output .= '</section>';
+	$output .= $after_output;
+	echo $output;
+}
+

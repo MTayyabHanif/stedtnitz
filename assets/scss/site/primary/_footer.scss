@@ -1,12 +1,82 @@
-.site-footer{
+footer.site-footer{
+	background-color: #000;
+	color: #fff;
+	position: relative;
 	width: 100%;
 	min-height: 62px;
 	margin-top: 5rem;
-	border-top: 1px solid #e4e4e4;
-	.site-info{
-		text-align: center
+	padding-bottom: 10px;
+	ul{
+		margin: 0;
+		padding: 0;
 	}
-	p{
-		font-size: 1.195rem;
+	li{
+		list-style-type: none;
+		line-height: 0;
+	}
+	a{
+		text-decoration: none;
+		line-height: 1.495rem;
+		&:hover{
+			text-decoration: underline;
+			opacity: .8;
+		}
+	}
+	.aboutsite{
+		padding: 60px 0 0 0;
+		padding-bottom: 0px;
+	}
+	.sitemap{
+		padding: 60px;
+		padding-bottom: 0px;
+		
+	}
+	.sitemap>.col-lg-3>* {
+		margin-bottom: 60px;
+		padding-left: 25px;
+	}
+	.site-info{
+		text-align: center;
+	}
+	.list-heading{
+		font-weight: bolder;
+		font-size: 1.02rem;	
+		display: block;
+		margin-bottom: 16px;
+	}
+	p, a, span{
+		font-family: $font__heading;
+		color: #fff;
+	}
+	p, a{
+		font-size: 0.88rem;
+	}
+}
+footer#colophon{
+	margin: 0 auto;
+	.widget {
+		border: 0;
+		padding: 0;
+		box-shadow: none;
+	}
+	a{
+		&:hover{
+			text-decoration: underline;
+			opacity: .8;
+		}
+	}
+	.widget.widget_categories {
+		ul li{
+			display: inline-flex;
+		}
+		a{
+			padding: 0;
+			background-color: transparent;
+			margin-right: 4px;
+			&:after {
+				content: ",";
+				position: relative;
+			}
+		}
 	}
 }

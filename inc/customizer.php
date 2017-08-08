@@ -33,7 +33,7 @@ function stedtnitz_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'footer_text', array(
 	  'type' => 'theme_mod',
 	  'capability' => 'edit_theme_options',
-	  'default' => 'Proudly powered by WordPress | Theme: stedtnitz by Inject.',
+	  'default' => 'Powered By Wordpress',
 	  'transport' => 'postMessage', // or postMessage
 	) );
 
@@ -42,7 +42,7 @@ function stedtnitz_customize_register( $wp_customize ) {
 	  'priority' => 10, // Within the section.
 	  'section' => 'stedtnitz_footer', // Required, core or custom.
 	  'label' => __( 'Footer text' ),
-	  'description' => __( 'This text will be displayed at the bottom of each page.' ),
+	  'description' => __( 'This text will be displayed at the bottom footer.' ),
 	  'input_attrs' => array(
 	    'placeholder' => __( 'Add footer text here.' ),
 	  ),
@@ -64,15 +64,19 @@ function stedtnitz_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'stedtnitz_sidebar_options', array(
-	  'type' => 'select',
-	  'choices' => array('sidebar_1' => 'Sidebar 1', 'sidebar_2' => 'Sidebar 2', 'no_sidebar' => 'No Sidebar'),
-	  'priority' => 10, // Within the section.
-	  'section' => 'stedtnitz_sidebar', // Required, core or custom.
-	  'label' => __( 'Select Sidebar' ),
-	  'description' => __( 'Choose the sidebar option for your blog and single pages.' ),
-	  'input_attrs' => array(
-	    'placeholder' => __( 'Add footer text here.' ),
-	  ),
+	  	'type' => 'select',
+	  	'choices' => array(
+	  	                   'sidebar_1' => 'Blog View - One Post Sidebar', 
+	  	                   'sidebar_2' => 'Blog View - WP Sidebar', 
+	  	                   'no_sidebar' => 'Blog View - No Sidebar'
+	  	          ),
+	  	'priority' => 10, // Within the section.
+	  	'section' => 'stedtnitz_sidebar', // Required, core or custom.
+	  	'label' => __( 'Select Sidebar' ),
+	  	'description' => __( 'Choose the sidebar option for your blog listing page.' ),
+	  	'input_attrs' => array(
+	  		'placeholder' => __( 'Add footer text here.' ),
+	  	),
 	) );
 
 	$wp_customize->add_section( 'stedtnitz_sidebar', array(
@@ -84,9 +88,36 @@ function stedtnitz_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->get_section( 'stedtnitz_sidebar' )->active_callback = 'stedtnitz_is_blog';
 
+
+	$wp_customize->add_setting(
+	'tcx_link_color',
+		array(
+			'default'     => '#3eacd6',
+			'transport'   => 'postMessage'
+		)
+	);
+	$wp_customize->add_control(
+          new WP_Customize_Color_Control(
+                      $wp_customize,
+                      'link_color',
+                      array(
+                            'label'      => __( 'Link Color', 'tcx' ),
+                            'section'    => 'colors',
+                            'settings'   => 'tcx_link_color'
+                            )
+                      )
+            );
 }
 add_action( 'customize_register', 'stedtnitz_customize_register' );
 
+function tcx_customizer_css() {
+	?>
+	<style type="text/css">
+		a.pp_button { border-color: <?php echo get_theme_mod( 'tcx_link_color' ); ?>; }
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'tcx_customizer_css' );
 /**
  * Callback function to see if it is a blog page for viewing options.
  *

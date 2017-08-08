@@ -1,9 +1,14 @@
 .sidebar-side{
 	padding: 0 20px 0 40px;
 }
-aside.widget-area{
+.widget-area, footer#colophon{
 	.widget {
 		margin: 0 0 3em;
+		box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.16);
+		border: 1px solid #eceaea;
+		border-radius: 4px;
+		padding: 36px;
+		font-family: "Lato";
 		select {
 			max-width: 100%;
 		}
@@ -11,14 +16,7 @@ aside.widget-area{
 	font-size: 0.92rem;
 	color: #b0b8bd;
 	margin: 20px auto;
-	section.widget {
-		box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.16);
-		border: 1px solid #eceaea;
-		border-radius: 4px;
-		padding: 36px;
-		font-family: "Lato";
-	}
-	h2.widget-title {
+	.widget-title, .widgettitle {
 		font-size: 0.94rem;
 		text-transform: uppercase;
 		color: #4d515c;
@@ -44,7 +42,7 @@ aside.widget-area{
 			color: $primary !important;
 		}
 	}
-	section.widget.widget_categories {
+	.widget.widget_categories {
 		ul li{
 			display: inline-flex;
 		}

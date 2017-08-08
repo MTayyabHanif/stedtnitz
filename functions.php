@@ -122,13 +122,108 @@ function stedtnitz_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+
+	// FOOTER LEFT WIDGETS
 	register_sidebar( array(
-		'name'          => 'Footer 1 Widget',
-		'description'   => esc_html__( 'Add widgets here.', 'stedtnitz' ),
-		'id'            => 'footer_1',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
+		'name'          => 'Footer Area - 1 (LEFT)',
+		'id'            => 'footer__left_1',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 2 (LEFT)',
+		'id'            => 'footer__left_2',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	// FOOTER RIGHT WIDGETS
+	register_sidebar( array(
+		'name'          => 'Footer Area - 1 (RIGHT)',
+		'id'            => 'footer__right_1',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 2 (RIGHT)',
+		'id'            => 'footer__right_2',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 3 (RIGHT)',
+		'id'            => 'footer__right_3',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 4 (RIGHT)',
+		'id'            => 'footer__right_4',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 5 (RIGHT)',
+		'id'            => 'footer__right_5',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 6 (RIGHT)',
+		'id'            => 'footer__right_6',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 6 (RIGHT)',
+		'id'            => 'footer__right_6',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 7 (RIGHT)',
+		'id'            => 'footer__right_7',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Footer Area - 8 (RIGHT)',
+		'id'            => 'footer__right_8',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+
+	// FOOTER BOTTOM FULL LINE
+	register_sidebar( array(
+		'name'          => 'Footer Area - Full (Bottom)',
+		'id'            => 'footer__full_bottom',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 	// Usage of this widget area.
@@ -141,14 +236,13 @@ add_action( 'widgets_init', 'stedtnitz_widgets_init' );
  */
 function stedtnitz_scripts() {
 	wp_enqueue_style( 'stedtnitz-style', get_stylesheet_uri() );
-
 	if (is_single()) {
 		wp_enqueue_style( 'font-awesome', "https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css" );
 	}
 
 	wp_enqueue_script( 'stedtnitz-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), '34255', true );
 	
-	wp_enqueue_script( 'stedtnitz-pagepilling-script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '34255', true );
+	wp_enqueue_script( 'stedtnitz-pagepilling-script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '34255', false );
 
 	wp_enqueue_script( 'stedtnitz-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -214,11 +308,6 @@ function stednitz_calculate_reading_time( $post_id ) {
 		return $reading_time . ' min read';
 	}
 }
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -377,29 +466,8 @@ $anim_params = array(
 					__( 'No', 'stedtnitz' ) => 'disable',
 					__( 'Yes', 'stedtnitz' ) => 'enable',
 				),
-				'description' => __( 'Check this box in order to enable page piling. This will make it act like container for page piling pages.', 'stedtnitz' ),
+				'description' => __( 'If Enabled, this section will be converted to PagePilling section, use rows in it to make slides..', 'stedtnitz' ),
 				),
-			array(
-			'type' => 'dropdown',
-			'heading' => __( 'Scrolling Speed', 'stedtnitz' ),
-			'param_name' => 'pp_speed',
-			'value' => array(
-					__( '1', 'stedtnitz' ) => '1',
-					__( '2', 'stedtnitz' ) => '2',
-					__( '4', 'stedtnitz' ) => '4',
-					__( '5', 'stedtnitz' ) => '5',
-					__( '6', 'stedtnitz' ) => '6',
-					__( '7', 'stedtnitz' ) => '7',
-					__( '8', 'stedtnitz' ) => '8',
-					__( '9', 'stedtnitz' ) => '9',
-					__( '10', 'stedtnitz' ) => '10',
-				),
-			'dependency' => array(
-				'element' => 'page_piling',
-				'value' => 'enable',
-			),
-			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
-		),
 			array(
 				'type' => 'dropdown',
 				'heading' => __( 'Section stretch', 'js_composer' ),
@@ -417,7 +485,7 @@ $anim_params = array(
 			),
 			array(
 				'type' => 'checkbox',
-				'heading' => __( 'Show header bar?', 'js_composer' ),
+				'heading' => __( 'Hide header bar?', 'js_composer' ),
 				'param_name' => 'pp_show_header',
 				'description' => __( 'If checked section will be set to full height.', 'js_composer' ),
 				'value' => array( __( 'Yes', 'js_composer' ) => 'yes' ),
@@ -815,30 +883,30 @@ $attributes = array(
 			'heading' => __( 'Select Image', 'js_composer' ),
 			'param_name' => 'pp_option',
 			'value' => array(
-					__( 'Default', 'stedtnitz' ) => 'default',
-					__( 'Image', 'stedtnitz' ) => 'image',
-					__( 'Video', 'stedtnitz' ) => 'video',
+					__( 'Disabled', 'stedtnitz' ) => 'default',
+					__( 'Add Image', 'stedtnitz' ) => 'image',
+					__( 'Add Video', 'stedtnitz' ) => 'video',
 				),
-			'group' => __( 'Stedtnitz Special', 'js_composer' ),
-			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+			'group' => __( 'PagePilling Options', 'js_composer' ),
+			'description' => __( 'Use "Image" or "Video" to enable PagePilling on this row, this row will act as a slide.', 'js_composer' ),
 		),
 		array(
 			'type' => 'attach_image',
 			'heading' => __( 'Select Image', 'js_composer' ),
 			'param_name' => 'pp_image',
-			'group' => __( 'Stedtnitz Special', 'js_composer' ),
+			'group' => __( 'PagePilling Options', 'js_composer' ),
 			'dependency' => array(
 				'element' => 'pp_option',
 				'value' => 'image',
 			),
-			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+			'description' => __( 'Choose Image that will act slide background in PagePilling.', 'js_composer' ),
 		),
 		array(
 			'type' => 'textfield',
 			'heading' => __( 'Video URL', 'js_composer' ),
 			'param_name' => 'pp_video_url',
-			'group' => __( 'Stedtnitz Special', 'js_composer' ),
-			'description' => __( 'Add Video Url.', 'js_composer' ),
+			'group' => __( 'PagePilling Options', 'js_composer' ),
+			'description' => __( 'Add Embed Video URL to add video as PagePilling slide background. <br>For Example: www.youtube.com/embed/0HItAOYEVYs', 'js_composer' ),
 			'dependency' => array(
 				'element' => 'pp_option',
 				'value' => 'video',
@@ -846,26 +914,27 @@ $attributes = array(
 			),
 		array(
 			'type' => 'attach_image',
-			'heading' => __( 'Select Poster', 'js_composer' ),
-			'param_name' => 'pp_poster',
-			'group' => __( 'Stedtnitz Special', 'js_composer' ),
+			'heading' => __( 'Select Video Poster', 'js_composer' ),
+			'param_name' => 'pp_video_poster',
+			'group' => __( 'PagePilling Options', 'js_composer' ),
 			'dependency' => array(
 				'element' => 'pp_option',
 				'value' => 'video',
 			),
-			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+			'description' => __( 'This image will be used until the video loads, once buffering completed of video, the video will start playing.', 'js_composer' ),
 		),
 
 		array(
 			'type' => 'textfield',
 			'heading' => __( 'Anchor', 'stedtnitz' ),
 			'param_name' => 'pp_anchor',
-			'group' => __( 'Stedtnitz Special', 'js_composer' ),
+			'group' => __( 'PagePilling Options', 'js_composer' ),
 			'dependency' => array(
 				'element' => 'pp_option',
 				'value' => array('video', 'image'),
+				'not_empty' => true,
 			),
-			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+			'description' => __( 'Anchor name will be used to refer the slide in URL. For Example: www.example.come/#anchor_name.', 'js_composer' ),
 		),
 	),
 	'js_view' => 'VcRowView',
@@ -892,8 +961,36 @@ function stedtnitz_most_commented_posts($postcount = 3){
 	return $std_mostcommented_posts;
 }
 
+/**
+ * Retrieve the Most Commented blog posts
+ * @param  int $postcount   Number of posts to return
+ * @return array            Array of latest posts
+ */
+function stedtnitz_posts_desc($postcount = 3){
+	$args = array(
+	              'posts_per_page' => $postcount,
+	              'post_status' => 'publish',
+	              'meta_key' => '_thumbnail_id',
+	              'post_type' => 'post',
+	              'order' => 'ASC'
+	              );
+	$std_posts_desc_order = query_posts( $args );
+	return $std_posts_desc_order;
+}
+
 // unregister all widgets
  function stedtnit_unregister_default_widgets() {
      unregister_widget('WP_Widget_Search');
  }
  add_action('widgets_init', 'stedtnit_unregister_default_widgets', 11);
+
+
+// MOBILE CHECK
+function isMobile() {
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
+
+function remove_admin_bar_bump() {
+   remove_action('wp_head', '_admin_bar_bump_cb');
+}
+add_action('get_header', 'remove_admin_bar_bump');

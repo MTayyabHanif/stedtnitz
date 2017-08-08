@@ -109,16 +109,16 @@
 }
 ul#accordion h3{
 	position: absolute;
-	top: 0;
 	margin: 1.00rem 0 0 1rem;
 	color: white;
-	font-size: 2.05rem;
+	top: 14px;
+	font-size: 1.35rem;
 	@media (min-width: 43.75em) {
-		font-size: 2.35rem;
+		font-size: 1.65rem;
 		
 	}
 	@media (min-width: 56.25em) {
-		font-size: 2.35rem;
+		font-size: 1.65rem;
 	}
 }
 ul#accordion:before {
@@ -143,9 +143,9 @@ ul#accordion:before {
 	display: block;
 	padding: 15px 15px 15px 42px;
 	color: #909090;
-	font-family: 'Khula', sans-serif;
+	font-family: $font__heading;
 	font-weight: 800;
-	font-size: 22px;
+	font-size: 18px;
 	position: relative;
 	text-transform: uppercase;
 	z-index: 10;
@@ -184,6 +184,7 @@ ul#accordion:before {
 
 .accordion li.submenu-opened>a {
 	color: #fff;
+	font-weight: 800;
 	padding:15px 15px 15px 20px;
 }
 
@@ -196,6 +197,7 @@ ul#accordion:before {
 	-moz-transform: rotate(180deg);
 	-o-transform: rotate(180deg);
 	transform: rotate(180deg);
+	margin-top: 10px;
 }
 
 .accordion li.default .sub-menu {display: block;}
@@ -210,7 +212,7 @@ ul#accordion:before {
  	display: none;
  	background: #141313;
  	font-family: 'Lato', sans-serif;
- 	font-size: 18px;
+ 	font-size: 1rem;
  	font-weight: 400;
  	padding: 0;
  	margin: 0 auto;
@@ -239,6 +241,7 @@ ul#accordion:before {
  	display: block;
  	text-decoration: none;
  	color: #cbcbcb;
+ 	font-size: 1rem;
  	padding: 12px;
  	padding-left: 42px;
  	-webkit-transition: all 0.25s ease;
@@ -339,59 +342,59 @@ ul#accordion:before {
 
 
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+ /* Small menu. */
+ .menu-toggle,
+ .main-navigation.toggled ul {
+ 	display: block;
+ }
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
+ @media screen and (min-width: 37.5em) {
+ 	.menu-toggle {
+ 		display: none;
+ 	}
+ 	.main-navigation ul {
+ 		display: block;
+ 	}
+ }
 
-.comment-navigation,
-.posts-navigation,
-.post-navigation{
-	.nav-links{
-		margin: 24px 0;
-		font-size: 1.228rem;
-		display: flex;
-		list-style: none;
-		justify-content: center;
-		a {
-			padding-left: 16px;
-			padding-right: 16px;
-			border-radius: 64px;
-			border: 1px solid transparent;
-			border-color: rgba(0, 0, 0, 0.1);
-			text-decoration: none;
-			color: #333;
-			display: inline-block;
-			padding: 8px 12px;
-			line-height: 1;
-			white-space: nowrap;
-			&:hover{
-				border-color: rgba(0, 0, 0, 1);
-				color: #000;
-			}
-		}
-		.nav-next{
-			text-align: right;
-		}
-		div{
-			flex-basis: auto;
-			margin-left: 4px;
-			margin-right: 4px;
-		}
-	}
-}
-.posts-navigation{
-	.nav-links{
-		margin: 10px auto 24px;
-	}
-}
+ .comment-navigation,
+ .posts-navigation,
+ .post-navigation{
+ 	.nav-links{
+ 		margin: 24px 0;
+ 		font-size: 1.228rem;
+ 		display: flex;
+ 		list-style: none;
+ 		justify-content: center;
+ 		a {
+ 			padding-left: 16px;
+ 			padding-right: 16px;
+ 			border-radius: 64px;
+ 			border: 1px solid transparent;
+ 			border-color: rgba(0, 0, 0, 0.1);
+ 			text-decoration: none;
+ 			color: #333;
+ 			display: inline-block;
+ 			padding: 8px 12px;
+ 			line-height: 1;
+ 			white-space: nowrap;
+ 			&:hover{
+ 				border-color: rgba(0, 0, 0, 1);
+ 				color: #000;
+ 			}
+ 		}
+ 		.nav-next{
+ 			text-align: right;
+ 		}
+ 		div{
+ 			flex-basis: auto;
+ 			margin-left: 4px;
+ 			margin-right: 4px;
+ 		}
+ 	}
+ }
+ .posts-navigation{
+ 	.nav-links{
+ 		margin: 10px auto 24px;
+ 	}
+ }

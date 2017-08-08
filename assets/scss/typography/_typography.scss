@@ -10,7 +10,7 @@ textarea {
 	line-height: $font__line-height-body;
 }
 
-b, strong {
+b, strong { 
     font-weight: 400;
 }
 p{
@@ -22,6 +22,11 @@ article.type-page{
 	p{
 		padding: 0 0 0 40px;
 		margin: 0;
+	}
+	#pagePilling{
+		p{
+			padding: 0px;
+		}
 	}
 }
 small, .font_small {@include font-size(0.667);}
