@@ -3,104 +3,137 @@
 
 jQuery(document).ready(function() {
 
-    // SERACH TOGGLE
-    jQuery('.showsearch').click(function() {
-        jQuery('.searchoverlay').fadeIn(250);
-        jQuery('.searchoverlay .query').focus();
-    });
+	 // SERACH TOGGLE
+	 jQuery('.showsearch').click(function() {
+	 	jQuery('.searchoverlay').fadeIn(250);
+	 	jQuery('.searchoverlay .query').focus();
+	 });
 
-    jQuery('.closesearch').click(function() {
-        jQuery('.searchoverlay').fadeOut(250);
-    });
+	 jQuery('.closesearch').click(function() {
+	 	jQuery('.searchoverlay').fadeOut(250);
+	 });
 
-    var intro_overlay = jQuery('.overlay')
-      , explore_block = jQuery(".explore-block")
-      , explore_arrow = jQuery('.arrow-explore')
-      , title_cta = jQuery('.CoverTitles-cta')
-      , title_line = jQuery('.CoverSubtitle-line')
-      , title_txt_cta = jQuery('.CoverTitles-cta-text')
-      , core = jQuery('#core')
-      , go_next = jQuery('#arrow-next')
-      , go_prev = jQuery('#arrow-prev')
-      , scroll = jQuery('.mouseScroll')
-      , desc_text = jQuery('.decsription-short-text')
-      , logo_body = jQuery('.logo-body')
-      , preload = jQuery('#preloader')
-      , blackout = jQuery('.overlay-black')
-      , social = jQuery('ul.social')
-      , fb = jQuery('#fb')
-      , twitter = jQuery('#twitter')
-      , insta = jQuery('#insta')
-      , youtube = jQuery('#youtube')
-      , teleport = jQuery('.overlay-translate')
-      , burger_icon = jQuery('#menu-icon')
-      , accordion = jQuery('.accordion')
-      , menu_category = jQuery('.link')
-      , menu_list = jQuery('.sub-menu li')
-      , menu_page = jQuery('.accordion .link')
-      , video = jQuery('.video')
-      , section = jQuery('.section-img');
+	 var intro_overlay = jQuery('.overlay')
+	 , explore_block = jQuery(".explore-block")
+	 , explore_arrow = jQuery('.arrow-explore')
+	 , title_cta = jQuery('.CoverTitles-cta')
+	 , title_line = jQuery('.CoverSubtitle-line')
+	 , title_txt_cta = jQuery('.CoverTitles-cta-text')
+	 , core = jQuery('#core')
+	 , go_next = jQuery('#arrow-next')
+	 , go_prev = jQuery('#arrow-prev')
+	 , scroll = jQuery('.mouseScroll')
+	 , desc_text = jQuery('.decsription-short-text')
+	 , logo_body = jQuery('.logo-body')
+	 , preload = jQuery('#preloader')
+	 , blackout = jQuery('.overlay-black')
+	 , social = jQuery('ul.social')
+	 , fb = jQuery('#fb')
+	 , twitter = jQuery('#twitter')
+	 , insta = jQuery('#insta')
+	 , youtube = jQuery('#youtube')
+	 , teleport = jQuery('.overlay-translate')
+	 , burger_icon = jQuery('#menu-icon')
+	 , accordion = jQuery('.accordion')
+	 , menu_category = jQuery('.link')
+	 , menu_list = jQuery('.sub-menu li')
+	 , menu_page = jQuery('.accordion .link')
+	 , video = jQuery('.video')
+	 , section = jQuery('.section-img');
 
-    /*
+	 /*
 	* Explore button intialization
 	*/
 
-    jQuery(function() {
-        var Accordion = function(el, multiple) {
-            this.el = el || {};
-            this.multiple = multiple || false;
+	jQuery(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
 
-            // Variables privadas
-            var links = this.el.find('.link');
-            // Evento
-            links.on('click', {
-                el: this.el,
-                multiple: this.multiple
-            }, this.dropdown)
-        }
+				// Variables privadas
+				var links = this.el.find('.link');
+				// Evento
+				links.on('click', {
+					el: this.el,
+					multiple: this.multiple
+				}, this.dropdown)
+			}
 
-        Accordion.prototype.dropdown = function(e) {
-            var $el = e.data.el;
-            $this = jQuery(this),
-            $next = $this.next();
+			Accordion.prototype.dropdown = function(e) {
+				var $el = e.data.el;
+				$this = jQuery(this),
+				$next = $this.next();
 
-            $next.slideToggle();
-            $this.parent().toggleClass('open');
+				$next.slideToggle();
+				$this.parent().toggleClass('open');
 
-            if (!e.data.multiple) {
-                $el.find('.sub-menu').not($next).slideUp().parent().removeClass('open');
-            }
-            ;
-        }
+				if (!e.data.multiple) {
+					$el.find('.sub-menu').not($next).slideUp().parent().removeClass('open');
+				}
+				;
+			}
 
-        var accordion = new Accordion(jQuery('#accordion'),false);
-    });
+			var accordion = new Accordion(jQuery('#accordion'),false);
+		});
 
-    jQuery('#header_nav_menu .menu-item-has-children').prepend('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
-    jQuery('#header_nav_menu #accordion').prepend('<h3>Menu</h3>');
+	jQuery('#header_nav_menu .menu-item-has-children').prepend('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
+	jQuery('#header_nav_menu #accordion').prepend('<h3>Menu</h3>');
 
-    jQuery('#header_nav_menu .menu-item-has-children>a').click(function(event) {
-        event.preventDefault();
-        var $this = jQuery(this)
-          , $next = $this.next();
-        $this.parent().toggleClass('submenu-opened');
-        jQuery('#header_nav_menu .sub-menu').not($next).slideUp().parent().removeClass('submenu-opened');
-        $next.slideToggle();
-    });
+	jQuery('#header_nav_menu .menu-item-has-children>a').click(function(event) {
+		event.preventDefault();
+		var $this = jQuery(this)
+		, $next = $this.next();
+		$this.parent().toggleClass('submenu-opened');
+		jQuery('#header_nav_menu .sub-menu').not($next).slideUp().parent().removeClass('submenu-opened');
+		$next.slideToggle();
+	});
 
-    /* Burger Menu Icon */
-    burger_icon.click(function() {
-        jQuery(this).toggleClass('open');
-        accordion.toggleClass('accordion-active');
+	/* Burger Menu Icon */
+	burger_icon.click(function() {
+		jQuery(this).toggleClass('open');
+		accordion.toggleClass('accordion-active');
 
-    });
+	});
 
-    menu_list.click(function() {
-        burger_icon.toggleClass('open');
-        setTimeout(function() {
-            accordion.toggleClass('accordion-active');
-        }, 1000);
-    });
+	menu_list.click(function() {
+		burger_icon.toggleClass('open');
+		setTimeout(function() {
+			accordion.toggleClass('accordion-active');
+		}, 1000);
+	});
+
+	
+	setInterval(function() {
+		if(window.location.hash) {
+			var currentLocation = window.location.hash.substr(1);
+			jQuery(".sub-menu li > a").each(function() {
+				var gettin_hash = jQuery(this).attr('href');
+				var i = gettin_hash.indexOf("#")
+
+				if (i != -1) {
+					hash = gettin_hash.split('#');
+					var type = '';
+					if(type.length > 1)
+						hash = type[1];
+					if(hash[1] == currentLocation){
+						jQuery(this).parent().addClass('current-menu-item current_page_item');
+					}else{
+						jQuery(this).parent().removeClass('current-menu-item current_page_item');
+					}
+				}
+			});
+		}else if( jQuery('body').hasClass('pp_enabled') ){
+			jQuery(".sub-menu li > a").each(function() {
+				var gettin_hash = jQuery(this).attr('href');
+				var i = gettin_hash.indexOf("#")
+				if (i != -1) {
+					hash = gettin_hash.split('#');
+					jQuery(this).parent().removeClass('current-menu-item current_page_item');
+				}
+			});
+		}
+	}, 100);
+
 
 
 });
