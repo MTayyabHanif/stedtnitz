@@ -127,8 +127,15 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 if ($atts['page_piling'] === "enable") {
-	$output .= '<a class="policylink" href="privacy-policy.html" target="_blank">Privacy Policy</a><div class="mouseScroll"><div class="mouse"></div></div><div class="mouseScroll" id="backup"><b>Scroll Up</b</div></div><div class="middle-nav"><button id="arrow-next" class="opacity-zero"><span>Next</span></button><button id="arrow-prev" class="opacity-zero"><span>Prev</span></button></div>	</div>
-	<section id="pagePilling" data-pp-header="' . $atts['pp_show_header'] . '">';
+
+	if ($atts['pp_privacy_link'] !== "yes") {
+		$output .= '<a class="policylink" href="privacy-policy.html" target="_blank">Privacy Policy</a>';
+	}
+	if ($atts['pp_nav_buttons'] !== "yes") {
+		$output .= '<div class="mouseScroll"><div class="mouse"></div></div><div class="mouseScroll" id="backup"><b>Scroll Up</b</div></div><div class="middle-nav"><button id="arrow-next" class="opacity-zero"><span>Next</span></button><button id="arrow-prev" class="opacity-zero"><span>Prev</span></button></div>	</div>';
+	}
+
+	$output .= '<section id="pagePilling" data-pp-header="' . $atts['pp_show_header'] . '">';
 
 	$output .= wpb_js_remove_wpautop( $content );
 	$output .= '</section>';

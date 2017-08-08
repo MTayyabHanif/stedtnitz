@@ -97,9 +97,9 @@ $anim_params = array(
 			),
 			array(
 				'type' => 'checkbox',
-				'heading' => __( 'Show Navigation Button?', 'js_composer' ),
+				'heading' => __( 'Hide Navigation Button of slides?', 'js_composer' ),
 				'param_name' => 'pp_nav_buttons',
-				'description' => __( 'If checked section will be set to full height.', 'js_composer' ),
+				'description' => __( 'If checked two buttons "prev" & "next" will be hidden along with scroll animation .', 'js_composer' ),
 				'value' => array( __( 'Yes', 'js_composer' ) => 'yes' ),
 				'dependency' => array(
 					'element' => 'page_piling',
@@ -108,9 +108,9 @@ $anim_params = array(
 			),
 			array(
 				'type' => 'checkbox',
-				'heading' => __( 'Show Privacy Policy?', 'js_composer' ),
+				'heading' => __( 'Hide Privacy Policy?', 'js_composer' ),
 				'param_name' => 'pp_privacy_link',
-				'description' => __( 'If checked section will be set to full height.', 'js_composer' ),
+				'description' => __( 'If checked privacy polict link will be hidden from this page\'s pagepilling..', 'js_composer' ),
 				'value' => array( __( 'Yes', 'js_composer' ) => 'yes' ),
 				'dependency' => array(
 					'element' => 'page_piling',

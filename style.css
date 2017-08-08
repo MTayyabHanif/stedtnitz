@@ -2341,7 +2341,8 @@ article.single-post {
   article.single-post .excerpt-text {
     border-bottom: 1px solid #dadada; }
   article.single-post footer {
-    padding: 2rem 1rem; }
+    padding: 2rem 1rem;
+    font-family: "Lato", sans-serif; }
     article.single-post footer .share-post {
       padding-bottom: 1rem;
       border-bottom: 1px solid #dadada; }
@@ -2447,6 +2448,7 @@ article.single-post {
   top: -40%; }
 
 .post-nav {
+  font-family: "Lato", sans-serif;
   max-width: 860px;
   padding: 4rem 0.8rem;
   margin: 0 auto;
@@ -2485,6 +2487,7 @@ article.single-post {
     text-align: right; }
   .post-nav .pager.flat a {
     font-weight: 800;
+    font-size: 1rem;
     text-decoration: none;
     color: #333; }
     .post-nav .pager.flat a:hover {
@@ -2496,10 +2499,12 @@ article.single-post {
   margin: 1rem 0 1rem;
   position: relative;
   text-transform: uppercase;
-  display: block; }
+  display: block;
+  font-size: 1rem; }
   .post-category ul, .post-category li, .post-tags ul, .post-tags li {
     list-style: none;
-    display: inline-flex; }
+    display: inline-flex;
+    font-size: 1rem; }
   .post-category ul, .post-tags ul {
     margin: 0;
     padding-left: 0;
@@ -2508,6 +2513,7 @@ article.single-post {
     color: #000;
     text-decoration: none;
     padding: 12px 16px;
+    font-size: 1rem;
     background-color: #f3f3f3;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -2650,7 +2656,8 @@ a.tab__name--active {
 /***Comments ****/
 #comments {
   max-width: 800px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-family: "Lato", sans-serif; }
 
 #respond {
   clear: both;
@@ -2672,8 +2679,9 @@ a.tab__name--active {
   background: #fff !important;
   width: 100%;
   height: 150px;
-  color: #999;
+  color: #333;
   font-size: 15px;
+  font-family: "Lato", sans-serif;
   padding: 10px 10px;
   margin: 5px 0 5px 0;
   border: 1px solid #dfdfdf;
@@ -2812,7 +2820,7 @@ a.leavereplybutton:hover {
   top: -3px;
   right: -12px;
   border-radius: 4px;
-  font-family: "Varela Round"; }
+  font-family: "Lato", sans-serif; }
 
 .comment-list li .fn a, .comment-list li .cfn a {
   margin: 0; }
@@ -2883,6 +2891,7 @@ h3#reply-title {
   color: #fff;
   font-size: 15px;
   padding: 12px 22px;
+  font-family: "Lato", sans-serif;
   display: inline-block;
   border-radius: 3px;
   font-weight: 700;

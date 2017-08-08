@@ -51,7 +51,7 @@ if (!$back_button_link == "") {
 
 
 	<?php 
-if (!is_page() && !$header_mode_on) { ?>
+if (is_page() && !$header_mode_on) { ?>
 	<div id="search-icon" class="showsearch"><i class="icono-search"></i></div>
 	<section class="searchoverlay">
 		<i class="icon closesearch"></i>
