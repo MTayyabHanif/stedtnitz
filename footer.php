@@ -91,7 +91,7 @@
 					<?php if ( is_active_sidebar( 'footer__full_bottom' ) ) { ?>
 					<?php dynamic_sidebar( 'footer__full_bottom' ); ?>
 					<?php } ?>
-
+				
 				<div class="site-info">
 					 <?php 
 						echo get_theme_mod('footer_text' );
