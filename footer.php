@@ -13,7 +13,7 @@
 </div><!-- #content -->
 <?php if (!is_page()): ?>
 	<footer id="colophon" class="site-footer">
-	<div class="container-fluid wrap">
+	<div class="container-fluid wrap <?php echo get_theme_mod('stedtnitz_header_bar_color'); ?>">
 		<div class="footer-row row with-gutter">
 
 

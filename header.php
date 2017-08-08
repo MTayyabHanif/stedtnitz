@@ -33,7 +33,9 @@ if (!$back_button_link == "") {
 } ?>
 	<body <?php body_class('page_pilling_vc '.$transparent.' '); ?>>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip header and navigation, jump to content', 'stedtnitz' ); ?></a>
+	<?php $header_class = get_theme_mod('stedtnitz_header_bar_color', 'light' ); ?>
 <header class="top-header">
+	<div class="header <?php echo $header_class; ?>">
 	<?php 
 	if (has_custom_logo()) {
 		the_custom_logo();
@@ -46,6 +48,7 @@ if (!$back_button_link == "") {
 		<?php 
 	}
 	?>
+	</div>
 </header>
 	<div id="content" class="site-content">
 
@@ -75,11 +78,12 @@ $menu_light = false;
 if ($menu_light) {
  	$menu_color = 'light-menu';
  }else{$menu_color = '';} ?>
-	<div id="header_nav_menu" class="". $menu_color ."">
-	<div id="menu-icon" class="". $menu_color ."">
-		<div class="top bar"></div>
-		<div class="middle bar"></div>
-		<div class="bottom bar"></div>
+ 	<div class="menu-container <?php echo get_theme_mod('stedtnitz_menu_icon', 'light'); ?>">
+		<div id="menu-icon" class="". $menu_color ."">
+			<div class="top bar"></div>
+			<div class="middle bar"></div>
+			<div class="bottom bar"></div>
+		</div>
 	</div>
 		<?php
 		wp_nav_menu(
