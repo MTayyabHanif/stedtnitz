@@ -124,6 +124,7 @@ function stedtnitz_widgets_init() {
 	) );
 	register_sidebar( array(
 		'name'          => 'Footer 1 Widget',
+		'description'   => esc_html__( 'Add widgets here.', 'stedtnitz' ),
 		'id'            => 'footer_1',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',
