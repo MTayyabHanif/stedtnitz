@@ -89,8 +89,8 @@ if (is_page() && !$header_mode_on) { ?>
 
 
 
- 	<div class="menu-container <?php echo get_theme_mod('stedtnitz_menu_icon', 'light'); ?>">
-		<div id="menu-icon" class="">
+ 	<div class="menu-container">
+		<div id="menu-icon" class="<?php echo get_theme_mod('stedtnitz_menu_icon', 'light'); ?>">
 			<div class="top bar"></div>
 			<div class="middle bar"></div>
 			<div class="bottom bar"></div>
