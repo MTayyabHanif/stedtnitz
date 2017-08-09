@@ -14,9 +14,9 @@
  	animation: burger .8s;
  }
  .bar {
- 	width: 36px;
+ 	width: 40px;
  	-webkit-transition: all 0.4s;
- 	border: 2px solid #333;
+ 	border: 1px solid #333;
  	position: absolute;
  	border-radius: 10px;
  }
@@ -36,8 +36,7 @@
  	left: 24%;
  	top: 60%;
  }
- #menu-icon.open .bar{border: 2px solid white;}
- #menu-icon.light-menu.open .bar{border: 2px solid #333;}
+ #menu-icon.open .bar{border: 1px solid white;}
 
  #menu-icon.open .middle {
  	opacity: 0;
@@ -152,4 +151,24 @@
  		right: 15px;
  		top: 20px;
  	}
+ } 
+ header.top-header.dark {
+ 	background-color: rgb(41, 41, 41);
+ 	border-bottom: 1px solid #000000;
+ 	box-shadow: 1px -1px 10px 4px rgba(53, 53, 53, 0.62);
  }
+ #search-icon.showsearch.dark{
+ 	#search-icon:before {
+ 		background-color: #fff;
+ 	}
+ 	[class*=icono-] {
+ 		color: #fff;
+ 	}
+ }
+ .menu-container.light{
+ 	#menu-icon{
+ 		.bar {
+ 			border: 1px solid #fff;
+ 		}
+ 	}
+ } 

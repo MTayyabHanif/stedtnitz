@@ -73,6 +73,23 @@ div.postlist.row {
 		font-size: .72rem; 
 		font-family: "Lato";
 		margin: 6px auto 4px;
+		&:before {
+			content: "";
+			height: 2px;
+			width: 6%;
+			background-color: #bdbbbb;
+			position: relative;
+			left: 0;
+			bottom: 5px;
+			display: block;
+			transition: all .6s ease-in-out;
+			z-index: 4;
+			margin: 0 auto;
+		}
+	}
+	article .post-link:hover .post-time:before {
+		width: 66%;
+		background-color: $primary;
 	}
 	article .post-image {
 		max-height: 252px;
@@ -101,24 +118,8 @@ div.postlist.row {
 		margin: 0 -0.8rem;
 		position: relative;
 		transition: all .6s ease-in-out;
-		&:before {
-			content: "";
-			height: 2px;
-			width: 6%;
-			background-color: #bdbbbb;
-			position: relative;
-			left: 0;
-			bottom: -82px;
-			display: block;
-			transition: all .6s ease-in-out;
-			z-index: 4;
-			margin: 0 auto;
-		}
+		
 	} 
-	article .post-link:hover header:before {
-		width: 66%;
-		background-color: $primary;
-	}
 
 	article .excerpt-text p {
 		@include font-size($font__size-on-excerpt);

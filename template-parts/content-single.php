@@ -14,7 +14,6 @@ $featuredImageURL_single = $image_data_large[0];
 	<header>
 		<?php the_title( '<h1 itemprop="headline" class="post-title">', '</h1>' ); ?>
 	</header>
-
 	<?php if (has_post_thumbnail()) { ?>
 		<div class="post-image">
 			<?php

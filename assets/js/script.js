@@ -34,6 +34,7 @@ jQuery(document).ready(function() {
 	 , youtube = jQuery('#youtube')
 	 , teleport = jQuery('.overlay-translate')
 	 , burger_icon = jQuery('#menu-icon')
+	 , overlay = jQuery('#menu-overlay')
 	 , accordion = jQuery('.accordion')
 	 , menu_category = jQuery('.link')
 	 , menu_list = jQuery('.sub-menu li')
@@ -76,13 +77,12 @@ jQuery(document).ready(function() {
 			var accordion = new Accordion(jQuery('#accordion'),false);
 		});
 
-	jQuery('#header_nav_menu .menu-item-has-children').prepend('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
-	jQuery('#header_nav_menu #accordion').prepend('<h3>Menu</h3>');
+	jQuery('#header_nav_menu .menu-item-has-children>a').after('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
 
 	jQuery('#header_nav_menu .menu-item-has-children>a').click(function(event) {
 		event.preventDefault();
 		var $this = jQuery(this)
-		, $next = $this.next();
+		, $next = $this.siblings('ul.sub-menu');
 		$this.parent().toggleClass('submenu-opened');
 		jQuery('#header_nav_menu .sub-menu').not($next).slideUp().parent().removeClass('submenu-opened');
 		$next.slideToggle();
@@ -92,7 +92,14 @@ jQuery(document).ready(function() {
 	burger_icon.click(function() {
 		jQuery(this).toggleClass('open');
 		accordion.toggleClass('accordion-active');
+		overlay.toggleClass('menu-active');
+	});
 
+	/* Burger Menu Icon */
+	overlay.click(function() {
+		burger_icon.toggleClass('open');
+		accordion.toggleClass('accordion-active');
+		overlay.toggleClass('menu-active');
 	});
 
 	menu_list.click(function() {
@@ -133,7 +140,7 @@ jQuery(document).ready(function() {
 			});
 		}
 	}, 100);
-
+ 
 
 
 });
