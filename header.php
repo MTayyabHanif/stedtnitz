@@ -24,19 +24,19 @@
 		$header_menu 		= '';
 		$back_button_link 	= '';
 	}
-if ($header_menu == "on") {
-	$header_mode_on = true;
-	$transparent = 'transparent_header';
-}else{
-	$header_mode_on = false;
-	$transparent = '';
-}
-if (!$back_button_link == "") {
-	$backbutton = '<a class="page back-button" href="'.$back_button_link.'">Back</a>';
-}else{
-	$backbutton = '';
-}
-} ?>
+	if ($header_menu == "on") {
+		$header_mode_on = true;
+		$transparent = 'transparent_header';
+	}else{
+		$header_mode_on = false;
+		$transparent = '';
+	}
+	if (!$back_button_link == "") {
+		$backbutton = '<a class="page back-button" href="'.$back_button_link.'">Back</a>';
+	}else{
+		$backbutton = '';
+	}
+}else{$transparent = ''; $backbutton = '';} ?>
 	<body <?php body_class('page_pilling_vc '.$transparent.' '); ?>>
 	<!-- <div id="preloader">
 		<div class="bounce"></div>
