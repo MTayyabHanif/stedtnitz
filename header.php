@@ -32,8 +32,10 @@ if ($header_menu == "on") {
 	$transparent = '';
 }
 if (!$back_button_link == "") {
+	echo "Is this one working?";
 	$backbutton = '<a class="page back-button" href="'.$back_button_link.'">Back</a>';
 }else{
+	echo "Is this one working? - else statment";
 	$backbutton = '';
 }
 } ?>

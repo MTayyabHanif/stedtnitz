@@ -1,4 +1,7 @@
 <?php
+
+var_dump(get_theme_mod('stedtnitz_footer_color', 'dark'));
+
 /**
  * The template for displaying the footer
  *
@@ -12,7 +15,7 @@
 ?>
 </div><!-- #content -->
 	<footer id="colophon" class="site-footer">
-	<div class="container-fluid wrap <?php echo get_theme_mod('stedtnitz_header_bar_color'); ?>">
+	<div class="container-fluid wrap <?php echo get_theme_mod('stedtnitz_footer_color', 'light'); ?>">
 		<div class="footer-row row with-gutter">
 
 
