@@ -35,12 +35,15 @@
 		}
 	}
 	a {
-		color: #b0b8bd !important;
+		color: #757575 !important;
 		text-decoration: none;
 		&:hover{
 			text-decoration: underline;
 			color: $primary !important;
 		}
+	}
+	.recentcomments>a{
+		text-decoration: underline;
 	}
 	.widget.widget_categories {
 		ul li{

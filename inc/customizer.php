@@ -29,7 +29,7 @@ function stedtnitz_customize_register( $wp_customize ) {
 			'render_callback' => 'stedtnitz_customize_partial_footer_text',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'stedtnitz_header_bar_color', array(
-	        'selector' => '.top-header',
+	        'selector' => '.header',
 	        'render_callback' => 'stedtnitz_header_bar_color_callback',
     	) );
     	$wp_customize->selective_refresh->add_partial( 'stedtnitz_footer_color', array(
@@ -207,19 +207,19 @@ function stedtnitz_customize_partial_footer_text() {
 
 function stedtnitz_header_bar_color_callback(){
 	?>
-	<div class="header <?php echo get_theme_mod('stedtnitz_header_bar_color', 'light'); ?>">
-	<?php 
-	if (has_custom_logo()) {
-		the_custom_logo();
-	}else{
-		?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<h5 class="site-title"><?php bloginfo( 'name' ); ?></h5>
-		</a>
-		<?php 
-	}
-	?>
-	</div>
+	<header class="top-header <?php echo $header_class; ?>">
+			<?php 
+			if (has_custom_logo()) {
+				the_custom_logo();
+			}else{
+				?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<h5 class="site-title"><?php bloginfo( 'name' ); ?></h5>
+				</a>
+				<?php 
+			}
+			?>
+		</header>
 	<?php
 }
 

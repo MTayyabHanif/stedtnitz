@@ -87,7 +87,7 @@
 	width: 300px;
 	margin: 0 auto;
 	padding: 0;
-	padding-top: 6rem;
+	padding-top: 1rem;
 	background: #1c1c1c;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -121,14 +121,6 @@ ul#accordion h3{
 		font-size: 1.65rem;
 	}
 }
-ul#accordion:before {
-	content: "";
-	width: 100%;
-	top: 80px;
-	position: absolute;
-	height: 2px;
-	background-color: #fff;
-}
 .accordion-active{
 	right:0;  
 	transform: translate3d(0, 0, 0);
@@ -140,12 +132,13 @@ ul#accordion:before {
 .accordion>li.menu-item>a{
 	cursor: pointer;
 	outline: none;
-	display: block;
-	padding: 15px 15px 15px 42px;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 15px 15px 15px 34px;
 	color: #909090;
 	font-family: $font__heading;
 	font-weight: 800;
-	font-size: 18px;
+	font-size: 22px;
 	position: relative;
 	z-index: 10;
 	-webkit-transition: all .4s ease;
@@ -165,7 +158,6 @@ ul#accordion:before {
 	position: absolute;
 	top: 16px;
 	left: 12px;
-	font-family: 'Lato', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	color: #595959;
@@ -184,7 +176,7 @@ ul#accordion:before {
 .accordion li.submenu-opened>a {
 	color: #fff;
 	font-weight: 800;
-	padding:15px 15px 15px 20px;
+	padding:15px 15px 15px 15px;
 }
 
 .accordion li.current-menu-parent  .chevron-icon {
@@ -196,9 +188,8 @@ ul#accordion:before {
 	-moz-transform: rotate(180deg);
 	-o-transform: rotate(180deg);
 	transform: rotate(180deg);
-	margin-top: 10px;
+	padding-top: 18px;
 }
-
 .accordion li.default .sub-menu {display: block;}
 
 
@@ -237,10 +228,10 @@ ul#accordion:before {
  }
 
  .sub-menu a {
- 	display: block;
  	text-decoration: none;
  	color: #cbcbcb;
- 	font-size: 1rem;
+ 	font-size: 1.25rem;
+ 	display: block;
  	font-weight: 300;
  	padding: 12px;
  	padding-left: 42px;
@@ -278,15 +269,14 @@ ul#accordion:before {
  	color: #fff;
  }
 
- .sub-menu a:hover:before {
+ .sub-menu a:hover:before { 
  	color: #fff;
  	height: 50%;
  }
  .chevron-icon {
  	display: inline-block;
- 	float: right;
- 	margin-right: 12px;
- 	margin-top: 18px;
+ 	padding-top: 2px;
+ 	vertical-align: -webkit-baseline-middle;
  }
 
 
@@ -334,7 +324,13 @@ ul#accordion:before {
  	}
  }
 
-
+#menu-overlay.menu-active {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    z-index: 488;
+}
 
 
 
