@@ -351,10 +351,12 @@ function stednitz_page_settings_box($post)
 	
 	$header_option 		= '';
 	$back_button_link 	= '';
+	$footer_option 		= '';
 
 	if ($data && $data != '') {
-		$header_option 		= 	$data['header_menu'];
-		$back_button_link 	=	$data['back_button_link'];
+		$header_option 		= 	($data['header_menu'])? $data['header_menu'] : '';
+		$back_button_link 	=	($data['back_button_link'])? $data['back_button_link'] : '';
+		$footer_option 		=	($data['footer_option'])? $data['footer_option'] : '';
 	}
 
 	?>
@@ -364,6 +366,10 @@ function stednitz_page_settings_box($post)
 	<p>Type Back Button link here: 
 		<input type="text" value="<?php echo $back_button_link; ?>" name="back_button_link">
 		<span class="desc">(back button will not show up if input field left empty!)</span>
+	</p>
+	<hr>
+	<p>Footer settings for this page: 
+		<input type="checkbox" <?php echo ($footer_option)?" checked=''":'' ?> name="footer_option">
 	</p>
 	</div>
 	<style>
@@ -390,32 +396,17 @@ function stednitz_save_page_settings( $post_id )
 
 		$header_option 		= 	(isset($_POST['header_menu'])) ? $_POST['header_menu'] : False;
 		$back_button_link 	=	(isset($_POST['back_button_link'])) ? esc_attr($_POST['back_button_link']) :  '';
+		$footer_option = (isset($_POST['footer_option'])) ? $_POST['footer_option'] : False;
 		$page_option_data = array(
 			'header_menu'		=> $header_option,
 			'back_button_link' 	=> $back_button_link,
+			'footer_option' 	=> $footer_option,
 		);
 		update_post_meta( $post_id, 'page_options', $page_option_data);
     
 }
 
 add_action( 'save_post', 'stednitz_save_page_settings' );
-
-function stednitz_page_setting_scripts()
-{
-    // get current admin screen, or null
-    $screen = get_current_screen();
-    // verify admin screen object
-    if (is_object($screen)) {
-        // enqueue only for specific post types
-        if ($screen->post_type == 'page') {
-        	// Load Wordpress internet resources required for media uploader.
-        	wp_enqueue_media();
-            // enqueue script
-            wp_enqueue_script('stednitz_page_setting_script', get_template_directory_uri() . '/assets/js/admin-script.js', array('jquery'));
-        }
-    }
-}
-add_action('admin_enqueue_scripts', 'stednitz_page_setting_scripts');
 
 
 /**
