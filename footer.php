@@ -1,7 +1,5 @@
 <?php
 
-var_dump(get_theme_mod('stedtnitz_footer_color', 'dark'));
-
 /**
  * The template for displaying the footer
  *
