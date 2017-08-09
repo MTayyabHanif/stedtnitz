@@ -2254,7 +2254,7 @@ header.top-header.dark {
 #search-icon.showsearch.dark [class*=icono-] {
   color: #fff; }
 
-.menu-container.light #menu-icon .bar {
+.menu-container #menu-icon.light .bar {
   border: 1px solid #fff; }
 
 /*--------------------------------------------------------------

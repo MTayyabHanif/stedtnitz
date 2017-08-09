@@ -225,7 +225,7 @@ function stedtnitz_header_bar_color_callback(){
 
 function stedtnitz_footer_color_callback(){
 	?>
-	<div class="container-fluid wrap <?php echo get_theme_mod('stedtnitz_header_bar_color', 'light'); ?>">
+	<div class="container-fluid wrap <?php echo get_theme_mod('stedtnitz_footer_color', 'light'); ?>">
 		<div class="footer-row row with-gutter">
 
 
