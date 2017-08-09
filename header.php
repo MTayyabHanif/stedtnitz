@@ -16,8 +16,14 @@
 	<?php wp_head(); ?>
 	</head>
 <?php if (is_page()) {
-$header_menu =  get_post_meta($post->ID, 'page_options')[0]['header_menu'];
-$back_button_link = get_post_meta($post->ID, 'page_options')[0]['back_button_link'];
+	$page_meta = (isset(get_post_meta($post->ID, 'page_options')[0])) ? get_post_meta($post->ID, 'page_options')[0] : False;
+	if ($page_meta){
+		$header_menu 		=  $page_meta['header_menu'];
+		$back_button_link 	= $page_meta['back_button_link'];
+	}else{
+		$header_menu 		= '';
+		$back_button_link 	= '';
+	}
 if ($header_menu == "on") {
 	$header_mode_on = true;
 	$transparent = 'transparent_header';
