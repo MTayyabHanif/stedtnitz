@@ -460,3 +460,9 @@ function remove_admin_bar_bump() {
    remove_action('wp_head', '_admin_bar_bump_cb');
 }
 add_action('get_header', 'remove_admin_bar_bump');
+
+add_action('customize_register','my_customize_register');
+function my_customize_register( $wp_customize ) {
+  $wp_customize->remove_control('customize-control-background_color');
+  $wp_customize->remove_section("background_image");
+}
