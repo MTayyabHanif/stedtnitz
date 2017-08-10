@@ -38,13 +38,31 @@
 	}
 }else{$transparent = ''; $backbutton = '';} ?>
 	<body <?php body_class('page_pilling_vc '.$transparent.' '); ?>>
-	<!-- <div id="preloader">
-		<div class="bounce"></div>
-	</div> -->
-	<div id="preloader">
-		<span class="ball"></span>
-		<span class="shadow"></span>
-	</div>
+	<?php $preloader_style = get_theme_mod('stedtnitz_preloader_chooser', 'p3' ); ?>
+	<?php 
+		if ($preloader_style == 'p1') {
+	 ?>
+	 <div id="preloader" class="p1">
+	 	<div class="bounce"></div>
+	 </div>
+	<?php 
+		} elseif ($preloader_style == 'p2') {
+	 ?>
+	 <div id="preloader" class="p2">
+	 	<span class="ball"></span>
+	 	<span class="shadow"></span>
+	 </div>
+	<?php 
+		} elseif ($preloader_style == 'p3') {
+	 ?>
+	 <div id="preloader" class="p3">
+	 	<span class="spin-logo"></span>
+	 </div>
+	<?php 
+		}
+	 ?>
+
+	
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip header and navigation, jump to content', 'stedtnitz' ); ?></a>
 	<?php $header_class = get_theme_mod('stedtnitz_header_bar_color', 'light' ); ?>
 	<div class="header">

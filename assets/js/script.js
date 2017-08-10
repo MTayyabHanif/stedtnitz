@@ -3,6 +3,17 @@
 
 jQuery(document).ready(function() {
 
+	//Preloader
+	if (jQuery('#preloader').length !== 0) {
+         		jQuery('body').css({'overflowY: ':'hidden'});
+
+	         	setTimeout(function() {
+	         		jQuery('#preloader').fadeOut('slow'); // will fade out the white DIV that covers the website. 
+	         		jQuery('body').css({'overflowY':'auto'});
+		}, 2200);
+
+	}
+
 	 // SERACH TOGGLE
 	 jQuery('.showsearch').click(function() {
 	 	jQuery('.searchoverlay').fadeIn(250);
@@ -140,7 +151,7 @@ jQuery(document).ready(function() {
 			});
 		}
 	}, 100);
- 
+
 
 
 });

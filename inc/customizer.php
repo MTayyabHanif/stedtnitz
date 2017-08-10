@@ -156,6 +156,27 @@ function stedtnitz_customize_register( $wp_customize ) {
 	  	'label' => __( 'Select Header Menu Button Color Scheme', 'stedtnitz' ),
 	  	'description' => __( 'Chose the Header Menu Button color scheme for all webpages.', 'stedtnitz' ),	
 	) );
+
+
+	$wp_customize->add_setting( 'stedtnitz_preloader_chooser', array(
+	  'type' => 'theme_mod',
+	  'capability' => 'edit_theme_options',
+	  'default' => 'p3',
+	  'transport' => 'refresh', // or postMessage
+	) );
+	$wp_customize->add_control('stedtnitz_preloader_chooser', array(
+		'type' => 'select',
+		'choices' => array(
+			'p1'	 => __('Bouncy logo Preloader', 'stedtnitz'),
+			'p2'	 => __('Bouncy logo Preloader 2', 'stedtnitz'),
+			'p3'	 => __('Spinner preloader', 'stedtnitz'),
+			'p4'	 => __('No preloader', 'stedtnitz'),
+			),
+		'priority' => 10, // Within the section.
+	  	'section' => 'title_tagline', // Required, core or custom.
+	  	'label' => __( 'Select Pre-loader', 'stedtnitz' ),
+	  	'description' => __( 'The selected pre-loaded will show up on every page load.', 'stedtnitz' ),	
+	) );
 }
 add_action( 'customize_register', 'stedtnitz_customize_register' );
 
