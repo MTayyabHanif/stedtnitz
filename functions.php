@@ -340,23 +340,25 @@ function stednitz_page_meta_box()
             'stednitz_box_id',           // Unique ID
             'Stedtnitz Page Settings',  // Box title
             'stednitz_page_settings_box',  // Content callback, must be of type callable
-            'page'                   // Post type
+            array('page', 'post')                   // Post type
         );
 }
 add_action('add_meta_boxes', 'stednitz_page_meta_box');
 
 function stednitz_page_settings_box($post)
 {
-	$data = isset(get_post_meta( $post->ID , 'page_options')[0]) ? get_post_meta( $post->ID , 'page_options')[0] : False;
+	$data = isset(get_post_meta( $post->ID , 'stedtnitz_options')[0]) ? get_post_meta( $post->ID , 'stedtnitz_options')[0] : False;
 	
 	$header_option 		= '';
 	$back_button_link 	= '';
 	$footer_option 		= '';
+	$menu_option 		= '';
 
 	if ($data && $data != '') {
 		$header_option 		= 	($data['header_menu'])? $data['header_menu'] : '';
 		$back_button_link 	=	($data['back_button_link'])? $data['back_button_link'] : '';
 		$footer_option 		=	($data['footer_option'])? $data['footer_option'] : '';
+		$menu_option		=	($data['menu_option'])? $data['footer_option'] : '';
 	}
 
 	?>
@@ -368,8 +370,11 @@ function stednitz_page_settings_box($post)
 		<span class="desc">(back button will not show up if input field left empty!)</span>
 	</p>
 	<hr>
-	<p>Footer settings for this page: 
+	<p>Footer settings: 
 		<input type="checkbox" <?php echo ($footer_option)?" checked=''":'' ?> name="footer_option">
+	</p>
+	<p>Menu settings:
+		<input type="checkbox" <?php echo ($menu_option)?" checked=''":'' ?> name="menu_option">
 	</p>
 	</div>
 	<style>
@@ -396,13 +401,15 @@ function stednitz_save_page_settings( $post_id )
 
 		$header_option 		= 	(isset($_POST['header_menu'])) ? $_POST['header_menu'] : False;
 		$back_button_link 	=	(isset($_POST['back_button_link'])) ? esc_attr($_POST['back_button_link']) :  '';
-		$footer_option = (isset($_POST['footer_option'])) ? $_POST['footer_option'] : False;
+		$menu_option 		= 	(isset($_POST['menu_option'])) ? $_POST['menu_option'] : False;
+		$footer_option 		 = (isset($_POST['footer_option'])) ? $_POST['footer_option'] : False;
 		$page_option_data = array(
 			'header_menu'		=> $header_option,
 			'back_button_link' 	=> $back_button_link,
 			'footer_option' 	=> $footer_option,
+			'menu_option' 		=> $menu_option,
 		);
-		update_post_meta( $post_id, 'page_options', $page_option_data);
+		update_post_meta( $post_id, 'stedtnitz_options', $page_option_data);
     
 }
 
