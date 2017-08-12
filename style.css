@@ -1374,15 +1374,20 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: .6em 1em .4em; }
+  border: 0;
+  background: #4f4f4f;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13.6px;
+  font-size: 0.85rem;
+  font-size: 0.85rem;
+  font-family: "Lato";
+  font-weight: 400;
+  padding: .4rem .8rem;
+  text-transform: uppercase;
+  line-height: 1.7;
+  display: inline-block;
+  vertical-align: top; }
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
@@ -1415,8 +1420,11 @@ input[type="color"],
 textarea {
   color: #666;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 3px; }
+  margin-right: .6rem;
+  padding: .4rem .8rem;
+  font-size: 16px;
+  font-family: "Lato";
+  font-weight: 400; }
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
@@ -2289,7 +2297,8 @@ footer#colophon.site-footer .container-fluid {
     margin-bottom: 16px; }
   footer#colophon.site-footer .container-fluid p, footer#colophon.site-footer .container-fluid a, footer#colophon.site-footer .container-fluid span {
     font-family: "Lato", sans-serif;
-    color: #fff !important; }
+    color: #fff !important;
+    font-weight: 400; }
   footer#colophon.site-footer .container-fluid p, footer#colophon.site-footer .container-fluid a {
     font-size: 0.88rem; }
 
@@ -2302,6 +2311,10 @@ footer#colophon.site-footer .container-fluid.light {
 footer#colophon {
   padding-top: 2rem;
   margin: 4rem auto 0; }
+  footer#colophon .widget-title {
+    margin-bottom: 30px;
+    font-weight: 800;
+    color: #676d7b; }
   footer#colophon .widget {
     border: 0;
     padding: 0;

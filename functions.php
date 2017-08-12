@@ -226,6 +226,26 @@ function stedtnitz_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	// FOOTER TOP FULL LINE
+	register_sidebar( array(
+		'name'          => 'Footer Area - HALF - LEFT (TOP)',
+		'id'            => 'footer__long_top_half1',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	// FOOTER TOP FULL LINE
+	register_sidebar( array(
+		'name'          => 'Footer Area - HALF - RIGHT (TOP)',
+		'id'            => 'footer__long_top_half2',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 	// Usage of this widget area.
 	// dynamic_sidebar( 'footer_1' );
 }
@@ -358,7 +378,7 @@ function stednitz_page_settings_box($post)
 		$header_option 		= 	($data['header_menu'])? $data['header_menu'] : '';
 		$back_button_link 	=	($data['back_button_link'])? $data['back_button_link'] : '';
 		$footer_option 		=	($data['footer_option'])? $data['footer_option'] : '';
-		$menu_option		=	($data['menu_option'])? $data['footer_option'] : '';
+		$menu_option		=	($data['menu_option'])? $data['menu_option'] : '';
 	}
 
 	?>
@@ -368,12 +388,14 @@ function stednitz_page_settings_box($post)
 	<p>Type Back Button link here: 
 		<input type="text" value="<?php echo $back_button_link; ?>" name="back_button_link">
 		<span class="desc">(back button will not show up if input field left empty!)</span>
+		<span class="desc">Just add URL into text box, for example: https://development.stednitz.ch/</span>
 	</p>
 	<hr>
-	<p>Footer settings: 
+	<p>Show Footer: 
 		<input type="checkbox" <?php echo ($footer_option)?" checked=''":'' ?> name="footer_option">
 	</p>
-	<p>Menu settings:
+	<hr>
+	<p>Bright Menu Icon:
 		<input type="checkbox" <?php echo ($menu_option)?" checked=''":'' ?> name="menu_option">
 	</p>
 	</div>

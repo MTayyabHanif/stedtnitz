@@ -32,11 +32,5 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-<?php 
-$footer_option = isset(get_post_meta( $post->ID , 'page_options')[0]) ? get_post_meta( $post->ID , 'page_options')[0]['footer_option'] : False;
-
-if ($footer_option) {
-	get_footer();
-}
-
- ?>
+<?php
+get_footer(); ?>

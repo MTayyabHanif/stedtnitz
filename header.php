@@ -16,13 +16,20 @@
 	<?php wp_head(); ?>
 	</head>
 <?php if (is_page()) {
-	$page_meta = (isset(get_post_meta($post->ID, 'page_options')[0])) ? get_post_meta($post->ID, 'page_options')[0] : False;
+	$page_meta = (isset(get_post_meta($post->ID, 'stedtnitz_options')[0])) ? get_post_meta($post->ID, 'stedtnitz_options')[0] : False;
 	if ($page_meta){
 		$header_menu 		=  $page_meta['header_menu'];
 		$back_button_link 	= $page_meta['back_button_link'];
+		$menu_option 		= $page_meta['menu_option'];
 	}else{
 		$header_menu 		= '';
 		$back_button_link 	= '';
+		$menu_option 		= '';
+	}
+	if ($menu_option == "on") {
+		$menu_option = 'light';
+	}else{
+		$menu_option = 'dark';
 	}
 	if ($header_menu == "on") {
 		$header_mode_on = true;
@@ -119,7 +126,7 @@ if (is_page() && !$header_mode_on) { ?>
 
 
  	<div class="menu-container">
-		<div id="menu-icon" class="<?php echo get_theme_mod('stedtnitz_menu_icon', 'light'); ?>">
+		<div id="menu-icon" class="<?php echo $menu_option; ?>">
 			<div class="top bar"></div>
 			<div class="middle bar"></div>
 			<div class="bottom bar"></div>
