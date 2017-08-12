@@ -1,0 +1,107 @@
+@media screen and ( max-width: 480px ){
+	div.postlist.row article .post-link{
+		border: 1px solid #cecece
+	}
+}
+
+@media screen and ( min-width: 550px ){ // area of col-sm
+	.sidebar-side{
+		padding: 0px 20px;
+	}
+}
+@media screen and ( max-width: 767px ){
+	.middle-nav{position: absolute;width:200px;height:30px;left:-35px;top:90%;z-index:100;margin:0;}
+	div#backup.mouseScroll {
+		left: 43.4%;
+		top: 93%;
+	}
+}
+@media screen and ( max-width: 550px ){ // this is where col-XS starts
+	.custom-logo-link img {
+		width: 40px;
+		margin-top: -4px;
+	}
+	header.top-header {
+		min-height: 57px;
+	}
+	#search-icon {
+		position: fixed;
+		top: 0px;
+		right: 77px;
+	}
+	#search-icon:before {
+		height: 41px;
+		top: 6px;
+		right: -8px;
+	}
+	#menu-icon {
+		right: -6px;
+		top: -4px;
+	}
+	.site-footer .sitemap, .site-footer .aboutsite {
+		padding: 60px 0 0;
+	}
+	.site-footer .aboutsite {
+		padding: 10px 0;
+	}
+	.site-footer .sitemap > .col-lg-3 > * {
+		padding-left: 0; 
+	}
+	.sidebar-side{
+		padding: 0px 20px;
+	}
+	.post-nav {
+		padding: 2rem 0.8rem;
+		margin-top: 0rem;
+		li.prev{
+			margin-bottom: 40px;
+		}
+		li.prev, li.next {
+			text-align: center;
+		}
+		
+	}
+	.post-nav.next-prev{
+		ul:after{
+			content: "";
+			position: absolute;
+			left: 41%;
+			height: 2px;
+			width: 80px;
+			background-color: #ececec;
+			top: 48%;
+		}
+	}
+	.post-author{
+		text-align: center;
+		h3:after{
+			bottom: -6px;
+			left: 44%;
+		}
+		.author-image{
+			margin-bottom: 16px;
+			img{   
+				text-align: center;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+@media (min-width: 43.75em) {
+	h1{@include font-size(4.853)}
+	h2{@include font-size(3.898)}
+	h3{@include font-size(3.727)}
+	h4{@include font-size(2.699)}
+	h1, h2, h3, h4 {line-height: 1.18;}
+	p{@include font-size(1.4)}
+}
+
+@media (min-width: 56.25em) {
+	h1{@include font-size(5.453)}
+	h2{@include font-size(4.498)}
+	h3{@include font-size(4.027)}
+	h4{@include font-size(2.399)}
+	h1, h2, h3, h4 {line-height: 1.18;}
+	p{@include font-size(1.56)}
+}

@@ -36,7 +36,7 @@
 	}else{
 		$backbutton = '';
 	}
-}else{$transparent = ''; $backbutton = '';} ?>
+}else{$transparent = ''; $backbutton = '';$header_mode_on = false;} ?>
 	<body <?php body_class('page_pilling_vc '.$transparent.' '); ?>>
 	<?php $preloader_style = get_theme_mod('stedtnitz_preloader_chooser', 'p3' ); ?>
 	<?php 
@@ -57,6 +57,7 @@
 	 ?>
 	 <div id="preloader" class="p3">
 	 	<span class="spin-logo"></span>
+	 	<span class="spin-text"></span>
 	 </div>
 	<?php 
 		}
@@ -87,6 +88,18 @@
 	<?php 
 if (is_page() && !$header_mode_on) { ?>
 	<div id="search-icon" class="showsearch <?php echo $header_class; ?>"><i class="icono-search"></i></div>
+	<section class="searchoverlay">
+		<i class="icon closesearch"></i>
+		<div class="searchbar">
+		<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
+		</div>
+		<div class="result-section">
+		<?php echo do_shortcode('[wpdreams_ajaxsearchpro_results id=1 element="div"]'); ?>
+		</div>
+	</section>
+	<?php 
+	}elseif (is_home()) { ?>
+			<div id="search-icon" class="showsearch <?php echo $header_class; ?>"><i class="icono-search"></i></div>
 	<section class="searchoverlay">
 		<i class="icon closesearch"></i>
 		<div class="searchbar">

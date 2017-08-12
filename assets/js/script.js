@@ -5,13 +5,9 @@ jQuery(document).ready(function() {
 
 	//Preloader
 	if (jQuery('#preloader').length !== 0) {
-         		jQuery('body').css({'overflowY: ':'hidden'});
-
 	         	setTimeout(function() {
 	         		jQuery('#preloader').fadeOut('slow'); // will fade out the white DIV that covers the website. 
-	         		jQuery('body').css({'overflowY':'auto'});
 		}, 2200);
-
 	}
 
 	 // SERACH TOGGLE
@@ -88,7 +84,7 @@ jQuery(document).ready(function() {
 			var accordion = new Accordion(jQuery('#accordion'),false);
 		});
 
-	jQuery('#header_nav_menu .menu-item-has-children>a').after('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
+	jQuery('#header_nav_menu .menu-item-has-children>a').append('<div class="chevron-icon"><svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#909090" d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg></div>');
 
 	jQuery('#header_nav_menu .menu-item-has-children>a').click(function(event) {
 		event.preventDefault();

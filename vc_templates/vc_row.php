@@ -159,19 +159,17 @@ if ($atts['pp_option'] === 'image' || $atts['pp_option'] === 'video') {
 		
 		// Use the function
 		
-		if(!isMobile()){
-			if (strpos($video_url, 'youtube') > 0) {
-			$output .= '<div class="pp_video youtube_video">
-				<img src="'.$video_poster_image[0].'">
-				<!-- <iframe width="940" height="529" src="'.$atts['pp_video_url'].'?autoplay=1&enablejsapi=1&showinfo=0&controls=0&mute=1&loop=1&cc_load_policy=0&iv_load_policy=0&modestbranding=0" frameborder="0" allowfullscreen></iframe>-->
-			</div>';
-				
-			} else {
-				$output .= '<div class="pp_video"><video autoplay loop muted class="video" poster="'.$video_poster_image[0].'">
-				<i>'.$video_poster_image[0].'</i>
-					<source src="'.$video_url.'" type="video/mp4">
-				</video></div>';
-			}
+		if (strpos($video_url, 'youtube') > 0) {
+		$output .= '<div class="pp_video youtube_video">
+			<img src="'.$video_poster_image[0].'">
+			<!-- <iframe width="940" height="529" src="'.$atts['pp_video_url'].'?autoplay=1&enablejsapi=1&showinfo=0&controls=0&mute=1&loop=1&cc_load_policy=0&iv_load_policy=0&modestbranding=0" frameborder="0" allowfullscreen></iframe>-->
+		</div>';
+			
+		} else {
+			$output .= '<div class="pp_video"><video autoplay loop muted class="video" poster="'.$video_poster_image[0].'">
+			<i>'.$video_poster_image[0].'</i>
+				<source src="'.$video_url.'" type="video/mp4">
+			</video></div>';
 		}
 		$output .= '<div style="background-image: url(' . $video_poster_image[0] . ');" class="section-img" id="culture-section"></div>';
 	}else{

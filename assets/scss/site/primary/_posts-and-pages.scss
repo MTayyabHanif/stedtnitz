@@ -1,0 +1,216 @@
+#main.site-main{
+	margin-top: 4rem; 
+}
+div.postlist.row {
+	max-width: 1380px;
+	margin: 0 auto;
+	.blog-header {
+		text-align: center;
+		.page-title{
+			position: relative;
+			margin-top: 2.6rem;
+			margin-bottom: 4rem;
+			&:after {
+				content: "";
+				height: 4px;
+				width: 12%;
+				background-color: black;
+				position: relative;
+				bottom: -30px;
+				display: block; 
+				margin: 0 auto;
+			}
+		}
+	}
+	.category.blog-header {
+		margin-top: 0rem;
+	}
+
+	article .post-data {
+		padding: 0rem 2rem 2rem; 
+	}
+	article .post-link, article .post-wrapper {
+		background-color: #fff;
+		margin: 20px;
+		text-decoration: none;
+		color: #676b72;
+		text-align: center;
+		-webkit-transition: all .15s ease-out;
+		-moz-transition: all .15s ease-out;
+		-ms-transition: all .15s ease-out;
+		-o-transition: all .15s ease-out;
+		transition: all .15s ease-out;
+		border: 1px solid #efefef;
+		border-radius: 6px 6px 0px 0px; 
+		box-shadow: 0px 10px 100px 0px rgba(68, 78, 127, 0.20); 
+		&:hover, &:active, &:focus{
+			box-shadow: 0px 5px 10px 0px rgba(68, 78, 127, 0.15); 
+		}
+	}
+
+	article .post-link:hover .post-title {
+		color: $primary;
+	}
+
+	article .post-title {
+		color: #333;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		@include font-size($font__size-on-small-post-title);
+		line-height: 1.48rem;
+		max-height: 4.6rem;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		position: relative;
+		text-overflow: ellipsis;
+		white-space: normal;
+		word-wrap: break-word;
+		display: -webkit-inline-box;
+		-webkit-box-orient: vertical; 
+	}
+	article .post-time {
+		color: #799eaf;
+		font-size: .72rem; 
+		font-family: "Lato";
+		margin: 6px auto 4px;
+		&:before {
+			content: "";
+			height: 2px;
+			width: 6%;
+			background-color: #bdbbbb;
+			position: relative;
+			left: 0;
+			bottom: 5px;
+			display: block;
+			transition: all .6s ease-in-out;
+			z-index: 4;
+			margin: 0 auto;
+		}
+	}
+	article .post-link:hover .post-time:before {
+		width: 66%;
+		background-color: $primary;
+	}
+	article .post-image {
+		max-height: 252px;
+		overflow: hidden;
+		img{
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	article .lazy-hidden {
+		padding: 26%;
+	}
+	article .excerpt-text {
+		margin-top: 0.4rem;
+		height: 4.2rem;
+		overflow: hidden;
+		-webkit-line-clamp: 3;
+		position: relative;
+		text-overflow: ellipsis;
+		white-space: normal;
+		word-wrap: break-word;
+		display: -webkit-box;
+		-webkit-box-orient: vertical; 
+	}
+	article .post-data header {
+		margin: 0 -0.8rem;
+		position: relative;
+		transition: all .6s ease-in-out;
+		
+	} 
+
+	article .excerpt-text p {
+		@include font-size($font__size-on-excerpt);
+		line-height: 115%;
+		margin: 0;
+		color: #5f5f5f;
+		padding: 0; 
+	}
+}
+div.postlist.row .post-with-sidebar{
+	article .post-wrapper {text-align: left}
+	article .post-title {
+		max-height: 6rem;
+		@include font-size($font__size-on-one-big-post-title);
+		line-height: 2.18rem;
+		margin-top: 0.68rem;
+	}
+	article .post-data header {
+		margin: 0;
+		&:before {
+			content: none;
+		}
+	} 
+	article .post-permalink{text-decoration: none}
+	article .post-permalink:hover .post-title {
+		color: $primary;
+	}
+	article .post-cat {
+		color: #799eaf;
+		margin-top: 0.6rem;
+		font-size: .88rem;
+		font-family: "Lato";
+		a{
+			color: #799eaf;
+			display: inline-block;
+			text-decoration: none;
+			padding: 0 4px;
+			font-size: .78rem;
+			border-bottom: 1px solid transparent;
+			&:hover{
+				color: $primary;
+				border-bottom: 1px solid $primary;
+			}
+		}
+	}
+	article .post-time {
+		margin-top: 1rem;
+	}
+	article .post-image {
+		min-height: 400px;
+		max-height: none;
+		overflow: visible;
+	}
+	article .excerpt-text {
+		height: auto;
+		overflow: visible;
+		-webkit-line-clamp: initial;
+		text-overflow: initial;
+		display: block;
+		-webkit-box-orient: initial;
+	}
+	article .excerpt-text p {
+		@include font-size($font__size-on-one-big-excerpt);
+	}
+}
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published){
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+article.boxed_page{
+	.entry-content{
+		max-width: 860px;
+		margin: 6.4rem auto 0;
+	}
+}

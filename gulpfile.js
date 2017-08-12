@@ -79,8 +79,8 @@ gulp.task('js', function() {
 // SCSS is being converted into CSS
 gulp.task('scss-to-css',function () {
 	return scss(source + 'scss/style.scss', {
-		sourcemap: false,
-		style: 'compressed'
+		sourcemap: false
+		// style: 'compressed'
 	})
 	.on('error', function (err) {
 		console.error('Error!', err.message);
